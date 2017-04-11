@@ -10,10 +10,10 @@
 #include<pic16f877a.h>
 
 
-#define TX TRISCbits_t.TRISC6
-#define RX TRISCbits_t.TRISC7
+#define TX TRISC6
+#define RX TRISC7
 #define FOSC 16000000
-#define TRANSMISSION
+//#define TRANSMISSION
 
 
 #endif	/* UART_H */

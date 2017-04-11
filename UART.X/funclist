@@ -1,0 +1,7 @@
+___aldiv: CODE, 32 0 143
+_main: CODE, 238 0 24
+_uart_read: CODE, 286 0 20
+_uart_init: CODE, 175 0 63
+__initialization: CODE, 21 0 7
+_isr: CODE, 262 0 24
+Total: 281

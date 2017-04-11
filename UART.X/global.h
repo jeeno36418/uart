@@ -8,18 +8,18 @@
 #ifndef GLOBAL_H
 #define	GLOBAL_H
 
-#define int_16 short int
-#define int_8 char
-#define int_32 int
+typedef  short int int_16;
+typedef  char int_8;
+typedef  int int_32;
 
-#define int_u16 unsigned short int
-#define int_u8 unsigned char
-#define int_u32 unsigned int
+typedef  unsigned short int int_u16;
+typedef  unsigned char int_u8;
+typedef  unsigned int int_u32;
 #define HIGH_BAUD_SELECTED 1
 #define HIGH_BAUD_DISBALED 0
 void uart_init(int_u32 baud_rate, int_u8 high_baud_rate);
 void uart_write(int_u8 write_msg);
-void uart_read(int_u8 read_msg);
+void uart_read(void);
 
 #endif	/* GLOBAL_H */
 

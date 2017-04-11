@@ -9,17 +9,19 @@
 #include <stdlib.h>
 #include"uart.h"
 #include"global.h"
-int_u8 reception_msg[500];
-int_u8 transmision_msg;
+int_u8 reception_msg[5];
+int_u8 transmision_msg,count=0;
 void main()
 {
+    TRISB=0X00;
     uart_init(9600,HIGH_BAUD_DISBALED);
 while(1)
 {
 #ifdef TRANSMISSION
-    uart_write(0xC0);
+   
+    uart_write(count++);
 #else
-    uart_read();
+    PORTB=reception_msg[count];
 #endif
 }
 
@@ -56,16 +58,21 @@ void uart_write(int_u8 write_msg)
 }
 void uart_read()
 {
+      reception_msg[count++]=RCREG;
+        if(count>4)
+        {
+            count=0;
 
+        }
 }
 void interrupt isr(void)
 {
     if(RCIF)
     {
-        RCIF=0;
+       uart_read();
     }
     if(TXIF)
     {
-        TXIF=0;
+        TXREG=transmision_msg;
     }
 }
