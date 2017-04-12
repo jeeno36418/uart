@@ -2,10 +2,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "1335 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic16f877a.h
 [v _TRISB `Vuc ~T0 @X0 0 e@134 ]
+"1457
+[v _TRISD `Vuc ~T0 @X0 0 e@136 ]
+"207
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
 "20 global.h
 [v _uart_init `(v ~T0 @X0 0 ef2`ui`uc ]
-"207 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic16f877a.h
-[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
+"21
+[v _uart_write `(v ~T0 @X0 0 ef1`uc ]
+"23
+[v _delay_ms `(v ~T0 @X0 0 ef1`ui ]
+"329 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic16f877a.h
+[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
 "2713
 [v _TRISC6 `Vb ~T0 @X0 0 e@1086 ]
 "2715
@@ -44,12 +52,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _GIE `Vb ~T0 @X0 0 e@95 ]
 "2481
 [v _PEIE `Vb ~T0 @X0 0 e@94 ]
-"2751
-[v _TXIE `Vb ~T0 @X0 0 e@1124 ]
 "2555
 [v _RCIE `Vb ~T0 @X0 0 e@1125 ]
-"2739
-[v _TRMT `Vb ~T0 @X0 0 e@1217 ]
+"2751
+[v _TXIE `Vb ~T0 @X0 0 e@1124 ]
 "1035
 [v _RCREG `Vuc ~T0 @X0 0 e@26 ]
 "2557
@@ -1155,16 +1161,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;global.h: 20: void uart_init(int_u32 baud_rate, int_u8 high_baud_rate);
 [; ;global.h: 21: void uart_write(int_u8 write_msg);
 [; ;global.h: 22: void uart_read(void);
+[; ;global.h: 23: void delay_ms(int_u32 count);
+[; ;global.h: 24: void set_port(void);
 "12 uart.c
-[v _reception_msg `uc ~T0 @X0 -> 5 `i e ]
-[; ;uart.c: 12: int_u8 reception_msg[5];
+[v _reception_msg `uc ~T0 @X0 1 e ]
+[; ;uart.c: 12: int_u8 reception_msg;
 "13
 [v _transmision_msg `uc ~T0 @X0 1 e ]
 [v _count `uc ~T0 @X0 1 e ]
 [i _count
 -> -> 0 `i `uc
 ]
-[; ;uart.c: 13: int_u8 transmision_msg,count=0;
+[v _recieved `uc ~T0 @X0 1 e ]
+[i _recieved
+-> -> 0 `i `uc
+]
+[; ;uart.c: 13: int_u8 transmision_msg,count=0,recieved=0;
 "14
 [v _main `(v ~T0 @X0 1 ef ]
 "15
@@ -1173,188 +1185,257 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;uart.c: 15: {
 [e :U _main ]
 [f ]
-[; ;uart.c: 16: TRISB=0X00;
+[; ;uart.c: 16: TRISB=0x00;
 "16
 [e = _TRISB -> -> 0 `i `uc ]
-[; ;uart.c: 17: uart_init(9600,0);
+[; ;uart.c: 17: TRISD=0X00;
 "17
-[e ( _uart_init (2 , -> -> 9600 `i `ui -> -> 0 `i `uc ]
-[; ;uart.c: 18: while(1)
+[e = _TRISD -> -> 0 `i `uc ]
+[; ;uart.c: 18: PORTB=0X00;
 "18
-[e :U 103 ]
-[; ;uart.c: 19: {
+[e = _PORTB -> -> 0 `i `uc ]
+[; ;uart.c: 19: uart_init(9600,0);
 "19
+[e ( _uart_init (2 , -> -> 9600 `i `ui -> -> 0 `i `uc ]
+[; ;uart.c: 20: while(1)
+"20
+[e :U 103 ]
+[; ;uart.c: 21: {
+"21
 {
-[; ;uart.c: 24: PORTB=reception_msg[count];
+[; ;uart.c: 24: uart_write(count++);
 "24
-[e = _PORTB *U + &U _reception_msg * -> _count `ux -> -> # *U &U _reception_msg `ui `ux ]
+[e ( _uart_write (1 ++ _count -> -> 1 `i `uc ]
+[; ;uart.c: 25: delay_ms(100);
+"25
+[e ( _delay_ms (1 -> -> 100 `i `ui ]
+[; ;uart.c: 26: PORTD=0XFF;
 "26
+[e = _PORTD -> -> 255 `i `uc ]
+[; ;uart.c: 27: delay_ms(100);
+"27
+[e ( _delay_ms (1 -> -> 100 `i `ui ]
+"36
 }
 [e :U 102 ]
-"18
+"20
 [e $U 103  ]
 [e :U 104 ]
-[; ;uart.c: 26: }
-[; ;uart.c: 28: }
-"28
+[; ;uart.c: 36: }
+[; ;uart.c: 38: }
+"38
 [e :UE 101 ]
 }
-"30
+"40
 [v _uart_init `(v ~T0 @X0 1 ef2`ui`uc ]
-"31
+"41
 {
-[; ;uart.c: 30: void uart_init(int_u32 baud_rate, int_u8 high_baud_select)
-[; ;uart.c: 31: {
+[; ;uart.c: 40: void uart_init(int_u32 baud_rate, int_u8 high_baud_select)
+[; ;uart.c: 41: {
 [e :U _uart_init ]
-"30
+"40
 [v _baud_rate `ui ~T0 @X0 1 r1 ]
 [v _high_baud_select `uc ~T0 @X0 1 r2 ]
-"31
-[f ]
-[; ;uart.c: 32: TRISC6=0;
-"32
-[e = _TRISC6 -> -> 0 `i `b ]
-[; ;uart.c: 33: TRISC7=0;
-"33
-[e = _TRISC7 -> -> 0 `i `b ]
-[; ;uart.c: 34: TXSTAbits.BRGH=high_baud_select;
-"34
-[e = . . _TXSTAbits 0 2 _high_baud_select ]
-[; ;uart.c: 35: TXEN=1;
-"35
-[e = _TXEN -> -> 1 `i `b ]
-[; ;uart.c: 36: TX9=0;
-"36
-[e = _TX9 -> -> 0 `i `b ]
-[; ;uart.c: 37: SYNC=0;
-"37
-[e = _SYNC -> -> 0 `i `b ]
-[; ;uart.c: 38: SPEN=1;
-"38
-[e = _SPEN -> -> 1 `i `b ]
-[; ;uart.c: 39: RX9=0;
-"39
-[e = _RX9 -> -> 0 `i `b ]
-[; ;uart.c: 40: CREN=0;
-"40
-[e = _CREN -> -> 0 `i `b ]
-[; ;uart.c: 41: ADDEN=0;
 "41
-[e = _ADDEN -> -> 0 `i `b ]
-[; ;uart.c: 44: SPBRG=(16000000/(64*baud_rate))-1;
+[f ]
+[; ;uart.c: 42: TRISC6=0;
+"42
+[e = _TRISC6 -> -> 0 `i `b ]
+[; ;uart.c: 43: TRISC7=1;
+"43
+[e = _TRISC7 -> -> 1 `i `b ]
+[; ;uart.c: 44: TXSTAbits.BRGH=high_baud_select;
 "44
-[e = _SPBRG -> - / -> 16000000 `l -> * -> -> 64 `i `ui _baud_rate `l -> -> 1 `i `l `uc ]
-[; ;uart.c: 45: GIE=1;
+[e = . . _TXSTAbits 0 2 _high_baud_select ]
+[; ;uart.c: 45: TXEN=1;
 "45
-[e = _GIE -> -> 1 `i `b ]
-[; ;uart.c: 46: PEIE=1;
+[e = _TXEN -> -> 1 `i `b ]
+[; ;uart.c: 46: TX9=0;
 "46
-[e = _PEIE -> -> 1 `i `b ]
-[; ;uart.c: 47: TXIE=1;
+[e = _TX9 -> -> 0 `i `b ]
+[; ;uart.c: 47: SYNC=0;
 "47
-[e = _TXIE -> -> 1 `i `b ]
-[; ;uart.c: 48: RCIE=1;
+[e = _SYNC -> -> 0 `i `b ]
+[; ;uart.c: 48: SPEN=1;
 "48
-[e = _RCIE -> -> 1 `i `b ]
-[; ;uart.c: 49: TRMT=0;
+[e = _SPEN -> -> 1 `i `b ]
+[; ;uart.c: 49: RX9=0;
 "49
-[e = _TRMT -> -> 0 `i `b ]
-[; ;uart.c: 50: }
+[e = _RX9 -> -> 0 `i `b ]
+[; ;uart.c: 50: CREN=1;
 "50
+[e = _CREN -> -> 1 `i `b ]
+[; ;uart.c: 51: ADDEN=0;
+"51
+[e = _ADDEN -> -> 0 `i `b ]
+[; ;uart.c: 54: SPBRG=(((16000000/64)/baud_rate)-1);
+"54
+[e = _SPBRG -> - / / -> 16000000 `l -> -> 64 `i `l -> _baud_rate `l -> -> 1 `i `l `uc ]
+[; ;uart.c: 55: GIE=1;
+"55
+[e = _GIE -> -> 1 `i `b ]
+[; ;uart.c: 56: PEIE=1;
+"56
+[e = _PEIE -> -> 1 `i `b ]
+[; ;uart.c: 58: RCIE=1;
+"58
+[e = _RCIE -> -> 1 `i `b ]
+[; ;uart.c: 61: }
+"61
 [e :UE 105 ]
 }
-"51
-[v _uart_write `(v ~T0 @X0 1 ef1`uc ]
-"52
-{
-[; ;uart.c: 51: void uart_write(int_u8 write_msg)
-[; ;uart.c: 52: {
-[e :U _uart_write ]
-"51
-[v _write_msg `uc ~T0 @X0 1 r1 ]
-"52
-[f ]
-[; ;uart.c: 53: if(TRMT)
-"53
-[e $ ! _TRMT 107  ]
-[; ;uart.c: 54: {
-"54
-{
-[; ;uart.c: 55: transmision_msg=write_msg;
-"55
-[e = _transmision_msg _write_msg ]
-"57
-}
-[e :U 107 ]
-[; ;uart.c: 57: }
-[; ;uart.c: 58: }
-"58
-[e :UE 106 ]
-}
-"59
-[v _uart_read `(v ~T0 @X0 1 ef ]
-"60
-{
-[; ;uart.c: 59: void uart_read()
-[; ;uart.c: 60: {
-[e :U _uart_read ]
-[f ]
-[; ;uart.c: 61: reception_msg[count++]=RCREG;
-"61
-[e = *U + &U _reception_msg * -> ++ _count -> -> 1 `i `uc `ux -> -> # *U &U _reception_msg `ui `ux _RCREG ]
-[; ;uart.c: 62: if(count>4)
 "62
-[e $ ! > -> _count `i -> 4 `i 109  ]
-[; ;uart.c: 63: {
+[v _uart_write `(v ~T0 @X0 1 ef1`uc ]
 "63
 {
-[; ;uart.c: 64: count=0;
-"64
-[e = _count -> -> 0 `i `uc ]
-"66
-}
-[e :U 109 ]
-[; ;uart.c: 66: }
-[; ;uart.c: 67: }
-"67
-[e :UE 108 ]
-}
-[v F1275 `(v ~T0 @X0 1 tf ]
-"68
-[v _isr `IF1275 ~T0 @X0 1 e ]
-"69
-{
-[; ;uart.c: 68: void interrupt isr(void)
-[; ;uart.c: 69: {
-[e :U _isr ]
+[; ;uart.c: 62: void uart_write(int_u8 write_msg)
+[; ;uart.c: 63: {
+[e :U _uart_write ]
+"62
+[v _write_msg `uc ~T0 @X0 1 r1 ]
+"63
 [f ]
-[; ;uart.c: 70: if(RCIF)
-"70
-[e $ ! _RCIF 111  ]
-[; ;uart.c: 71: {
-"71
-{
-[; ;uart.c: 72: uart_read();
+[; ;uart.c: 65: transmision_msg=write_msg;
+"65
+[e = _transmision_msg _write_msg ]
+[; ;uart.c: 67: TXIE=1;
+"67
+[e = _TXIE -> -> 1 `i `b ]
+[; ;uart.c: 68: PORTD=0X00;
+"68
+[e = _PORTD -> -> 0 `i `uc ]
+[; ;uart.c: 72: }
 "72
-[e ( _uart_read ..  ]
+[e :UE 106 ]
+}
 "73
-}
-[e :U 111 ]
-[; ;uart.c: 73: }
-[; ;uart.c: 74: if(TXIF)
+[v _uart_read `(v ~T0 @X0 1 ef ]
 "74
-[e $ ! _TXIF 112  ]
-[; ;uart.c: 75: {
-"75
 {
-[; ;uart.c: 76: TXREG=transmision_msg;
+[; ;uart.c: 73: void uart_read()
+[; ;uart.c: 74: {
+[e :U _uart_read ]
+[f ]
+[; ;uart.c: 76: reception_msg=RCREG;
 "76
-[e = _TXREG _transmision_msg ]
-"77
-}
-[e :U 112 ]
-[; ;uart.c: 77: }
+[e = _reception_msg _RCREG ]
 [; ;uart.c: 78: }
 "78
+[e :UE 107 ]
+}
+"79
+[v _set_port `(v ~T0 @X0 1 ef ]
+"80
+{
+[; ;uart.c: 79: void set_port()
+[; ;uart.c: 80: {
+[e :U _set_port ]
+[f ]
+[; ;uart.c: 81: if(recieved)
+"81
+[e $ ! != -> _recieved `i -> -> -> 0 `i `uc `i 109  ]
+[; ;uart.c: 82: {
+"82
+{
+[; ;uart.c: 83: PORTB=reception_msg;
+"83
+[e = _PORTB _reception_msg ]
+[; ;uart.c: 84: recieved=0;
+"84
+[e = _recieved -> -> 0 `i `uc ]
+"85
+}
+[e :U 109 ]
+[; ;uart.c: 85: }
+[; ;uart.c: 87: }
+"87
+[e :UE 108 ]
+}
+[v F1280 `(v ~T0 @X0 1 tf ]
+"89
+[v _isr `IF1280 ~T0 @X0 1 e ]
+"90
+{
+[; ;uart.c: 89: void interrupt isr(void)
+[; ;uart.c: 90: {
+[e :U _isr ]
+[f ]
+[; ;uart.c: 91: if(RCIF)
+"91
+[e $ ! _RCIF 111  ]
+[; ;uart.c: 92: {
+"92
+{
+[; ;uart.c: 93: uart_read();
+"93
+[e ( _uart_read ..  ]
+[; ;uart.c: 94: recieved=1;
+"94
+[e = _recieved -> -> 1 `i `uc ]
+"97
+}
+[e :U 111 ]
+[; ;uart.c: 97: }
+[; ;uart.c: 98: if(TXIF)
+"98
+[e $ ! _TXIF 112  ]
+[; ;uart.c: 99: {
+"99
+{
+[; ;uart.c: 100: TXREG=transmision_msg;
+"100
+[e = _TXREG _transmision_msg ]
+[; ;uart.c: 101: TXIE=0;
+"101
+[e = _TXIE -> -> 0 `i `b ]
+"102
+}
+[e :U 112 ]
+[; ;uart.c: 102: }
+[; ;uart.c: 103: }
+"103
 [e :UE 110 ]
+}
+"104
+[v _delay_ms `(v ~T0 @X0 1 ef1`ui ]
+"105
+{
+[; ;uart.c: 104: void delay_ms(int_u32 ds)
+[; ;uart.c: 105: {
+[e :U _delay_ms ]
+"104
+[v _ds `ui ~T0 @X0 1 r1 ]
+"105
+[f ]
+"106
+[v _i `i ~T0 @X0 1 a ]
+[v _j `i ~T0 @X0 1 a ]
+[; ;uart.c: 106: int i,j;
+[; ;uart.c: 107: for(i=0;i<ds;i++)
+"107
+{
+[e = _i -> 0 `i ]
+[e $U 117  ]
+"108
+[e :U 114 ]
+[; ;uart.c: 108: for(j=0;j<ds;j++);
+{
+[e = _j -> 0 `i ]
+[e $U 121  ]
+[e :U 118 ]
+[e ++ _j -> 1 `i ]
+[e :U 121 ]
+[e $ < -> _j `ui _ds 118  ]
+[e :U 119 ]
+}
+"107
+[e ++ _i -> 1 `i ]
+[e :U 117 ]
+[e $ < -> _i `ui _ds 114  ]
+[e :U 115 ]
+"108
+}
+[; ;uart.c: 109: }
+"109
+[e :UE 113 ]
 }

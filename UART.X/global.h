@@ -20,6 +20,7 @@ typedef  unsigned int int_u32;
 void uart_init(int_u32 baud_rate, int_u8 high_baud_rate);
 void uart_write(int_u8 write_msg);
 void uart_read(void);
-
+void delay_ms(int_u32 count);
+void set_port(void);
 #endif	/* GLOBAL_H */
 

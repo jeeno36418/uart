@@ -1549,22 +1549,28 @@ typedef unsigned int int_u32;
 void uart_init(int_u32 baud_rate, int_u8 high_baud_rate);
 void uart_write(int_u8 write_msg);
 void uart_read(void);
+void delay_ms(int_u32 count);
+void set_port(void);
 
 # 12 "uart.c"
-int_u8 reception_msg[5];
-int_u8 transmision_msg,count=0;
+int_u8 reception_msg;
+int_u8 transmision_msg,count=0,recieved=0;
 void main()
 {
-TRISB=0X00;
+TRISB=0x00;
+TRISD=0X00;
+PORTB=0X00;
 uart_init(9600,0);
 while(1)
 {
 
 
+uart_write(count++);
+delay_ms(100);
+PORTD=0XFF;
+delay_ms(100);
 
-
-PORTB=reception_msg[count];
-
+# 36
 }
 
 }
@@ -1572,49 +1578,70 @@ PORTB=reception_msg[count];
 void uart_init(int_u32 baud_rate, int_u8 high_baud_select)
 {
 TRISC6=0;
-TRISC7=0;
+TRISC7=1;
 TXSTAbits.BRGH=high_baud_select;
 TXEN=1;
 TX9=0;
 SYNC=0;
 SPEN=1;
 RX9=0;
-CREN=0;
+CREN=1;
 ADDEN=0;
 
-# 44
-SPBRG=(16000000/(64*baud_rate))-1;
+# 54
+SPBRG=(((16000000/64)/baud_rate)-1);
 GIE=1;
 PEIE=1;
-TXIE=1;
+
 RCIE=1;
-TRMT=0;
+
+
 }
 void uart_write(int_u8 write_msg)
 {
-if(TRMT)
-{
+
 transmision_msg=write_msg;
 
-}
+TXIE=1;
+PORTD=0X00;
+
+
+
 }
 void uart_read()
 {
-reception_msg[count++]=RCREG;
-if(count>4)
-{
-count=0;
+
+reception_msg=RCREG;
 
 }
+void set_port()
+{
+if(recieved)
+{
+PORTB=reception_msg;
+recieved=0;
 }
+
+}
+
 void interrupt isr(void)
 {
 if(RCIF)
 {
 uart_read();
+recieved=1;
+
+
 }
 if(TXIF)
 {
 TXREG=transmision_msg;
+TXIE=0;
 }
+}
+void delay_ms(int_u32 ds)
+{
+int i,j;
+for(i=0;i<ds;i++)
+for(j=0;j<ds;j++);
 }

@@ -105,23 +105,31 @@
 [v ___ftdiv __ftdiv `(f  1 e 3 0 ]
 "14 G:\project\uart\UART.X\uart.c
 [v _main main `(v  1 e 0 0 ]
-"30
+"40
 [v _uart_init uart_init `(v  1 e 0 0 ]
-"51
+"62
 [v _uart_write uart_write `(v  1 e 0 0 ]
-"59
+"73
 [v _uart_read uart_read `(v  1 e 0 0 ]
-"68
+"79
+[v _set_port set_port `(v  1 e 0 0 ]
+"89
 [v _isr isr `II(v  1 e 0 0 ]
+"104
+[v _delay_ms delay_ms `(v  1 e 0 0 ]
 "207 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic16f877a.h
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"329
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
 "1029
 [v _TXREG TXREG `VEuc  1 e 1 @25 ]
 "1035
 [v _RCREG RCREG `VEuc  1 e 1 @26 ]
 "1335
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
-[s S29 . 1 `uc 1 TX9D 1 0 :1:0 
+"1457
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+[s S41 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -131,15 +139,15 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "1974
-[s S38 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S50 . 1 `uc 1 TXD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 nTX8 1 0 :1:6 
 ]
-[s S42 . 1 `uc 1 . 1 0 :6:0 
+[s S54 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[u S45 . 1 `S29 1 . 1 0 `S38 1 . 1 0 `S42 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES45  1 e 1 @152 ]
+[u S57 . 1 `S41 1 . 1 0 `S50 1 . 1 0 `S54 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES57  1 e 1 @152 ]
 "2028
 [v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
 "2231
@@ -176,8 +184,6 @@
 [v _TRISC6 TRISC6 `VEb  1 e 0 @1086 ]
 "2715
 [v _TRISC7 TRISC7 `VEb  1 e 0 @1087 ]
-"2739
-[v _TRMT TRMT `VEb  1 e 0 @1217 ]
 "2743
 [v _TX9 TX9 `VEb  1 e 0 @1222 ]
 "2749
@@ -191,21 +197,31 @@
 "2761
 [v _WREN WREN `VEb  1 e 0 @3170 ]
 "12 G:\project\uart\UART.X\uart.c
-[v _reception_msg reception_msg `[5]uc  1 e 5 0 ]
+[v _reception_msg reception_msg `uc  1 e 1 0 ]
 "13
 [v _transmision_msg transmision_msg `uc  1 e 1 0 ]
 [v _count count `uc  1 e 1 0 ]
+[v _recieved recieved `uc  1 e 1 0 ]
 "14
 [v _main main `(v  1 e 0 0 ]
 {
-"28
+"38
 } 0
-"30
+"62
+[v _uart_write uart_write `(v  1 e 0 0 ]
+{
+[v uart_write@write_msg write_msg `uc  1 a 1 wreg ]
+[v uart_write@write_msg write_msg `uc  1 a 1 wreg ]
+"65
+[v uart_write@write_msg write_msg `uc  1 a 1 0 ]
+"72
+} 0
+"40
 [v _uart_init uart_init `(v  1 e 0 0 ]
 {
 [v uart_init@baud_rate baud_rate `ui  1 p 2 14 ]
 [v uart_init@high_baud_select high_baud_select `uc  1 p 1 16 ]
-"50
+"61
 } 0
 "6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\aldiv.c
 [v ___aldiv __aldiv `(l  1 e 4 0 ]
@@ -220,13 +236,23 @@
 [v ___aldiv@dividend dividend `l  1 p 4 4 ]
 "42
 } 0
-"68 G:\project\uart\UART.X\uart.c
+"104 G:\project\uart\UART.X\uart.c
+[v _delay_ms delay_ms `(v  1 e 0 0 ]
+{
+"106
+[v delay_ms@j j `i  1 a 2 4 ]
+[v delay_ms@i i `i  1 a 2 2 ]
+"104
+[v delay_ms@ds ds `ui  1 p 2 0 ]
+"109
+} 0
+"89
 [v _isr isr `II(v  1 e 0 0 ]
 {
-"78
+"103
 } 0
-"59
+"73
 [v _uart_read uart_read `(v  1 e 0 0 ]
 {
-"67
+"78
 } 0
