@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include"uart.h"
 #include"global.h"
-int_u8 reception_msg[32]={'0'};
+int_u8 lcd_msg[16]={'0'},rxmsg,lcd_msg1[16]={0};
 int_u8 transmision_msg,count=30,recieved=0;
 #define port PORTD
 #define rs RE0
@@ -18,12 +18,12 @@ int_u8 transmision_msg,count=30,recieved=0;
 
 void main()
 {
-    TRISB=0x00;
+     TRISB=0x00;
     TRISD=0X00;
     TRISE=0X00;
     PORTB=0X00;
     PORTE=0X00;
-//    mmset((void *)reception_msg,'0',(register)sizeof(reception_msg));
+//    mmset((void *)lcd_msg,'0',(register)sizeof(lcd_msg));
     uart_init(9600,HIGH_BAUD_DISBALED);
     lcd_init();
 while(1)
@@ -39,8 +39,13 @@ while(1)
 #else
     if(recieved)
     {
-        lcd_data(count++);
-      //  uart_lcd_update();
+       // lcd_data(count++);
+        sprintf(lcd_msg,"Count=%3d",rxmsg);
+        lcd_cmnt(0x80);
+        uart_lcd_update(lcd_msg,sizeof(lcd_msg));
+        sprintf(lcd_msg1,"Saranya Tech",rxmsg);
+        lcd_cmnt(0xC0);
+        uart_lcd_update(lcd_msg1,sizeof(lcd_msg1));
         recieved=0;
     }
 #endif
@@ -84,24 +89,25 @@ void uart_write(int_u8 write_msg)
 void uart_read()
 {
 
-      reception_msg[0]=RCREG;
+      rxmsg=RCREG;
         
 }
 void set_port()
 {
     if(recieved)
     {
-    PORTB=reception_msg[0];
+    PORTB=lcd_msg[0];
     recieved=0;
     }
 
 }
 
-void uart_lcd_update()
+void uart_lcd_update(int_u8 *data,int_u8 len)
 {   int i;
-    for(i=0;i<32;i++)
+   
+    for(i=0;i<len;i++)
     {
-        lcd_data(reception_msg[i]);
+        lcd_data(*(data+i));
     }
 
 }
@@ -135,7 +141,7 @@ void lcd_init()
     ADCON1=0X06;
 
     lcd_cmnt(0x38);
-    lcd_cmnt(0x0E);
+    lcd_cmnt(0x0c);
     lcd_cmnt(0x01);
     lcd_cmnt(0x80);
 }

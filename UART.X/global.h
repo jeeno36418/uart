@@ -26,6 +26,6 @@ void delay(int x);
 void lcd_init(void);
 void lcd_data(int_u8 data);
 void lcd_cmnt(int_u8 cmnt);
-void uart_lcd_update();
+void uart_lcd_update(int_u8 *,int_u8);
 #endif	/* GLOBAL_H */
 
