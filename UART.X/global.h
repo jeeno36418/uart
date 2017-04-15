@@ -22,5 +22,10 @@ void uart_write(int_u8 write_msg);
 void uart_read(void);
 void delay_ms(int_u32 count);
 void set_port(void);
+void delay(int x);
+void lcd_init(void);
+void lcd_data(int_u8 data);
+void lcd_cmnt(int_u8 cmnt);
+void uart_lcd_update();
 #endif	/* GLOBAL_H */
 
