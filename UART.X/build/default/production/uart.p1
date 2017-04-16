@@ -10,16 +10,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PORTB `Vuc ~T0 @X0 0 e@6 ]
 "390
 [v _PORTE `Vuc ~T0 @X0 0 e@9 ]
-"20 global.h
+"30 global.h
+[v _timer_init `(v ~T0 @X0 0 ef ]
+"20
 [v _uart_init `(v ~T0 @X0 0 ef2`ui`uc ]
 "26
 [v _lcd_init `(v ~T0 @X0 0 ef ]
 "21
 [v _uart_write `(v ~T0 @X0 0 ef1`uc ]
-"23
-[v _delay_ms `(v ~T0 @X0 0 ef1`ui ]
-"329 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic16f877a.h
-[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
+"635 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic16f877a.h
+[v _T1CON `Vuc ~T0 @X0 0 e@16 ]
+"629
+[v _TMR1H `Vuc ~T0 @X0 0 e@15 ]
+"623
+[v _TMR1L `Vuc ~T0 @X0 0 e@14 ]
+"2653
+[v _TMR1IE `Vb ~T0 @X0 0 e@1120 ]
 "2713
 [v _TRISC6 `Vb ~T0 @X0 0 e@1086 ]
 "2715
@@ -66,12 +72,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RCREG `Vuc ~T0 @X0 0 e@26 ]
 "27 global.h
 [v _lcd_data `(v ~T0 @X0 0 ef1`uc ]
-"2557 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic16f877a.h
+"2655 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic16f877a.h
+[v _TMR1IF `Vb ~T0 @X0 0 e@96 ]
+"2557
 [v _RCIF `Vb ~T0 @X0 0 e@101 ]
 "2753
 [v _TXIF `Vb ~T0 @X0 0 e@100 ]
 "1029
 [v _TXREG `Vuc ~T0 @X0 0 e@25 ]
+"329
+[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
+"2173
+[v _ADCON1 `Vuc ~T0 @X0 0 e@159 ]
 "28 global.h
 [v _lcd_cmnt `(v ~T0 @X0 0 ef1`uc ]
 "2577 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic16f877a.h
@@ -1183,26 +1195,40 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;global.h: 26: void lcd_init(void);
 [; ;global.h: 27: void lcd_data(int_u8 data);
 [; ;global.h: 28: void lcd_cmnt(int_u8 cmnt);
-[; ;global.h: 29: void uart_lcd_update();
+[; ;global.h: 29: void uart_lcd_update(int_u8 *,int_u8);
+[; ;global.h: 30: void timer_init(void);
+[; ;global.h: 31: void timer_isr(void);
 "12 uart.c
-[v _reception_msg `uc ~T0 @X0 -> 32 `i e ]
-[i _reception_msg
+[v _lcd_msg `uc ~T0 @X0 -> 16 `i e ]
+[i _lcd_msg
+:U ..
+-> -> 48 `ui `uc
+..
+]
+[v _rxmsg `uc ~T0 @X0 1 e ]
+[v _lcd_msg1 `uc ~T0 @X0 -> 16 `i e ]
+[i _lcd_msg1
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;uart.c: 12: int_u8 reception_msg[32]={0};
+[; ;uart.c: 12: int_u8 lcd_msg[16]={'0'},rxmsg,lcd_msg1[16]={0};
 "13
 [v _transmision_msg `uc ~T0 @X0 1 e ]
-[v _count `uc ~T0 @X0 1 e ]
-[i _count
+[v _time_flag `uc ~T0 @X0 1 e ]
+[i _time_flag
 -> -> 0 `i `uc
 ]
 [v _recieved `uc ~T0 @X0 1 e ]
 [i _recieved
 -> -> 0 `i `uc
 ]
-[; ;uart.c: 13: int_u8 transmision_msg,count=0,recieved=0;
+[v _count `uc ~T0 @X0 1 e ]
+[v _timer `uc ~T0 @X0 1 e ]
+[i _timer
+-> -> 0 `i `uc
+]
+[; ;uart.c: 13: int_u8 transmision_msg,time_flag=0,recieved=0,count,timer=0;
 "19
 [v _main `(v ~T0 @X0 1 ef ]
 "20
@@ -1226,426 +1252,509 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;uart.c: 25: PORTE=0X00;
 "25
 [e = _PORTE -> -> 0 `i `uc ]
-[; ;uart.c: 27: uart_init(9600,0);
+[; ;uart.c: 27: timer_init();
 "27
-[e ( _uart_init (2 , -> -> 9600 `i `ui -> -> 0 `i `uc ]
-[; ;uart.c: 28: lcd_init();
+[e ( _timer_init ..  ]
+[; ;uart.c: 28: uart_init(9600,0);
 "28
-[e ( _lcd_init ..  ]
-[; ;uart.c: 29: while(1)
+[e ( _uart_init (2 , -> -> 9600 `i `ui -> -> 0 `i `uc ]
+[; ;uart.c: 29: lcd_init();
 "29
-[e :U 103 ]
-[; ;uart.c: 30: {
+[e ( _lcd_init ..  ]
+[; ;uart.c: 30: while(1)
 "30
+[e :U 103 ]
+[; ;uart.c: 31: {
+"31
 {
-[; ;uart.c: 33: uart_write(count++);
-"33
-[e ( _uart_write (1 ++ _count -> -> 1 `i `uc ]
-[; ;uart.c: 34: delay_ms(100);
-"34
-[e ( _delay_ms (1 -> -> 100 `i `ui ]
-[; ;uart.c: 35: PORTD=0XFF;
-"35
-[e = _PORTD -> -> 255 `i `uc ]
-[; ;uart.c: 36: delay_ms(100);
-"36
-[e ( _delay_ms (1 -> -> 100 `i `ui ]
-[; ;uart.c: 37: delay_ms(100);
-"37
-[e ( _delay_ms (1 -> -> 100 `i `ui ]
-[; ;uart.c: 38: delay_ms(100);
+[; ;uart.c: 38: if(time_flag)
 "38
-[e ( _delay_ms (1 -> -> 100 `i `ui ]
-"47
+[e $ ! != -> _time_flag `i -> -> -> 0 `i `uc `i 105  ]
+[; ;uart.c: 39: {
+"39
+{
+[; ;uart.c: 40: uart_write(timer++);
+"40
+[e ( _uart_write (1 ++ _timer -> -> 1 `i `uc ]
+[; ;uart.c: 41: if(timer==60)
+"41
+[e $ ! == -> _timer `i -> 60 `i 106  ]
+[; ;uart.c: 42: {
+"42
+{
+[; ;uart.c: 43: timer=0;
+"43
+[e = _timer -> -> 0 `i `uc ]
+"44
+}
+[e :U 106 ]
+[; ;uart.c: 44: }
+[; ;uart.c: 45: time_flag=0;
+"45
+[e = _time_flag -> -> 0 `i `uc ]
+"46
+}
+[e :U 105 ]
+"61
 }
 [e :U 102 ]
-"29
+"30
 [e $U 103  ]
 [e :U 104 ]
-[; ;uart.c: 47: }
-[; ;uart.c: 49: }
-"49
+[; ;uart.c: 46: }
+[; ;uart.c: 61: }
+[; ;uart.c: 63: }
+"63
 [e :UE 101 ]
 }
-"51
-[v _uart_init `(v ~T0 @X0 1 ef2`ui`uc ]
-"52
-{
-[; ;uart.c: 51: void uart_init(int_u32 baud_rate, int_u8 high_baud_select)
-[; ;uart.c: 52: {
-[e :U _uart_init ]
-"51
-[v _baud_rate `ui ~T0 @X0 1 r1 ]
-[v _high_baud_select `uc ~T0 @X0 1 r2 ]
-"52
-[f ]
-[; ;uart.c: 53: TRISC6=0;
-"53
-[e = _TRISC6 -> -> 0 `i `b ]
-[; ;uart.c: 54: TRISC7=1;
-"54
-[e = _TRISC7 -> -> 1 `i `b ]
-[; ;uart.c: 55: TXSTAbits.BRGH=high_baud_select;
-"55
-[e = . . _TXSTAbits 0 2 _high_baud_select ]
-[; ;uart.c: 56: TXEN=1;
-"56
-[e = _TXEN -> -> 1 `i `b ]
-[; ;uart.c: 57: TX9=0;
-"57
-[e = _TX9 -> -> 0 `i `b ]
-[; ;uart.c: 58: SYNC=0;
-"58
-[e = _SYNC -> -> 0 `i `b ]
-[; ;uart.c: 59: SPEN=1;
-"59
-[e = _SPEN -> -> 1 `i `b ]
-[; ;uart.c: 60: RX9=0;
-"60
-[e = _RX9 -> -> 0 `i `b ]
-[; ;uart.c: 61: CREN=1;
-"61
-[e = _CREN -> -> 1 `i `b ]
-[; ;uart.c: 62: ADDEN=0;
-"62
-[e = _ADDEN -> -> 0 `i `b ]
-[; ;uart.c: 65: SPBRG=(((16000000/64)/baud_rate)-1);
 "65
-[e = _SPBRG -> - / / -> 16000000 `l -> -> 64 `i `l -> _baud_rate `l -> -> 1 `i `l `uc ]
-[; ;uart.c: 66: GIE=1;
+[v _timer_init `(v ~T0 @X0 1 ef ]
 "66
-[e = _GIE -> -> 1 `i `b ]
-[; ;uart.c: 67: PEIE=1;
+{
+[; ;uart.c: 65: void timer_init()
+[; ;uart.c: 66: {
+[e :U _timer_init ]
+[f ]
+[; ;uart.c: 67: T1CON=0x31;
 "67
-[e = _PEIE -> -> 1 `i `b ]
-[; ;uart.c: 69: RCIE=1;
+[e = _T1CON -> -> 49 `i `uc ]
+[; ;uart.c: 68: TMR1H=0xCF;
+"68
+[e = _TMR1H -> -> 207 `i `uc ]
+[; ;uart.c: 69: TMR1L=0x2C;
 "69
-[e = _RCIE -> -> 1 `i `b ]
+[e = _TMR1L -> -> 44 `i `uc ]
+[; ;uart.c: 70: TMR1IE=1;
+"70
+[e = _TMR1IE -> -> 1 `i `b ]
 [; ;uart.c: 72: }
 "72
-[e :UE 105 ]
-}
-"73
-[v _uart_write `(v ~T0 @X0 1 ef1`uc ]
-"74
-{
-[; ;uart.c: 73: void uart_write(int_u8 write_msg)
-[; ;uart.c: 74: {
-[e :U _uart_write ]
-"73
-[v _write_msg `uc ~T0 @X0 1 r1 ]
-"74
-[f ]
-[; ;uart.c: 76: transmision_msg=write_msg;
-"76
-[e = _transmision_msg _write_msg ]
-[; ;uart.c: 78: TXIE=1;
-"78
-[e = _TXIE -> -> 1 `i `b ]
-[; ;uart.c: 79: PORTD=0X00;
-"79
-[e = _PORTD -> -> 0 `i `uc ]
-[; ;uart.c: 83: }
-"83
-[e :UE 106 ]
-}
-"84
-[v _uart_read `(v ~T0 @X0 1 ef ]
-"85
-{
-[; ;uart.c: 84: void uart_read()
-[; ;uart.c: 85: {
-[e :U _uart_read ]
-[f ]
-[; ;uart.c: 87: reception_msg[0]=RCREG;
-"87
-[e = *U + &U _reception_msg * -> -> -> 0 `i `ui `ux -> -> # *U &U _reception_msg `ui `ux _RCREG ]
-[; ;uart.c: 89: }
-"89
 [e :UE 107 ]
 }
-"90
-[v _set_port `(v ~T0 @X0 1 ef ]
-"91
+"74
+[v _uart_init `(v ~T0 @X0 1 ef2`ui`uc ]
+"75
 {
-[; ;uart.c: 90: void set_port()
-[; ;uart.c: 91: {
-[e :U _set_port ]
+[; ;uart.c: 74: void uart_init(int_u32 baud_rate, int_u8 high_baud_select)
+[; ;uart.c: 75: {
+[e :U _uart_init ]
+"74
+[v _baud_rate `ui ~T0 @X0 1 r1 ]
+[v _high_baud_select `uc ~T0 @X0 1 r2 ]
+"75
 [f ]
-[; ;uart.c: 92: if(recieved)
+[; ;uart.c: 76: TRISC6=0;
+"76
+[e = _TRISC6 -> -> 0 `i `b ]
+[; ;uart.c: 77: TRISC7=1;
+"77
+[e = _TRISC7 -> -> 1 `i `b ]
+[; ;uart.c: 78: TXSTAbits.BRGH=high_baud_select;
+"78
+[e = . . _TXSTAbits 0 2 _high_baud_select ]
+[; ;uart.c: 79: TXEN=1;
+"79
+[e = _TXEN -> -> 1 `i `b ]
+[; ;uart.c: 80: TX9=0;
+"80
+[e = _TX9 -> -> 0 `i `b ]
+[; ;uart.c: 81: SYNC=0;
+"81
+[e = _SYNC -> -> 0 `i `b ]
+[; ;uart.c: 82: SPEN=1;
+"82
+[e = _SPEN -> -> 1 `i `b ]
+[; ;uart.c: 83: RX9=0;
+"83
+[e = _RX9 -> -> 0 `i `b ]
+[; ;uart.c: 84: CREN=1;
+"84
+[e = _CREN -> -> 1 `i `b ]
+[; ;uart.c: 85: ADDEN=0;
+"85
+[e = _ADDEN -> -> 0 `i `b ]
+[; ;uart.c: 88: SPBRG=(((16000000/64)/baud_rate)-1);
+"88
+[e = _SPBRG -> - / / -> 16000000 `l -> -> 64 `i `l -> _baud_rate `l -> -> 1 `i `l `uc ]
+[; ;uart.c: 89: GIE=1;
+"89
+[e = _GIE -> -> 1 `i `b ]
+[; ;uart.c: 90: PEIE=1;
+"90
+[e = _PEIE -> -> 1 `i `b ]
+[; ;uart.c: 92: RCIE=1;
 "92
-[e $ ! != -> _recieved `i -> -> -> 0 `i `uc `i 109  ]
-[; ;uart.c: 93: {
-"93
-{
-[; ;uart.c: 94: PORTB=reception_msg[0];
-"94
-[e = _PORTB *U + &U _reception_msg * -> -> -> 0 `i `ui `ux -> -> # *U &U _reception_msg `ui `ux ]
-[; ;uart.c: 95: recieved=0;
+[e = _RCIE -> -> 1 `i `b ]
+[; ;uart.c: 95: }
 "95
-[e = _recieved -> -> 0 `i `uc ]
-"96
-}
-[e :U 109 ]
-[; ;uart.c: 96: }
-[; ;uart.c: 98: }
-"98
 [e :UE 108 ]
 }
-"100
-[v _uart_lcd_update `(v ~T0 @X0 1 ef ]
-"101
+"96
+[v _uart_write `(v ~T0 @X0 1 ef1`uc ]
+"97
 {
-[; ;uart.c: 100: void uart_lcd_update()
-[; ;uart.c: 101: { int i;
-[e :U _uart_lcd_update ]
+[; ;uart.c: 96: void uart_write(int_u8 write_msg)
+[; ;uart.c: 97: {
+[e :U _uart_write ]
+"96
+[v _write_msg `uc ~T0 @X0 1 r1 ]
+"97
 [f ]
-[v _i `i ~T0 @X0 1 a ]
-[; ;uart.c: 102: for(i=0;i<32;i++)
-"102
-{
-[e = _i -> 0 `i ]
-[e $ < _i -> 32 `i 111  ]
-[e $U 112  ]
-"103
-[e :U 111 ]
-[; ;uart.c: 103: {
-{
-[; ;uart.c: 104: lcd_data(reception_msg[i]);
+[; ;uart.c: 99: transmision_msg=write_msg;
+"99
+[e = _transmision_msg _write_msg ]
+[; ;uart.c: 101: TXIE=1;
+"101
+[e = _TXIE -> -> 1 `i `b ]
+[; ;uart.c: 104: }
 "104
-[e ( _lcd_data (1 *U + &U _reception_msg * -> -> _i `ui `ux -> -> # *U &U _reception_msg `ui `ux ]
-"105
+[e :UE 109 ]
 }
-"102
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 32 `i 111  ]
-[e :U 112 ]
 "105
-}
-[; ;uart.c: 105: }
-[; ;uart.c: 107: }
-"107
+[v _uart_read `(v ~T0 @X0 1 ef ]
+"106
+{
+[; ;uart.c: 105: void uart_read()
+[; ;uart.c: 106: {
+[e :U _uart_read ]
+[f ]
+[; ;uart.c: 108: rxmsg=RCREG;
+"108
+[e = _rxmsg _RCREG ]
+[; ;uart.c: 110: }
+"110
 [e :UE 110 ]
 }
-[v F1290 `(v ~T0 @X0 1 tf ]
-"109
-[v _isr `IF1290 ~T0 @X0 1 e ]
-"110
-{
-[; ;uart.c: 109: void interrupt isr(void)
-[; ;uart.c: 110: {
-[e :U _isr ]
-[f ]
-[; ;uart.c: 111: if(RCIF)
 "111
-[e $ ! _RCIF 115  ]
-[; ;uart.c: 112: {
+[v _set_port `(v ~T0 @X0 1 ef ]
 "112
 {
-[; ;uart.c: 113: uart_read();
+[; ;uart.c: 111: void set_port()
+[; ;uart.c: 112: {
+[e :U _set_port ]
+[f ]
+[; ;uart.c: 113: if(recieved)
 "113
-[e ( _uart_read ..  ]
-[; ;uart.c: 114: recieved=1;
+[e $ ! != -> _recieved `i -> -> -> 0 `i `uc `i 112  ]
+[; ;uart.c: 114: {
 "114
-[e = _recieved -> -> 1 `i `uc ]
+{
+[; ;uart.c: 115: PORTB=lcd_msg[0];
+"115
+[e = _PORTB *U + &U _lcd_msg * -> -> -> 0 `i `ui `ux -> -> # *U &U _lcd_msg `ui `ux ]
+[; ;uart.c: 116: recieved=0;
+"116
+[e = _recieved -> -> 0 `i `uc ]
 "117
 }
-[e :U 115 ]
+[e :U 112 ]
 [; ;uart.c: 117: }
-[; ;uart.c: 118: if(TXIF)
-"118
-[e $ ! _TXIF 116  ]
-[; ;uart.c: 119: {
+[; ;uart.c: 119: }
 "119
-{
-[; ;uart.c: 120: TXREG=transmision_msg;
-"120
-[e = _TXREG _transmision_msg ]
-[; ;uart.c: 121: TXIE=0;
+[e :UE 111 ]
+}
 "121
-[e = _TXIE -> -> 0 `i `b ]
+[v _uart_lcd_update `(v ~T0 @X0 1 ef2`*uc`uc ]
 "122
-}
-[e :U 116 ]
-[; ;uart.c: 122: }
-[; ;uart.c: 123: }
-"123
-[e :UE 114 ]
-}
-"124
-[v _delay_ms `(v ~T0 @X0 1 ef1`ui ]
-"125
 {
-[; ;uart.c: 124: void delay_ms(int_u32 ds)
-[; ;uart.c: 125: {
-[e :U _delay_ms ]
-"124
-[v _ds `ui ~T0 @X0 1 r1 ]
-"125
+[; ;uart.c: 121: void uart_lcd_update(int_u8 *data,int_u8 len)
+[; ;uart.c: 122: { int i;
+[e :U _uart_lcd_update ]
+"121
+[v _data `*uc ~T0 @X0 1 r1 ]
+[v _len `uc ~T0 @X0 1 r2 ]
+"122
 [f ]
-"126
 [v _i `i ~T0 @X0 1 a ]
-[v _j `i ~T0 @X0 1 a ]
-[; ;uart.c: 126: int i,j;
-[; ;uart.c: 127: for(i=0;i<ds;i++)
-"127
+[; ;uart.c: 124: for(i=0;i<len;i++)
+"124
 {
 [e = _i -> 0 `i ]
-[e $U 121  ]
-"128
-[e :U 118 ]
-[; ;uart.c: 128: for(j=0;j<ds;j++);
+[e $U 117  ]
+"125
+[e :U 114 ]
+[; ;uart.c: 125: {
 {
-[e = _j -> 0 `i ]
-[e $U 125  ]
-[e :U 122 ]
-[e ++ _j -> 1 `i ]
-[e :U 125 ]
-[e $ < -> _j `ui _ds 122  ]
-[e :U 123 ]
-}
+[; ;uart.c: 126: lcd_data(*(data+i));
+"126
+[e ( _lcd_data (1 *U + _data * -> _i `x -> -> # *U _data `i `x ]
 "127
-[e ++ _i -> 1 `i ]
-[e :U 121 ]
-[e $ < -> _i `ui _ds 118  ]
-[e :U 119 ]
-"128
 }
+"124
+[e ++ _i -> 1 `i ]
+[e :U 117 ]
+[e $ < _i -> _len `i 114  ]
+[e :U 115 ]
+"127
+}
+[; ;uart.c: 127: }
 [; ;uart.c: 129: }
 "129
-[e :UE 117 ]
+[e :UE 113 ]
 }
+[v F1302 `(v ~T0 @X0 1 tf ]
 "131
-[v _lcd_init `(v ~T0 @X0 1 ef ]
+[v _isr `IF1302 ~T0 @X0 1 e ]
 "132
 {
-[; ;uart.c: 131: void lcd_init()
+[; ;uart.c: 131: void interrupt isr(void)
 [; ;uart.c: 132: {
-[e :U _lcd_init ]
+[e :U _isr ]
 [f ]
-[; ;uart.c: 133: PORTD=0X00;
+[; ;uart.c: 133: if(TMR1IF)
 "133
-[e = _PORTD -> -> 0 `i `uc ]
-[; ;uart.c: 134: TRISD=0X00;
+[e $ ! _TMR1IF 119  ]
+[; ;uart.c: 134: {
 "134
-[e = _TRISD -> -> 0 `i `uc ]
-[; ;uart.c: 135: lcd_cmnt(0x38);
+{
+[; ;uart.c: 135: TMR1H=0xCF;
 "135
-[e ( _lcd_cmnt (1 -> -> 56 `i `uc ]
-[; ;uart.c: 136: lcd_cmnt(0x06);
+[e = _TMR1H -> -> 207 `i `uc ]
+[; ;uart.c: 136: TMR1L=0x2C;
 "136
-[e ( _lcd_cmnt (1 -> -> 6 `i `uc ]
-[; ;uart.c: 137: lcd_cmnt(0x0c);
-"137
-[e ( _lcd_cmnt (1 -> -> 12 `i `uc ]
-[; ;uart.c: 139: }
+[e = _TMR1L -> -> 44 `i `uc ]
+[; ;uart.c: 138: if(count==8)
+"138
+[e $ ! == -> _count `i -> 8 `i 120  ]
+[; ;uart.c: 139: {
 "139
-[e :UE 126 ]
-}
-"140
-[v _lcd_cmnt `(v ~T0 @X0 1 ef1`uc ]
-"141
 {
-[; ;uart.c: 140: void lcd_cmnt(unsigned char cmnt)
-[; ;uart.c: 141: {
-[e :U _lcd_cmnt ]
+[; ;uart.c: 140: count=0;
 "140
-[v _cmnt `uc ~T0 @X0 1 r1 ]
+[e = _count -> -> 0 `i `uc ]
+[; ;uart.c: 141: time_flag=1;
 "141
-[f ]
-[; ;uart.c: 142: PORTD=cmnt;
-"142
-[e = _PORTD _cmnt ]
-[; ;uart.c: 143: RE0=0;
+[e = _time_flag -> -> 1 `i `uc ]
 "143
-[e = _RE0 -> -> 0 `i `b ]
-[; ;uart.c: 144: RE1=1;delay(10);RE1=0; ;
+}
+[e :U 120 ]
+[; ;uart.c: 143: }
+[; ;uart.c: 144: count++;
 "144
-[e = _RE1 -> -> 1 `i `b ]
-[e ( _delay (1 -> 10 `i ]
-[e = _RE1 -> -> 0 `i `b ]
-[; ;uart.c: 146: }
-"146
-[e :UE 127 ]
+[e ++ _count -> -> 1 `i `uc ]
+[; ;uart.c: 145: TMR1IF=0;
+"145
+[e = _TMR1IF -> -> 0 `i `b ]
+"147
 }
-"147
-[v _lcd_data `(v ~T0 @X0 1 ef1`uc ]
+[e :U 119 ]
+[; ;uart.c: 147: }
+[; ;uart.c: 148: if(RCIF)
 "148
-{
-[; ;uart.c: 147: void lcd_data(unsigned char data)
-[; ;uart.c: 148: {
-[e :U _lcd_data ]
-"147
-[v _data `uc ~T0 @X0 1 r1 ]
-"148
-[f ]
-[; ;uart.c: 149: PORTD=data;
+[e $ ! _RCIF 121  ]
+[; ;uart.c: 149: {
 "149
-[e = _PORTD _data ]
-[; ;uart.c: 150: RE0=1;
-"150
-[e = _RE0 -> -> 1 `i `b ]
-[; ;uart.c: 151: RE1=1;delay(10);RE1=0;;
-"151
-[e = _RE1 -> -> 1 `i `b ]
-[e ( _delay (1 -> 10 `i ]
-[e = _RE1 -> -> 0 `i `b ]
-[; ;uart.c: 153: }
-"153
-[e :UE 128 ]
-}
-"156
-[v _delay `(v ~T0 @X0 1 ef1`i ]
-"157
 {
-[; ;uart.c: 156: void delay(int x)
-[; ;uart.c: 157: {
-[e :U _delay ]
+[; ;uart.c: 150: uart_read();
+"150
+[e ( _uart_read ..  ]
+[; ;uart.c: 151: recieved=1;
+"151
+[e = _recieved -> -> 1 `i `uc ]
+"154
+}
+[e :U 121 ]
+[; ;uart.c: 154: }
+[; ;uart.c: 155: if(TXIF)
+"155
+[e $ ! _TXIF 122  ]
+[; ;uart.c: 156: {
 "156
-[v _x `i ~T0 @X0 1 r1 ]
+{
+[; ;uart.c: 157: TXREG=transmision_msg;
 "157
-[f ]
+[e = _TXREG _transmision_msg ]
+[; ;uart.c: 158: TXIE=0;
 "158
+[e = _TXIE -> -> 0 `i `b ]
+"159
+}
+[e :U 122 ]
+[; ;uart.c: 159: }
+[; ;uart.c: 160: }
+"160
+[e :UE 118 ]
+}
+"161
+[v _delay_ms `(v ~T0 @X0 1 ef1`ui ]
+"162
+{
+[; ;uart.c: 161: void delay_ms(int_u32 ds)
+[; ;uart.c: 162: {
+[e :U _delay_ms ]
+"161
+[v _ds `ui ~T0 @X0 1 r1 ]
+"162
+[f ]
+"163
 [v _i `i ~T0 @X0 1 a ]
 [v _j `i ~T0 @X0 1 a ]
-[; ;uart.c: 158: int i,j;
-[; ;uart.c: 159: for(i=0;i<=x;i++)
-"159
+[; ;uart.c: 163: int i,j;
+[; ;uart.c: 164: for(i=0;i<ds;i++)
+"164
 {
 [e = _i -> 0 `i ]
-[e $U 133  ]
-"160
-[e :U 130 ]
-[; ;uart.c: 160: {
-{
-[; ;uart.c: 161: for(j=0;j<=x;j++)
-"161
+[e $U 127  ]
+"165
+[e :U 124 ]
+[; ;uart.c: 165: for(j=0;j<ds;j++);
 {
 [e = _j -> 0 `i ]
-[e $U 137  ]
-"162
-[e :U 134 ]
-[; ;uart.c: 162: {}
+[e $U 131  ]
+[e :U 128 ]
+[e ++ _j -> 1 `i ]
+[e :U 131 ]
+[e $ < -> _j `ui _ds 128  ]
+[e :U 129 ]
+}
+"164
+[e ++ _i -> 1 `i ]
+[e :U 127 ]
+[e $ < -> _i `ui _ds 124  ]
+[e :U 125 ]
+"165
+}
+[; ;uart.c: 166: }
+"166
+[e :UE 123 ]
+}
+"168
+[v _lcd_init `(v ~T0 @X0 1 ef ]
+"169
+{
+[; ;uart.c: 168: void lcd_init()
+[; ;uart.c: 169: {
+[e :U _lcd_init ]
+[f ]
+[; ;uart.c: 170: TRISD=0X00;
+"170
+[e = _TRISD -> -> 0 `i `uc ]
+[; ;uart.c: 171: PORTD=0X00;
+"171
+[e = _PORTD -> -> 0 `i `uc ]
+[; ;uart.c: 172: ADCON1=0X06;
+"172
+[e = _ADCON1 -> -> 6 `i `uc ]
+[; ;uart.c: 174: lcd_cmnt(0x38);
+"174
+[e ( _lcd_cmnt (1 -> -> 56 `i `uc ]
+[; ;uart.c: 175: lcd_cmnt(0x0c);
+"175
+[e ( _lcd_cmnt (1 -> -> 12 `i `uc ]
+[; ;uart.c: 176: lcd_cmnt(0x01);
+"176
+[e ( _lcd_cmnt (1 -> -> 1 `i `uc ]
+[; ;uart.c: 177: lcd_cmnt(0x80);
+"177
+[e ( _lcd_cmnt (1 -> -> 128 `i `uc ]
+[; ;uart.c: 178: }
+"178
+[e :UE 132 ]
+}
+"179
+[v _lcd_cmnt `(v ~T0 @X0 1 ef1`uc ]
+"180
+{
+[; ;uart.c: 179: void lcd_cmnt(unsigned char cmnt)
+[; ;uart.c: 180: {
+[e :U _lcd_cmnt ]
+"179
+[v _cmnt `uc ~T0 @X0 1 r1 ]
+"180
+[f ]
+[; ;uart.c: 181: PORTD=cmnt;
+"181
+[e = _PORTD _cmnt ]
+[; ;uart.c: 182: RE0=0;
+"182
+[e = _RE0 -> -> 0 `i `b ]
+[; ;uart.c: 183: RE1=1;delay(10);RE1=0; ;
+"183
+[e = _RE1 -> -> 1 `i `b ]
+[e ( _delay (1 -> 10 `i ]
+[e = _RE1 -> -> 0 `i `b ]
+[; ;uart.c: 185: }
+"185
+[e :UE 133 ]
+}
+"186
+[v _lcd_data `(v ~T0 @X0 1 ef1`uc ]
+"187
+{
+[; ;uart.c: 186: void lcd_data(unsigned char data)
+[; ;uart.c: 187: {
+[e :U _lcd_data ]
+"186
+[v _data `uc ~T0 @X0 1 r1 ]
+"187
+[f ]
+[; ;uart.c: 188: PORTD=data;
+"188
+[e = _PORTD _data ]
+[; ;uart.c: 189: RE0=1;
+"189
+[e = _RE0 -> -> 1 `i `b ]
+[; ;uart.c: 190: RE1=1;delay(10);RE1=0;;
+"190
+[e = _RE1 -> -> 1 `i `b ]
+[e ( _delay (1 -> 10 `i ]
+[e = _RE1 -> -> 0 `i `b ]
+[; ;uart.c: 192: }
+"192
+[e :UE 134 ]
+}
+"195
+[v _delay `(v ~T0 @X0 1 ef1`i ]
+"196
+{
+[; ;uart.c: 195: void delay(int x)
+[; ;uart.c: 196: {
+[e :U _delay ]
+"195
+[v _x `i ~T0 @X0 1 r1 ]
+"196
+[f ]
+"197
+[v _i `i ~T0 @X0 1 a ]
+[v _j `i ~T0 @X0 1 a ]
+[; ;uart.c: 197: int i,j;
+[; ;uart.c: 198: for(i=0;i<=x;i++)
+"198
+{
+[e = _i -> 0 `i ]
+[e $U 139  ]
+"199
+[e :U 136 ]
+[; ;uart.c: 199: {
+{
+[; ;uart.c: 200: for(j=0;j<=x;j++)
+"200
+{
+[e = _j -> 0 `i ]
+[e $U 143  ]
+"201
+[e :U 140 ]
+[; ;uart.c: 201: {}
 {
 }
-"161
+"200
 [e ++ _j -> 1 `i ]
-[e :U 137 ]
-[e $ <= _j _x 134  ]
-[e :U 135 ]
-"162
+[e :U 143 ]
+[e $ <= _j _x 140  ]
+[e :U 141 ]
+"201
 }
-"163
+"202
 }
-"159
+"198
 [e ++ _i -> 1 `i ]
-[e :U 133 ]
-[e $ <= _i _x 130  ]
-[e :U 131 ]
-"163
+[e :U 139 ]
+[e $ <= _i _x 136  ]
+[e :U 137 ]
+"202
 }
-[; ;uart.c: 163: }
-[; ;uart.c: 164: }
-"164
-[e :UE 129 ]
+[; ;uart.c: 202: }
+[; ;uart.c: 203: }
+"203
+[e :UE 135 ]
 }

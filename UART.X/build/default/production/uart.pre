@@ -1555,11 +1555,13 @@ void delay(int x);
 void lcd_init(void);
 void lcd_data(int_u8 data);
 void lcd_cmnt(int_u8 cmnt);
-void uart_lcd_update();
+void uart_lcd_update(int_u8 *,int_u8);
+void timer_init(void);
+void timer_isr(void);
 
 # 12 "uart.c"
-int_u8 reception_msg[32]={0};
-int_u8 transmision_msg,count=0,recieved=0;
+int_u8 lcd_msg[16]={'0'},rxmsg,lcd_msg1[16]={0};
+int_u8 transmision_msg,time_flag=0,recieved=0,count,timer=0;
 
 # 19
 void main()
@@ -1570,21 +1572,34 @@ TRISE=0X00;
 PORTB=0X00;
 PORTE=0X00;
 
+timer_init();
 uart_init(9600,0);
 lcd_init();
 while(1)
 {
 
-
-uart_write(count++);
-delay_ms(100);
-PORTD=0XFF;
-delay_ms(100);
-delay_ms(100);
-delay_ms(100);
-
-# 47
+# 38
+if(time_flag)
+{
+uart_write(timer++);
+if(timer==60)
+{
+timer=0;
 }
+time_flag=0;
+}
+
+# 61
+}
+
+}
+
+void timer_init()
+{
+T1CON=0x31;
+TMR1H=0xCF;
+TMR1L=0x2C;
+TMR1IE=1;
 
 }
 
@@ -1601,7 +1616,7 @@ RX9=0;
 CREN=1;
 ADDEN=0;
 
-# 65
+# 88
 SPBRG=(((16000000/64)/baud_rate)-1);
 GIE=1;
 PEIE=1;
@@ -1616,38 +1631,52 @@ void uart_write(int_u8 write_msg)
 transmision_msg=write_msg;
 
 TXIE=1;
-PORTD=0X00;
-
 
 
 }
 void uart_read()
 {
 
-reception_msg[0]=RCREG;
+rxmsg=RCREG;
 
 }
 void set_port()
 {
 if(recieved)
 {
-PORTB=reception_msg[0];
+PORTB=lcd_msg[0];
 recieved=0;
 }
 
 }
 
-void uart_lcd_update()
+void uart_lcd_update(int_u8 *data,int_u8 len)
 { int i;
-for(i=0;i<32;i++)
+
+for(i=0;i<len;i++)
 {
-lcd_data(reception_msg[i]);
+lcd_data(*(data+i));
 }
 
 }
 
 void interrupt isr(void)
 {
+if(TMR1IF)
+{
+TMR1H=0xCF;
+TMR1L=0x2C;
+
+if(count==8)
+{
+count=0;
+time_flag=1;
+
+}
+count++;
+TMR1IF=0;
+
+}
 if(RCIF)
 {
 uart_read();
@@ -1670,12 +1699,14 @@ for(j=0;j<ds;j++);
 
 void lcd_init()
 {
-PORTD=0X00;
 TRISD=0X00;
-lcd_cmnt(0x38);
-lcd_cmnt(0x06);
-lcd_cmnt(0x0c);
+PORTD=0X00;
+ADCON1=0X06;
 
+lcd_cmnt(0x38);
+lcd_cmnt(0x0c);
+lcd_cmnt(0x01);
+lcd_cmnt(0x80);
 }
 void lcd_cmnt(unsigned char cmnt)
 {
@@ -1702,3 +1733,4 @@ for(j=0;j<=x;j++)
 {}
 }
 }
+

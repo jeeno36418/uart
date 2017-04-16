@@ -20,7 +20,9 @@ void delay(int x);
 void lcd_init(void);
 void lcd_data(int_u8 data);
 void lcd_cmnt(int_u8 cmnt);
-void uart_lcd_update();
+void uart_lcd_update(int_u8 *,int_u8);
+void timer_init(void);
+void timer_isr(void);
 
 # 47 "C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic16f877a.h"
 extern volatile unsigned char INDF @ 0x000;

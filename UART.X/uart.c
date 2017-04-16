@@ -10,7 +10,7 @@
 #include"uart.h"
 #include"global.h"
 int_u8 lcd_msg[16]={'0'},rxmsg,lcd_msg1[16]={0};
-int_u8 transmision_msg,count=30,recieved=0;
+int_u8 transmision_msg,time_flag=0,recieved=0,count,timer=0;
 #define port PORTD
 #define rs RE0
 #define en RE1
@@ -24,18 +24,27 @@ void main()
     PORTB=0X00;
     PORTE=0X00;
 //    mmset((void *)lcd_msg,'0',(register)sizeof(lcd_msg));
+    timer_init();
     uart_init(9600,HIGH_BAUD_DISBALED);
     lcd_init();
-while(1)
+ while(1)
 {
 #ifdef TRANSMISSION
+
+
     
-    uart_write(count++);
-     delay_ms(100);
-    PORTD=0XFF;
-    delay_ms(100);
-    delay_ms(100);
-    delay_ms(100);
+    
+
+    if(time_flag)
+    {
+        uart_write(timer++);
+        if(timer==60)
+        {
+            timer=0;
+        }
+        time_flag=0;
+    }
+    
 #else
     if(recieved)
     {
@@ -50,6 +59,15 @@ while(1)
     }
 #endif
 }
+
+}
+
+void timer_init()
+{
+    T1CON=0x31;/*T1CKPS1:T1CKPS0<5-4>1:8 prescale value selected,TMR1ON=1*/
+    TMR1H=0xCF;
+    TMR1L=0x2C;
+    TMR1IE=1;
 
 }
 
@@ -81,10 +99,8 @@ void uart_write(int_u8 write_msg)
         transmision_msg=write_msg;
 
        TXIE=1;
-       PORTD=0X00;
+      
 
-
-    
 }
 void uart_read()
 {
@@ -114,7 +130,22 @@ void uart_lcd_update(int_u8 *data,int_u8 len)
 
 void interrupt isr(void)
 {
-    if(RCIF)
+    if(TMR1IF)
+    {
+        TMR1H=0xCF;
+     TMR1L=0x2C;
+
+        if(count==8)
+        {
+            count=0;
+            time_flag=1;
+
+        }
+         count++;
+        TMR1IF=0;
+       
+    }
+  if(RCIF)
     {
        uart_read();
        recieved=1;
@@ -170,3 +201,4 @@ void delay(int x)
         {}
     }
 }
+
