@@ -13,7 +13,7 @@
 #define TX TRISC6
 #define RX TRISC7
 #define FOSC 16000000
-#define TRANSMISSION
+//#define TRANSMISSION
 
 
 #endif	/* UART_H */

@@ -29,5 +29,13 @@ void lcd_cmnt(int_u8 cmnt);
 void uart_lcd_update(int_u8 *,int_u8);
 void timer_init(void);
 void timer_isr(void);
+void rx_timer_opr(void);
+typedef struct timer_t
+{
+    int_u8 HH;
+    int_u8 MM;
+    int_u8 SS;
+}time_T;
+
 #endif	/* GLOBAL_H */
 

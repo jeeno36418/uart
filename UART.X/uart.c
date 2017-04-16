@@ -9,7 +9,8 @@
 #include <stdlib.h>
 #include"uart.h"
 #include"global.h"
-int_u8 lcd_msg[16]={'0'},rxmsg,lcd_msg1[16]={0};
+int_u8 lcd_msg[16]={0},rxmsg,lcd_msg1[16]={0};
+time_T local_time={0};
 int_u8 transmision_msg,time_flag=0,recieved=0,count,timer=0;
 #define port PORTD
 #define rs RE0
@@ -48,11 +49,12 @@ void main()
 #else
     if(recieved)
     {
-       // lcd_data(count++);
-        sprintf(lcd_msg,"Count=%3d",rxmsg);
+        local_time.SS=rxmsg;
+        rx_timer_opr();
+        sprintf(lcd_msg,"Time:%2d:%2d:%2d",local_time.HH,local_time.MM,local_time.SS);
         lcd_cmnt(0x80);
         uart_lcd_update(lcd_msg,sizeof(lcd_msg));
-        sprintf(lcd_msg1,"Saranya Tech",rxmsg);
+        sprintf(lcd_msg1,"Saranya Tech");
         lcd_cmnt(0xC0);
         uart_lcd_update(lcd_msg1,sizeof(lcd_msg1));
         recieved=0;
@@ -69,6 +71,23 @@ void timer_init()
     TMR1L=0x2C;
     TMR1IE=1;
 
+}
+void rx_timer_opr()
+{
+
+    if(local_time.SS>=59)
+    {
+       local_time.MM++;
+    }
+    if(local_time.MM>=59)
+    {
+        local_time.MM=0;
+        local_time.HH++;
+    }
+    if(local_time.HH>=24)
+    {
+        local_time.HH=0;
+    }
 }
 
 void uart_init(int_u32 baud_rate, int_u8 high_baud_select)
