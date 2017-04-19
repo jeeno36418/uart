@@ -1,12 +1,12 @@
-_uart_write: CODE, 490 0 11
-_lcd_cmnt: CODE, 427 0 18
-___aldiv: CODE, 49 0 143
-_delay: CODE, 296 0 50
-_main: CODE, 192 0 54
-_uart_read: CODE, 509 0 7
-_uart_init: CODE, 246 0 50
-_timer_init: CODE, 478 0 12
-__initialization: CODE, 21 0 24
-_isr: CODE, 346 0 48
-_lcd_init: CODE, 394 0 33
-Total: 450
+_uart_write: CODE, 458 0 11
+_lcd_cmnt: CODE, 428 0 18
+___aldiv: CODE, 36 0 143
+_delay: CODE, 345 0 50
+_main: CODE, 240 0 55
+_uart_read: CODE, 477 0 7
+_uart_init: CODE, 295 0 50
+_timer_init: CODE, 446 0 12
+__initialization: CODE, 21 0 11
+_isr: CODE, 179 0 61
+_lcd_init: CODE, 395 0 33
+Total: 451

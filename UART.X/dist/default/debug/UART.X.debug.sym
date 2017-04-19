@@ -219,10 +219,10 @@ intentry 8 3C7 CODE 8 0
 cstackCOMMON 70 79 COMMON 70 1
 bssBANK0 20 57 BANK0 20 1
 %locals
-dist/default/production\UART.X.production.obj
+dist/default/debug\UART.X.debug.obj
 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic16f877a.h
 2761 0 0 CODE 0
-C:\Users\Kanna\AppData\Local\Temp\s1eg.
+C:\Users\Kanna\AppData\Local\Temp\s98.
 379 15 0 CODE 0
 382 15 0 CODE 0
 434 15 0 CODE 0

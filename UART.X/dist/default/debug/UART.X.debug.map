@@ -3,23 +3,22 @@ Microchip MPLAB XC8 Compiler V1.32 ()
 Linker command line:
 
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.32\dat\en_msgs.txt -cs \
-  -h+dist/default/production\UART.X.production.sym \
-  --cmf=dist/default/production\UART.X.production.cmf -z -Q16F877A \
-  -oC:\Users\Kanna\AppData\Local\Temp\s1eg.6 \
-  -Mdist/default/production/UART.X.production.map -E1 -ver=XC8 \
-  -ASTACK=0110h-016fh -pstack=STACK -ACONST=00h-0FFhx32 -ACODE=00h-07FFhx4 \
-  -ASTRCODE=00h-01FFFh -AENTRY=00h-0FFhx32 -ASTRING=00h-0FFhx32 \
-  -ACOMMON=070h-07Fh -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh \
-  -ABANK2=0110h-016Fh -ABANK3=0190h-01EFh \
-  -ARAM=020h-06Fh,0A0h-0EFh,0110h-016Fh,0190h-01EFh \
+  -h+dist/default/debug\UART.X.debug.sym \
+  --cmf=dist/default/debug\UART.X.debug.cmf -z -Q16F877A \
+  -oC:\Users\Kanna\AppData\Local\Temp\s98.6 \
+  -Mdist/default/debug/UART.X.debug.map -E1 -ver=XC8 -ASTACK=0110h-016fh \
+  -pstack=STACK -ACONST=00h-0FFhx32 -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh \
+  -AENTRY=00h-0FFhx32 -ASTRING=00h-0FFhx32 -ACOMMON=070h-07Fh \
+  -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh -ABANK2=0110h-016Fh \
+  -ABANK3=0190h-01EFh -ARAM=020h-06Fh,0A0h-0EFh,0110h-016Fh,0190h-01EFh \
   -AABS1=020h-07Fh,0A0h-0EFh,0110h-016Fh,0190h-01EFh -ASFR0=00h-01Fh \
   -ASFR1=080h-09Fh -ASFR2=0100h-010Fh -ASFR3=0180h-018Fh \
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
   -pfunctab=CODE -ACONFIG=02007h-02007h -pconfig=CONFIG -DCONFIG=2 \
   -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h \
   -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
-  -DENTRY=2 -k C:\Users\Kanna\AppData\Local\Temp\s1eg.obj \
-  dist/default/production\UART.X.production.obj 
+  -DENTRY=2 -k C:\Users\Kanna\AppData\Local\Temp\s98.obj \
+  dist/default/debug\UART.X.debug.obj 
 
 Object code version is 3.11
 
@@ -28,10 +27,10 @@ Machine type is 16F877A
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Kanna\AppData\Local\Temp\s1eg.obj
+C:\Users\Kanna\AppData\Local\Temp\s98.obj
                 end_init                             12       12        3        8       0
                 reset_vec                             0        0        3        0       0
-dist/default/production\UART.X.production.obj
+dist/default/debug\UART.X.debug.obj
                 cinit                                15       15        F        8       0
                 intentry                              4        4        E        8       0
                 text9                               1DD      1DD        7        8       0

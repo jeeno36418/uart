@@ -19,7 +19,7 @@ int_u8 transmision_msg,time_flag=0,recieved=0,count,timer=0;
 
 void main()
 {
-     TRISB=0x00;
+    TRISB=0x00;
     TRISD=0X00;
     TRISE=0X00;
     PORTB=0X00;
@@ -38,12 +38,13 @@ void main()
 
     if(time_flag)
     {
+        time_flag=0;
         uart_write(timer++);
         if(timer==60)
         {
             timer=0;
         }
-        time_flag=0;
+      
     }
     
 #else
@@ -77,6 +78,7 @@ void rx_timer_opr()
 
     if(local_time.SS>=59)
     {
+       local_time.SS=0;
        local_time.MM++;
     }
     if(local_time.MM>=59)
@@ -109,7 +111,7 @@ void uart_init(int_u32 baud_rate, int_u8 high_baud_select)
     PEIE=1;/*Peripheral Interrupt Enable bit*/
    // TXIE=1;/*USART Transmit Interrupt Enable bit*/
     RCIE=1;/*USART Receive Interrupt Enable bit*/
- 
+    
 
 }
 void uart_write(int_u8 write_msg)
@@ -118,7 +120,7 @@ void uart_write(int_u8 write_msg)
         transmision_msg=write_msg;
 
        TXIE=1;
-      
+
 
 }
 void uart_read()
@@ -152,7 +154,7 @@ void interrupt isr(void)
     if(TMR1IF)
     {
         TMR1H=0xCF;
-     TMR1L=0x2C;
+        TMR1L=0x2C;
 
         if(count==8)
         {
@@ -171,10 +173,12 @@ void interrupt isr(void)
 
        
     }
-    if(TXIF)
+    if(TXIF&TXIE)
     {
-        TXREG=transmision_msg;
+        TXIF=0;
         TXIE=0;
+        TXREG=transmision_msg;
+        
     }
 }
 void delay_ms(int_u32 ds)
