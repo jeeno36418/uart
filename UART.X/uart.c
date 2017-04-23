@@ -11,7 +11,7 @@
 #include"global.h"
 int_u8 lcd_msg[16]={0},rxmsg,lcd_msg1[16]={0};
 time_T local_time={0};
-int_u8 transmision_msg,time_flag=0,recieved=0,count,timer=0;
+int_u8 transmision_msg,time_flag=0,recieved=0,count,timer=0,flag=0,toggle=0;
 #define port PORTD
 #define rs RE0
 #define en RE1
@@ -24,8 +24,10 @@ void main()
     TRISE=0X00;
     PORTB=0X00;
     PORTE=0X00;
-//    mmset((void *)lcd_msg,'0',(register)sizeof(lcd_msg));
+//    mmset((void *)lcd_msg,'0',(register)sizeof(lcd_msg));+
+#ifdef TRANSMISSION
     timer_init();
+#endif
     uart_init(9600,HIGH_BAUD_DISBALED);
     lcd_init();
  while(1)
@@ -51,11 +53,14 @@ void main()
     if(recieved)
     {
         local_time.SS=rxmsg;
-        rx_timer_opr();
+        toggle=rx_timer_opr();
+        if(toggle)
         sprintf(lcd_msg,"Time:%2d:%2d:%2d",local_time.HH,local_time.MM,local_time.SS);
+        else
+        sprintf(lcd_msg,"Time:%2d %2d %2d",local_time.HH,local_time.MM,local_time.SS);
         lcd_cmnt(0x80);
         uart_lcd_update(lcd_msg,sizeof(lcd_msg));
-        sprintf(lcd_msg1,"Saranya Tech");
+        sprintf(lcd_msg1,"Deepak ");
         lcd_cmnt(0xC0);
         uart_lcd_update(lcd_msg1,sizeof(lcd_msg1));
         recieved=0;
@@ -68,28 +73,37 @@ void main()
 void timer_init()
 {
     T1CON=0x31;/*T1CKPS1:T1CKPS0<5-4>1:8 prescale value selected,TMR1ON=1*/
-    TMR1H=0xCF;
-    TMR1L=0x2C;
+    TMR1H=0xC9;/*configured as 887ms IN TX + 113 ms taken for receiver and updating in LCD*/
+    TMR1L=0xDD;
     TMR1IE=1;
 
 }
-void rx_timer_opr()
+int_u8 rx_timer_opr()
 {
 
-    if(local_time.SS>=59)
+    if(flag)
     {
-       local_time.SS=0;
-       local_time.MM++;
+        flag=0;
+        local_time.MM++;
+
     }
-    if(local_time.MM>=59)
+    if(local_time.SS==59)
+    {
+        flag=1;
+
+    }
+    if(local_time.MM>59)
     {
         local_time.MM=0;
         local_time.HH++;
+      
     }
-    if(local_time.HH>=24)
+    if(local_time.HH>24)
     {
         local_time.HH=0;
+       
     }
+    return ~toggle;
 }
 
 void uart_init(int_u32 baud_rate, int_u8 high_baud_select)
@@ -153,6 +167,7 @@ void interrupt isr(void)
 {
     if(TMR1IF)
     {
+        TMR1IF=0;
         TMR1H=0xCF;
         TMR1L=0x2C;
 
@@ -163,7 +178,7 @@ void interrupt isr(void)
 
         }
          count++;
-        TMR1IF=0;
+        
        
     }
   if(RCIF)

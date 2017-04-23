@@ -1,29 +1,107 @@
 Version 3.2 HI-TECH Software Intermediate Code
-[; ;global.h: 11: typedef short int int_16;
-[; ;global.h: 12: typedef char int_8;
-[; ;global.h: 13: typedef int int_32;
-[; ;global.h: 15: typedef unsigned short int int_u16;
-[; ;global.h: 16: typedef unsigned char int_u8;
-[; ;global.h: 17: typedef unsigned int int_u32;
-[; ;global.h: 20: void uart_init(int_u32 baud_rate, int_u8 high_baud_rate);
-[; ;global.h: 21: void uart_write(int_u8 write_msg);
-[; ;global.h: 22: void uart_read(void);
-[; ;global.h: 23: void delay_ms(int_u32 count);
-[; ;global.h: 24: void set_port(void);
-[; ;global.h: 25: void delay(int x);
-[; ;global.h: 26: void lcd_init(void);
-[; ;global.h: 27: void lcd_data(int_u8 data);
-[; ;global.h: 28: void lcd_cmnt(int_u8 cmnt);
-[; ;global.h: 29: void uart_lcd_update(int_u8 *,int_u8);
-[; ;global.h: 30: void timer_init(void);
-[; ;global.h: 31: void timer_isr(void);
-[; ;global.h: 32: void rx_timer_opr(void);
-[; ;global.h: 33: typedef struct timer_t
-[; ;global.h: 34: {
-[; ;global.h: 35: int_u8 HH;
-[; ;global.h: 36: int_u8 MM;
-[; ;global.h: 37: int_u8 SS;
-[; ;global.h: 38: }time_T;
+[p mainexit ]
+"2717 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic16f877a.h
+[v _TRISD0 `Vb ~T0 @X0 0 e@1088 ]
+"2561
+[v _RD0 `Vb ~T0 @X0 0 e@64 ]
+"12 timer.h
+[v _timer_init `(v ~T0 @X0 0 ef ]
+"635 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic16f877a.h
+[v _T1CON `Vuc ~T0 @X0 0 e@16 ]
+"629
+[v _TMR1H `Vuc ~T0 @X0 0 e@15 ]
+"623
+[v _TMR1L `Vuc ~T0 @X0 0 e@14 ]
+"440
+[v _INTCON `Vuc ~T0 @X0 0 e@11 ]
+"1574
+[v _PIE1 `Vuc ~T0 @X0 0 e@140 ]
+"2655
+[v _TMR1IF `Vb ~T0 @X0 0 e@96 ]
+[; ;stdio.h: 8: typedef int ptrdiff_t;
+[; ;stdio.h: 9: typedef unsigned size_t;
+[; ;stdio.h: 10: typedef unsigned short wchar_t;
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;stdio.h: 23: extern int errno;
+[; ;stdio.h: 54: struct __prbuf
+[; ;stdio.h: 55: {
+[; ;stdio.h: 56: char * ptr;
+[; ;stdio.h: 57: void (* func)(char);
+[; ;stdio.h: 58: };
+[; ;conio.h: 17: extern int errno;
+[; ;conio.h: 20: extern void init_uart(void);
+[; ;conio.h: 22: extern char getch(void);
+[; ;conio.h: 23: extern char getche(void);
+[; ;conio.h: 24: extern void putch(char);
+[; ;conio.h: 25: extern void ungetch(char);
+[; ;conio.h: 27: extern __bit kbhit(void);
+[; ;conio.h: 31: extern char * cgets(char *);
+[; ;conio.h: 32: extern void cputs(const char *);
+[; ;stdio.h: 99: extern int cprintf(char *, ...);
+[; ;stdio.h: 104: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+[; ;stdio.h: 194: extern char * gets(char *);
+[; ;stdio.h: 195: extern int puts(const char *);
+[; ;stdio.h: 196: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+[; ;stdio.h: 197: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+[; ;stdio.h: 198: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+[; ;stdio.h: 199: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+[; ;stdio.h: 200: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+[; ;stdio.h: 201: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+[; ;stdio.h: 205: extern int sprintf(char *, const char *, ...);
+[; ;stdio.h: 206: extern int printf(const char *, ...);
+[; ;stdlib.h: 27: typedef struct {
+[; ;stdlib.h: 28: int rem;
+[; ;stdlib.h: 29: int quot;
+[; ;stdlib.h: 30: } div_t;
+[; ;stdlib.h: 31: typedef struct {
+[; ;stdlib.h: 32: unsigned rem;
+[; ;stdlib.h: 33: unsigned quot;
+[; ;stdlib.h: 34: } udiv_t;
+[; ;stdlib.h: 35: typedef struct {
+[; ;stdlib.h: 36: long quot;
+[; ;stdlib.h: 37: long rem;
+[; ;stdlib.h: 38: } ldiv_t;
+[; ;stdlib.h: 39: typedef struct {
+[; ;stdlib.h: 40: unsigned long quot;
+[; ;stdlib.h: 41: unsigned long rem;
+[; ;stdlib.h: 42: } uldiv_t;
+[; ;stdlib.h: 65: extern double atof(const char *);
+[; ;stdlib.h: 66: extern double strtod(const char *, const char **);
+[; ;stdlib.h: 67: extern int atoi(const char *);
+[; ;stdlib.h: 68: extern unsigned xtoi(const char *);
+[; ;stdlib.h: 69: extern long atol(const char *);
+[; ;stdlib.h: 70: extern long strtol(const char *, char **, int);
+[; ;stdlib.h: 72: extern int rand(void);
+[; ;stdlib.h: 73: extern void srand(unsigned int);
+[; ;stdlib.h: 74: extern void * calloc(size_t, size_t);
+[; ;stdlib.h: 75: extern div_t div(int numer, int denom);
+[; ;stdlib.h: 76: extern udiv_t udiv(unsigned numer, unsigned denom);
+[; ;stdlib.h: 77: extern ldiv_t ldiv(long numer, long denom);
+[; ;stdlib.h: 78: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+[; ;stdlib.h: 79: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 80: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 81: extern unsigned int _rotl(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 82: extern unsigned int _rotr(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 87: extern void * malloc(size_t);
+[; ;stdlib.h: 88: extern void free(void *);
+[; ;stdlib.h: 89: extern void * realloc(void *, size_t);
+[; ;stdlib.h: 91: extern void abort(void);
+[; ;stdlib.h: 92: extern void exit(int);
+[; ;stdlib.h: 93: extern int atexit(void (*)(void));
+[; ;stdlib.h: 94: extern char * getenv(const char *);
+[; ;stdlib.h: 95: extern char ** environ;
+[; ;stdlib.h: 96: extern int system(char *);
+[; ;stdlib.h: 97: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+[; ;stdlib.h: 98: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+[; ;stdlib.h: 99: extern int abs(int);
+[; ;stdlib.h: 100: extern long labs(long);
+[; ;stdlib.h: 103: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 104: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 109: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 110: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
 [; ;pic16f877a.h: 47: extern volatile unsigned char INDF @ 0x000;
 "49 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic16f877a.h
 [; ;pic16f877a.h: 49: asm("INDF equ 00h");
@@ -1028,3 +1106,122 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic16f877a.h: 2789: extern volatile __bit nTX8 @ (((unsigned) &TXSTA)*8) + 6;
 [; ;pic16f877a.h: 2791: extern volatile __bit nW @ (((unsigned) &SSPSTAT)*8) + 2;
 [; ;pic16f877a.h: 2793: extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
+"11 timer.h
+[v _timer_flag `i ~T0 @X0 1 e ]
+[i _timer_flag
+-> 0 `i
+]
+[; ;timer.h: 11: int timer_flag=0;
+[; ;timer.h: 12: void timer_init(void);
+"16 timer.c
+[v _main `(v ~T0 @X0 1 ef ]
+"17
+{
+[; ;timer.c: 16: void main()
+[; ;timer.c: 17: {
+[e :U _main ]
+[f ]
+[; ;timer.c: 18: TRISD0=0;
+"18
+[e = _TRISD0 -> -> 0 `i `b ]
+[; ;timer.c: 19: RD0=0;
+"19
+[e = _RD0 -> -> 0 `i `b ]
+[; ;timer.c: 20: timer_init();
+"20
+[e ( _timer_init ..  ]
+[; ;timer.c: 21: while(1)
+"21
+[e :U 103 ]
+[; ;timer.c: 22: {
+"22
+{
+[; ;timer.c: 23: if(timer_flag)
+"23
+[e $ ! != _timer_flag -> 0 `i 105  ]
+[; ;timer.c: 24: {
+"24
+{
+[; ;timer.c: 25: timer_flag=0;
+"25
+[e = _timer_flag -> 0 `i ]
+[; ;timer.c: 26: RD0=~RD0;
+"26
+[e = _RD0 -> ~ -> _RD0 `ui `b ]
+"29
+}
+[e :U 105 ]
+"30
+}
+[e :U 102 ]
+"21
+[e $U 103  ]
+[e :U 104 ]
+[; ;timer.c: 29: }
+[; ;timer.c: 30: }
+[; ;timer.c: 33: }
+"33
+[e :UE 101 ]
+}
+"35
+[v _timer_init `(v ~T0 @X0 1 ef ]
+"36
+{
+[; ;timer.c: 35: void timer_init(void)
+[; ;timer.c: 36: {
+[e :U _timer_init ]
+[f ]
+[; ;timer.c: 37: T1CON=0x31;
+"37
+[e = _T1CON -> -> 49 `i `uc ]
+[; ;timer.c: 38: TMR1H=0x0B;
+"38
+[e = _TMR1H -> -> 11 `i `uc ]
+[; ;timer.c: 39: TMR1L=0xDC;
+"39
+[e = _TMR1L -> -> 220 `i `uc ]
+[; ;timer.c: 40: INTCON=0xC0;
+"40
+[e = _INTCON -> -> 192 `i `uc ]
+[; ;timer.c: 41: PIE1=0x01;
+"41
+[e = _PIE1 -> -> 1 `i `uc ]
+[; ;timer.c: 42: }
+"42
+[e :UE 106 ]
+}
+[v F1260 `(v ~T0 @X0 1 tf ]
+"44
+[v _timer_isr `IF1260 ~T0 @X0 1 e ]
+"45
+{
+[; ;timer.c: 44: void interrupt timer_isr(void)
+[; ;timer.c: 45: {
+[e :U _timer_isr ]
+[f ]
+[; ;timer.c: 46: if(TMR1IF)
+"46
+[e $ ! _TMR1IF 108  ]
+[; ;timer.c: 47: {
+"47
+{
+[; ;timer.c: 48: TMR1IF=0;
+"48
+[e = _TMR1IF -> -> 0 `i `b ]
+[; ;timer.c: 49: TMR1H=0x0B;
+"49
+[e = _TMR1H -> -> 11 `i `uc ]
+[; ;timer.c: 50: TMR1L=0xDC;
+"50
+[e = _TMR1L -> -> 220 `i `uc ]
+[; ;timer.c: 51: timer_flag=1;
+"51
+[e = _timer_flag -> 1 `i ]
+"54
+}
+[e :U 108 ]
+[; ;timer.c: 54: }
+[; ;timer.c: 55: }
+"55
+[e :UE 107 ]
+}

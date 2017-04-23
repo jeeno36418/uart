@@ -1569,7 +1569,7 @@ int_u8 SS;
 # 12 "uart.c"
 int_u8 lcd_msg[16]={0},rxmsg,lcd_msg1[16]={0};
 time_T local_time={0};
-int_u8 transmision_msg,time_flag=0,recieved=0,count,timer=0;
+int_u8 transmision_msg,time_flag=0,recieved=0,count,timer=0,flag=0;
 
 # 20
 void main()
@@ -1580,13 +1580,15 @@ TRISE=0X00;
 PORTB=0X00;
 PORTE=0X00;
 
+
 timer_init();
+
 uart_init(9600,0);
 lcd_init();
 while(1)
 {
 
-# 39
+# 41
 if(time_flag)
 {
 time_flag=0;
@@ -1598,7 +1600,7 @@ timer=0;
 
 }
 
-# 64
+# 66
 }
 
 }
@@ -1606,27 +1608,35 @@ timer=0;
 void timer_init()
 {
 T1CON=0x31;
-TMR1H=0xCF;
-TMR1L=0x2C;
+TMR1H=0xC9;
+TMR1L=0xDD;
 TMR1IE=1;
 
 }
 void rx_timer_opr()
 {
 
-if(local_time.SS>=59)
+if(flag)
 {
-local_time.SS=0;
+flag=0;
 local_time.MM++;
+
 }
-if(local_time.MM>=59)
+if(local_time.SS==59)
+{
+flag=1;
+
+}
+if(local_time.MM>59)
 {
 local_time.MM=0;
 local_time.HH++;
+
 }
-if(local_time.HH>=24)
+if(local_time.HH>24)
 {
 local_time.HH=0;
+
 }
 }
 
@@ -1643,7 +1653,7 @@ RX9=0;
 CREN=1;
 ADDEN=0;
 
-# 109
+# 119
 SPBRG=(((16000000/64)/baud_rate)-1);
 GIE=1;
 PEIE=1;

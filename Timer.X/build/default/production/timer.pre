@@ -1,5 +1,5 @@
 
-# 1 "uart.c"
+# 1 "timer.c"
 
 # 8 "C:\Program Files (x86)\Microchip\xc8\v1.32\include\stdio.h"
 typedef int ptrdiff_t;
@@ -1536,230 +1536,48 @@ extern volatile __bit nW @ (((unsigned) &SSPSTAT)*8) + 2;
 
 extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
 
-# 11 "global.h"
-typedef short int int_16;
-typedef char int_8;
-typedef int int_32;
-
-typedef unsigned short int int_u16;
-typedef unsigned char int_u8;
-typedef unsigned int int_u32;
-
-
-void uart_init(int_u32 baud_rate, int_u8 high_baud_rate);
-void uart_write(int_u8 write_msg);
-void uart_read(void);
-void delay_ms(int_u32 count);
-void set_port(void);
-void delay(int x);
-void lcd_init(void);
-void lcd_data(int_u8 data);
-void lcd_cmnt(int_u8 cmnt);
-void uart_lcd_update(int_u8 *,int_u8);
+# 11 "timer.h"
+int timer_flag=0;
 void timer_init(void);
-void timer_isr(void);
-void rx_timer_opr(void);
-typedef struct timer_t
-{
-int_u8 HH;
-int_u8 MM;
-int_u8 SS;
-}time_T;
 
-# 12 "uart.c"
-int_u8 lcd_msg[16]={0},rxmsg,lcd_msg1[16]={0};
-time_T local_time={0};
-int_u8 transmision_msg,time_flag=0,recieved=0,count,timer=0;
-
-# 20
+# 16 "timer.c"
 void main()
 {
-TRISB=0x00;
-TRISD=0X00;
-TRISE=0X00;
-PORTB=0X00;
-PORTE=0X00;
-
+TRISD0=0;
+RD0=0;
 timer_init();
-uart_init(9600,0);
-lcd_init();
 while(1)
 {
-
-# 39
-if(time_flag)
+if(timer_flag)
 {
-time_flag=0;
-uart_write(timer++);
-if(timer==60)
-{
-timer=0;
+timer_flag=0;
+RD0=~RD0;
+
+
 }
+}
+
 
 }
 
-# 64
-}
-
-}
-
-void timer_init()
+void timer_init(void)
 {
 T1CON=0x31;
-TMR1H=0xCF;
-TMR1L=0x2C;
-TMR1IE=1;
-
-}
-void rx_timer_opr()
-{
-
-if(local_time.SS>=59)
-{
-local_time.SS=0;
-local_time.MM++;
-}
-if(local_time.MM>=59)
-{
-local_time.MM=0;
-local_time.HH++;
-}
-if(local_time.HH>=24)
-{
-local_time.HH=0;
-}
+TMR1H=0x0B;
+TMR1L=0xDC;
+INTCON=0xC0;
+PIE1=0x01;
 }
 
-void uart_init(int_u32 baud_rate, int_u8 high_baud_select)
-{
-TRISC6=0;
-TRISC7=1;
-TXSTAbits.BRGH=high_baud_select;
-TXEN=1;
-TX9=0;
-SYNC=0;
-SPEN=1;
-RX9=0;
-CREN=1;
-ADDEN=0;
-
-# 109
-SPBRG=(((16000000/64)/baud_rate)-1);
-GIE=1;
-PEIE=1;
-
-RCIE=1;
-
-
-}
-void uart_write(int_u8 write_msg)
-{
-
-transmision_msg=write_msg;
-
-TXIE=1;
-
-
-}
-void uart_read()
-{
-
-rxmsg=RCREG;
-
-}
-void set_port()
-{
-if(recieved)
-{
-PORTB=lcd_msg[0];
-recieved=0;
-}
-
-}
-
-void uart_lcd_update(int_u8 *data,int_u8 len)
-{ int i;
-
-for(i=0;i<len;i++)
-{
-lcd_data(*(data+i));
-}
-
-}
-
-void interrupt isr(void)
+void interrupt timer_isr(void)
 {
 if(TMR1IF)
 {
-TMR1H=0xCF;
-TMR1L=0x2C;
-
-if(count==8)
-{
-count=0;
-time_flag=1;
-
-}
-count++;
 TMR1IF=0;
-
-}
-if(RCIF)
-{
-uart_read();
-recieved=1;
+TMR1H=0x0B;
+TMR1L=0xDC;
+timer_flag=1;
 
 
 }
-if(TXIF&TXIE)
-{
-TXIF=0;
-TXIE=0;
-TXREG=transmision_msg;
-
 }
-}
-void delay_ms(int_u32 ds)
-{
-int i,j;
-for(i=0;i<ds;i++)
-for(j=0;j<ds;j++);
-}
-
-void lcd_init()
-{
-TRISD=0X00;
-PORTD=0X00;
-ADCON1=0X06;
-
-lcd_cmnt(0x38);
-lcd_cmnt(0x0c);
-lcd_cmnt(0x01);
-lcd_cmnt(0x80);
-}
-void lcd_cmnt(unsigned char cmnt)
-{
-PORTD=cmnt;
-RE0=0;
-RE1=1;delay(10);RE1=0; ;
-
-}
-void lcd_data(unsigned char data)
-{
-PORTD=data;
-RE0=1;
-RE1=1;delay(10);RE1=0;;
-
-}
-
-
-void delay(int x)
-{
-int i,j;
-for(i=0;i<=x;i++)
-{
-for(j=0;j<=x;j++)
-{}
-}
-}
-
