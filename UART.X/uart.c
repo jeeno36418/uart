@@ -60,7 +60,7 @@ void main()
         sprintf(lcd_msg,"Time:%2d %2d %2d",local_time.HH,local_time.MM,local_time.SS);
         lcd_cmnt(0x80);
         uart_lcd_update(lcd_msg,sizeof(lcd_msg));
-        sprintf(lcd_msg1,"Deepak ");
+        sprintf(lcd_msg1,"Saranya Tech");
         lcd_cmnt(0xC0);
         uart_lcd_update(lcd_msg1,sizeof(lcd_msg1));
         recieved=0;
