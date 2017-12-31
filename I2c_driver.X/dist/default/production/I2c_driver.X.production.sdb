@@ -1,0 +1,379 @@
+[p LITE_MODE AUTOSTATIC PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877A ]
+[d frameptr 6 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\abdiv.c
+[v ___abdiv __abdiv `(c  1 e 1 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\abmod.c
+[v ___abmod __abmod `(c  1 e 1 0 ]
+"33 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\abtoft.c
+[v ___abtoft __abtoft `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\almod.c
+[v ___almod __almod `(l  1 e 4 0 ]
+"42 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\altoft.c
+[v ___altoft __altoft `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\atdiv.c
+[v ___atdiv __atdiv `(m  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\atmod.c
+[v ___atmod __atmod `(m  1 e 3 0 ]
+"37 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\attoft.c
+[v ___attoft __attoft `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"32 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awtoft.c
+[v ___awtoft __awtoft `(f  1 e 3 0 ]
+"492 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\ftge.c
+[v ___ftge __ftge `(b  1 e 0 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\ftneg.c
+[v ___ftneg __ftneg `(f  1 e 3 0 ]
+"18 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+"44 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\fttol.c
+[v ___fttol __fttol `(l  1 e 4 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lbdiv.c
+[v ___lbdiv __lbdiv `(uc  1 e 1 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lbmod.c
+[v ___lbmod __lbmod `(uc  1 e 1 0 ]
+"27 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lbtoft.c
+[v ___lbtoft __lbtoft `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\llmod.c
+[v ___llmod __llmod `(ul  1 e 4 0 ]
+"35 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lltoft.c
+[v ___lltoft __lltoft `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\ltdiv.c
+[v ___ltdiv __ltdiv `(um  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\ltmod.c
+[v ___ltmod __ltmod `(um  1 e 3 0 ]
+"30 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lttoft.c
+[v ___lttoft __lttoft `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"28 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwtoft.c
+[v ___lwtoft __lwtoft `(f  1 e 3 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\Umul24.c
+[v ___tmul __tmul `(um  1 e 3 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\Umul8.c
+[v ___bmul __bmul `(uc  1 e 1 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\pic\eeprom.c
+[v _eecpymem eecpymem `(v  1 e 0 0 ]
+"24
+[v _memcpyee memcpyee `(v  1 e 0 0 ]
+"48
+[v ___eetoc __eetoc `(uc  1 e 1 0 ]
+"56
+[v ___eetoi __eetoi `(ui  1 e 2 0 ]
+"64
+[v ___eetom __eetom `(um  1 e 3 0 ]
+"72
+[v ___eetol __eetol `(ul  1 e 4 0 ]
+"80
+[v ___ctoee __ctoee `(uc  1 e 1 0 ]
+"87
+[v ___itoee __itoee `(ui  1 e 2 0 ]
+"94
+[v ___mtoee __mtoee `(um  1 e 3 0 ]
+"101
+[v ___ltoee __ltoee `(ul  1 e 4 0 ]
+"108
+[v ___eetoft __eetoft `(f  1 e 3 0 ]
+"116
+[v ___eetofl __eetofl `(d  1 e 3 0 ]
+"124
+[v ___fttoee __fttoee `(f  1 e 3 0 ]
+"131
+[v ___fltoee __fltoee `(d  1 e 3 0 ]
+"49 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\pic\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+"21 G:\project\uart\I2c_driver.X\i2c_driver.c
+[v _main main `(v  1 e 0 0 ]
+"75
+[v _i2c_master_init i2c_master_init `(v  1 e 0 0 ]
+"108
+[v _master_tx master_tx `(uc  1 e 1 0 ]
+"138
+[v _master_rx master_rx `(uc  1 e 1 0 ]
+"185
+[v _i2c_slave_init i2c_slave_init `(v  1 e 0 0 ]
+"203
+[v _wait wait `(v  1 e 0 0 ]
+"208
+[v _interrupt_isr interrupt_isr `II(v  1 e 0 0 ]
+"222
+[v _int2char int2char `(v  1 e 0 0 ]
+"37 G:\project\uart\I2c_driver.X\i2c_driver.h
+[v _I2C_Master_Wait I2C_Master_Wait `(v  1 e 0 0 ]
+"41
+[v _I2C_Master_Start I2C_Master_Start `(v  1 e 0 0 ]
+"47
+[v _I2C_Master_RepeatedStart I2C_Master_RepeatedStart `(v  1 e 0 0 ]
+"53
+[v _I2C_Master_Stop I2C_Master_Stop `(v  1 e 0 0 ]
+"59
+[v _I2C_Master_Write I2C_Master_Write `(v  1 e 0 0 ]
+"10 G:\project\uart\I2c_driver.X\lcd_driver.c
+[v _delay_ms delay_ms `(v  1 e 0 0 ]
+"17
+[v _lcd_init lcd_init `(v  1 e 0 0 ]
+"28
+[v _lcd_cmnt lcd_cmnt `(v  1 e 0 0 ]
+"35
+[v _lcd_data lcd_data `(v  1 e 0 0 ]
+"43
+[v _uart_lcd_update uart_lcd_update `(v  1 e 0 0 ]
+"53
+[v _delay delay `(v  1 e 0 0 ]
+"329 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic16f877a.h
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+"440
+[v _INTCON INTCON `VEuc  1 e 1 @11 ]
+"785
+[v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
+"791
+[v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
+"1335
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"1457
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+"1518
+[v _TRISE TRISE `VEuc  1 e 1 @137 ]
+"1707
+[v _SSPCON2 SSPCON2 `VEuc  1 e 1 @145 ]
+"1774
+[v _SSPADD SSPADD `VEuc  1 e 1 @147 ]
+"1780
+[v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
+"2173
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @159 ]
+"2231
+[v _EEDATA EEDATA `VEuc  1 e 1 @268 ]
+"2237
+[v _EEADR EEADR `VEuc  1 e 1 @269 ]
+"2255
+[v _EECON1 EECON1 `VEuc  1 e 1 @396 ]
+"2299
+[v _EECON2 EECON2 `VEuc  1 e 1 @397 ]
+"2311
+[v _ACKDT ACKDT `VEb  1 e 0 @1165 ]
+"2313
+[v _ACKEN ACKEN `VEb  1 e 0 @1164 ]
+"2333
+[v _BCLIE BCLIE `VEb  1 e 0 @1131 ]
+"2349
+[v _CARRY CARRY `VEb  1 e 0 @24 ]
+"2441
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"2481
+[v _PEIE PEIE `VEb  1 e 0 @94 ]
+"2483
+[v _PEN PEN `VEb  1 e 0 @1162 ]
+"2553
+[v _RCEN RCEN `VEb  1 e 0 @1163 ]
+"2559
+[v _RD RD `VEb  1 e 0 @3168 ]
+"2577
+[v _RE0 RE0 `VEb  1 e 0 @72 ]
+"2579
+[v _RE1 RE1 `VEb  1 e 0 @73 ]
+"2589
+[v _RSEN RSEN `VEb  1 e 0 @1161 ]
+"2599
+[v _SEN SEN `VEb  1 e 0 @1160 ]
+"2607
+[v _SSPEN SSPEN `VEb  1 e 0 @165 ]
+"2609
+[v _SSPIE SSPIE `VEb  1 e 0 @1123 ]
+"2611
+[v _SSPIF SSPIF `VEb  1 e 0 @99 ]
+"2707
+[v _TRISC3 TRISC3 `VEb  1 e 0 @1083 ]
+"2709
+[v _TRISC4 TRISC4 `VEb  1 e 0 @1084 ]
+"2759
+[v _WR WR `VEb  1 e 0 @3169 ]
+"2761
+[v _WREN WREN `VEb  1 e 0 @3170 ]
+"354 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c
+[v _dpowers dpowers `DCC[5]ui  1 s 10 dpowers ]
+[s S25 packet 3 `uc 1 address 1 0 `uc 1 data 1 1 `uc 1 ack 1 2 ]
+"14 G:\project\uart\I2c_driver.X\i2c_driver.c
+[v _i2c_pkt i2c_pkt `S25  1 e 3 0 ]
+[s S29 timer_t 7 `uc 1 SS 1 0 `uc 1 MM 1 1 `uc 1 HH 1 2 `uc 1 day 1 3 `uc 1 date 1 4 `uc 1 month 1 5 `uc 1 year 1 6 ]
+"15
+[v _local_time local_time `S29  1 e 7 0 ]
+"16
+[v _timer timer `*.4uc  1 e 1 0 ]
+"17
+[v _lcd_msg lcd_msg `[16]uc  1 e 16 0 ]
+"18
+[v _lcd_msg1 lcd_msg1 `[16]uc  1 e 16 0 ]
+"19
+[v _hour hour `[2]uc  1 e 2 0 ]
+[v _min min `[2]uc  1 e 2 0 ]
+[v _sec sec `[2]uc  1 e 2 0 ]
+[v _day day `uc  1 e 1 0 ]
+[v _date date `[2]uc  1 e 2 0 ]
+[v _month month `[2]uc  1 e 2 0 ]
+[v _year year `[2]uc  1 e 2 0 ]
+"21
+[v _main main `(v  1 e 0 0 ]
+{
+"41
+[v main@i i `i  1 a 2 47 ]
+"73
+} 0
+"43 G:\project\uart\I2c_driver.X\lcd_driver.c
+[v _uart_lcd_update uart_lcd_update `(v  1 e 0 0 ]
+{
+[v uart_lcd_update@data data `*.4uc  1 a 1 wreg ]
+"44
+[v uart_lcd_update@i i `i  1 a 2 6 ]
+"43
+[v uart_lcd_update@data data `*.4uc  1 a 1 wreg ]
+[v uart_lcd_update@len len `uc  1 p 1 8 ]
+"46
+[v uart_lcd_update@data data `*.4uc  1 a 1 5 ]
+"51
+} 0
+"35
+[v _lcd_data lcd_data `(v  1 e 0 0 ]
+{
+[v lcd_data@data data `uc  1 a 1 wreg ]
+[v lcd_data@data data `uc  1 a 1 wreg ]
+"37
+[v lcd_data@data data `uc  1 a 1 7 ]
+"41
+} 0
+"492 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+{
+[v sprintf@sp sp `*.4uc  1 a 1 wreg ]
+[s S202 . 4 `*.1DCCuc 1 _cp 2 0 `ui 1 _len 2 2 ]
+"533
+[u S205 . 4 `ui 1 _val 2 0 `S202 1 _str 4 0 ]
+[v sprintf@_val _val `S205  1 a 4 28 ]
+"499
+[v sprintf@c c `c  1 a 1 33 ]
+"506
+[v sprintf@prec prec `c  1 a 1 27 ]
+"508
+[v sprintf@flag flag `uc  1 a 1 26 ]
+"494
+[v sprintf@ap ap `[1]*.4v  1 a 1 25 ]
+"492
+[v sprintf@sp sp `*.4uc  1 a 1 wreg ]
+[v sprintf@f f `*.24DCCuc  1 p 1 9 ]
+"542
+[v sprintf@sp sp `*.4uc  1 a 1 32 ]
+"1550
+} 0
+"6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwmod@counter counter `uc  1 a 1 8 ]
+"6
+[v ___lwmod@divisor divisor `ui  1 p 2 3 ]
+[v ___lwmod@dividend dividend `ui  1 p 2 5 ]
+"26
+} 0
+"6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwdiv@quotient quotient `ui  1 a 2 0 ]
+"12
+[v ___lwdiv@counter counter `uc  1 a 1 2 ]
+"6
+[v ___lwdiv@divisor divisor `ui  1 p 2 4 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 6 ]
+"31
+} 0
+"108 G:\project\uart\I2c_driver.X\i2c_driver.c
+[v _master_tx master_tx `(uc  1 e 1 0 ]
+{
+[s S25 packet 3 `uc 1 address 1 0 `uc 1 data 1 1 `uc 1 ack 1 2 ]
+"109
+[v master_tx@i2c_pkt i2c_pkt `*.4S25  1 a 1 wreg ]
+[v master_tx@i2c_pkt i2c_pkt `*.4S25  1 a 1 wreg ]
+[v master_tx@i2c_pkt i2c_pkt `*.4S25  1 a 1 5 ]
+"137
+} 0
+"138
+[v _master_rx master_rx `(uc  1 e 1 0 ]
+{
+[s S25 packet 3 `uc 1 address 1 0 `uc 1 data 1 1 `uc 1 ack 1 2 ]
+"139
+[v master_rx@i2c_pkt i2c_pkt `*.4S25  1 a 1 wreg ]
+[v master_rx@i2c_pkt i2c_pkt `*.4S25  1 a 1 wreg ]
+"138
+[v master_rx@rx_time rx_time `*.4uc  1 p 1 4 ]
+"140
+"139
+[v master_rx@i2c_pkt i2c_pkt `*.4S25  1 a 1 6 ]
+"184
+} 0
+"17 G:\project\uart\I2c_driver.X\lcd_driver.c
+[v _lcd_init lcd_init `(v  1 e 0 0 ]
+{
+"27
+} 0
+"28
+[v _lcd_cmnt lcd_cmnt `(v  1 e 0 0 ]
+{
+[v lcd_cmnt@cmnt cmnt `uc  1 a 1 wreg ]
+[v lcd_cmnt@cmnt cmnt `uc  1 a 1 wreg ]
+"30
+[v lcd_cmnt@cmnt cmnt `uc  1 a 1 7 ]
+"34
+} 0
+"53
+[v _delay delay `(v  1 e 0 0 ]
+{
+"55
+[v delay@j j `i  1 a 2 2 ]
+[v delay@i i `i  1 a 2 0 ]
+"53
+[v delay@x x `i  1 p 2 4 ]
+"61
+} 0
+"222 G:\project\uart\I2c_driver.X\i2c_driver.c
+[v _int2char int2char `(v  1 e 0 0 ]
+{
+[v int2char@in in `uc  1 a 1 wreg ]
+[v int2char@in in `uc  1 a 1 wreg ]
+[v int2char@out out `*.4uc  1 p 1 4 ]
+"224
+[v int2char@in in `uc  1 a 1 7 ]
+"227
+} 0
+"75
+[v _i2c_master_init i2c_master_init `(v  1 e 0 0 ]
+{
+"106
+} 0
+"208
+[v _interrupt_isr interrupt_isr `II(v  1 e 0 0 ]
+{
+"221
+} 0
