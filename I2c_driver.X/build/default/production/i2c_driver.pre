@@ -1552,44 +1552,34 @@ int_u8 data;
 int_u8 ack;
 }i2c_pck;
 
+typedef enum key_nav
+{
+SELECT=1,
+DOWN,
+UP=4,
+SET_KEY=8,
+
+}key_nav_t;
+
 int_u8 master_tx(i2c_pck *);
 int_u8 master_rx(i2c_pck *,int_u8 *);
 int_u8 slave_rx(i2c_pck);
 int_u8 slave_tx(i2c_pck);
 int_u8 slave_ack(i2c_pck);
 int_u8 master_ack(i2c_pck);
-void I2C_Master_Write(unsigned d);
-void I2C_Master_Wait()
-{
-while ((SSPSTAT & 0x04) || (SSPCON2 & 0x1F));
-}
-void I2C_Master_Start()
-{
-I2C_Master_Wait();
-SEN = 1;
-}
-
-void I2C_Master_RepeatedStart()
-{
-I2C_Master_Wait();
-RSEN = 1;
-}
-
-void I2C_Master_Stop()
-{
-I2C_Master_Wait();
-PEN = 1;
-}
-
-void I2C_Master_Write(unsigned d)
-{
-I2C_Master_Wait();
-SSPBUF = d;
-}
 void i2c_master_init(void);
 void i2c_slave_init(void);
-void int2char(int_u8 , int_u8 *);
-void wait(void);
+
+void hex2char(int_u8 in, int_u8 *out);
+void hex2integer(int_u8 in, int_u8 *out);
+void int2char(int_u8 in, int_u8 *out);
+void inc_year(int_u8 *);
+void dec_year(int_u8 *);
+
+void master_wait(void);
+void master_start(void);
+void master_stop(void);
+void master_repeat_start(void);
 
 # 10 "lcd_driver.h"
 void lcd_init(void);
@@ -1641,15 +1631,20 @@ int_u8 * timer;
 int_u8 lcd_msg[16]={0};
 int_u8 lcd_msg1[16]={0};
 int_u8 hour[2],min[2],sec[2],day,date[2],month[2],year[2];
-
+int_u8 hour_dec,min_dec,sec_dec,day_dec,date_dec,month_dec,year_dec;
+int_u8 inc = 0,flag = 0;
+int_u8 key_nav=0;
 void main()
 {
 
 
 TRISD=0X00;
 TRISE=0X00;
-TRISB=0X01;
+TRISB=0XFF;
+TRISA=0X00;
 PORTD=0X00;
+RBIE=1;
+OPTION_REG=0XB0;
 
 
 
@@ -1662,35 +1657,70 @@ i2c_master_init();
 
 while(1)
 {
+
 int i;
 
 
-{
 master_tx(&i2c_pkt);
 for(i=0,timer=(int_u8 *)&local_time;i<7;i++,timer++)
 master_rx(&i2c_pkt,timer);
 
 
-int2char(local_time.HH,hour);
-int2char(local_time.MM,min);
-int2char(local_time.SS,sec);
+hex2char(local_time.HH,hour);
+hex2char(local_time.MM,min);
+hex2char(local_time.SS,sec);
 
-sprintf(lcd_msg,"Time: %d%d-%d%d-%d%d",hour[1],hour[0],min[1],min[0],sec[1],sec[0]);
+sprintf(lcd_msg,"Time: %d%d-%d%d-%d%d  ",hour[1],hour[0],min[1],min[0],sec[1],sec[0]);
 lcd_cmnt(0x80);
 uart_lcd_update(lcd_msg,sizeof(lcd_msg));
-int2char(local_time.date,date);
-int2char(local_time.month,month);
-int2char(local_time.year,year);
-sprintf(lcd_msg1,"Date: %d%d-%d%d-%d%d",date[1],date[0],month[1],month[0],year[1],year[0]);
+hex2char(local_time.date,date);
+hex2char(local_time.month,month);
+hex2char(local_time.year,year);
+sprintf(lcd_msg1,"Date: %d%d-%d%d-%d%d  ",date[1],date[0],month[1],month[0],year[1],year[0]);
+lcd_cmnt(0xC0);
+uart_lcd_update(lcd_msg1,sizeof(lcd_msg1));
+delay(100);
+
+
+while(flag)
+{
+
+# 81
+uart_lcd_update(lcd_msg,sizeof(lcd_msg));
+sprintf(lcd_msg1,"Date: %d%d-%d%d-%d%d<-",date[1],date[0],month[1],month[0],year[1],year[0]);
 lcd_cmnt(0xC0);
 uart_lcd_update(lcd_msg1,sizeof(lcd_msg1));
 
+
+
+
+switch(key_nav)
+{
+
+
+case DOWN:
+inc_year(year);
+key_nav=0;
+break;
+
+case UP:
+dec_year(year);
+key_nav=0;
+break;
+
+case SET_KEY:
+
+key_nav=0;
+break;
 }
 
-# 69
+}
+PORTA=1;
+
+# 115
 }
 
-# 73
+# 119
 }
 
 void i2c_master_init(void)
@@ -1705,12 +1735,17 @@ GIE = 1;
 PEIE = 1;
 SSPIE = 1;
 
-# 106
+# 153
 }
 
 int_u8 master_tx(i2c_pck *i2c_pkt)
 {
+RBIE = 0;
 SEN=1;
+if(i2c_pkt->data!=0)
+{
+i2c_pkt->data = 0;
+}
 while(!i2c_pkt->ack)
 {
 
@@ -1731,11 +1766,13 @@ PEN=1;
 while(!i2c_pkt->ack);
 i2c_pkt->ack=0;
 
-# 136
+# 188
+RBIE = 1;
 return 0;
 }
 int_u8 master_rx(i2c_pck *i2c_pkt,int_u8 * rx_time)
 {
+RBIE = 0;
 SEN=1;
 while(!i2c_pkt->ack)
 {
@@ -1748,7 +1785,7 @@ SSPBUF=(i2c_pkt->address<<1|1);
 while(!i2c_pkt->ack);
 i2c_pkt->ack=0;
 
-# 155
+# 209
 RCEN=1;
 while(!i2c_pkt->ack);
 i2c_pkt->ack=0;
@@ -1759,12 +1796,13 @@ ACKEN=1;
 while(!i2c_pkt->ack);
 i2c_pkt->ack=0;
 
-# 173
+# 227
 PEN=1;
 while(!i2c_pkt->ack);
 i2c_pkt->ack=0;
 
-# 182
+# 236
+RBIE = 1;
 return 0;
 
 }
@@ -1803,11 +1841,115 @@ SSPIF = 0;
 
 
 }
+if(RBIF)
+{
+
+
+PORTA=2;
+
+key_nav = ((0XF0&~PORTB)>>4);
+
+
+if(RB4==0)
+{
+flag=!flag;
+}
+
+RBIF = 0;
+
 
 }
-void int2char(int_u8 in, int_u8 *out)
+
+}
+void hex2char(int_u8 in, int_u8 *out)
 {
 *out= in & 0x0f;
 *(out+1)= in>>4;
 
+}
+void hex2integer(int_u8 in, int_u8 *out)
+{
+*out= in & 0x0f + (( in & 0xf0 )>>4 * 10) ;
+
+
+}
+void int2char(int_u8 in, int_u8 *out)
+{
+*out= in % 10 + (in/10)<<4 ;
+
+
+}
+
+void inc_year(int_u8 *data_ptr)
+{
+if(data_ptr[0]==9)
+{
+data_ptr[0]=0;
+if(data_ptr[1]==9)
+{
+data_ptr[1]=0;
+
+}
+else
+{
+data_ptr[1]= data_ptr[1]+1;
+}
+}
+else
+{
+data_ptr[0]=data_ptr[0]+1;
+}
+
+}
+void dec_year(int_u8 *data_ptr)
+{
+if(data_ptr[0]==0)
+{
+data_ptr[0]=9;
+if(data_ptr[1]==0)
+{
+data_ptr[1]=9;
+}
+else
+{
+data_ptr[1]= data_ptr[0]-1;
+}
+}
+else
+{
+data_ptr[0]=data_ptr[0]-1;
+
+}
+
+}
+
+void master_start(void)
+{
+SEN=1;
+while(!i2c_pkt.ack)
+{
+
+
+}
+i2c_pkt.ack=0;
+
+
+}
+void master_stop(void)
+{
+PEN=1;
+while(!i2c_pkt.ack)
+{
+
+}
+i2c_pkt.ack=0;
+}
+void master_repeat_start(void)
+{
+RSEN=1;
+while(!i2c_pkt.ack)
+{
+
+}
+i2c_pkt.ack=0;
 }

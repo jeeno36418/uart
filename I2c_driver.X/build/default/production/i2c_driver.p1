@@ -1,22 +1,10 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"1780 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic16f877a.h
-[v _SSPSTAT `Vuc ~T0 @X0 0 e@148 ]
-"1707
-[v _SSPCON2 `Vuc ~T0 @X0 0 e@145 ]
-"2599
-[v _SEN `Vb ~T0 @X0 0 e@1160 ]
-"2589
-[v _RSEN `Vb ~T0 @X0 0 e@1161 ]
-"2483
-[v _PEN `Vb ~T0 @X0 0 e@1162 ]
-"785
-[v _SSPBUF `Vuc ~T0 @X0 0 e@19 ]
 "23 i2c_driver.h
 [s S101 `uc 1 `uc 1 `uc 1 ]
 [n S101 packet address data ack ]
 "33 global.h
-[s S110 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
-[n S110 timer_t SS MM HH day date month year ]
+[s S102 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S102 timer_t SS MM HH day date month year ]
 [p mainexit ]
 "1457 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic16f877a.h
 [v _TRISD `Vuc ~T0 @X0 0 e@136 ]
@@ -24,30 +12,49 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISE `Vuc ~T0 @X0 0 e@137 ]
 "1335
 [v _TRISB `Vuc ~T0 @X0 0 e@134 ]
+"1286
+[v _TRISA `Vuc ~T0 @X0 0 e@133 ]
 "329
 [v _PORTD `Vuc ~T0 @X0 0 e@8 ]
+"2527
+[v _RBIE `Vb ~T0 @X0 0 e@91 ]
+"1217
+[v _OPTION_REG `Vuc ~T0 @X0 0 e@129 ]
 "10 lcd_driver.h
 [v _lcd_init `(v ~T0 @X0 0 ef ]
-"64 i2c_driver.h
+"45 i2c_driver.h
 [v _i2c_master_init `(v ~T0 @X0 0 ef ]
-"30
+"39
 [v _master_tx `(uc ~T0 @X0 0 ef1`*S101 ]
-"31
+"40
 [v _master_rx `(uc ~T0 @X0 0 ef2`*S101`*uc ]
-"66
-[v _int2char `(v ~T0 @X0 0 ef2`uc`*uc ]
+"48
+[v _hex2char `(v ~T0 @X0 0 ef2`uc`*uc ]
 "205 C:\Program Files (x86)\Microchip\xc8\v1.32\include\stdio.h
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
 "11 lcd_driver.h
 [v _lcd_cmnt `(v ~T0 @X0 0 ef1`uc ]
 "29 global.h
 [v _uart_lcd_update `(v ~T0 @X0 0 ef2`*uc`uc ]
-"2707 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic16f877a.h
+"13 lcd_driver.h
+[v _delay `(v ~T0 @X0 0 ef1`i ]
+"51 i2c_driver.h
+[v _inc_year `(v ~T0 @X0 0 ef1`*uc ]
+"52
+[v _dec_year `(v ~T0 @X0 0 ef1`*uc ]
+"89 i2c_driver.c
+[c E1264 1 2 4 8 .. ]
+[n E1264 key_nav SELECT DOWN UP SET_KEY  ]
+"158 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic16f877a.h
+[v _PORTA `Vuc ~T0 @X0 0 e@5 ]
+"2707
 [v _TRISC3 `Vb ~T0 @X0 0 e@1083 ]
 "2709
 [v _TRISC4 `Vb ~T0 @X0 0 e@1084 ]
 "1774
 [v _SSPADD `Vuc ~T0 @X0 0 e@147 ]
+"1780
+[v _SSPSTAT `Vuc ~T0 @X0 0 e@148 ]
 "791
 [v _SSPCON `Vuc ~T0 @X0 0 e@20 ]
 "2441
@@ -56,6 +63,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PEIE `Vb ~T0 @X0 0 e@94 ]
 "2609
 [v _SSPIE `Vb ~T0 @X0 0 e@1123 ]
+"2599
+[v _SEN `Vb ~T0 @X0 0 e@1160 ]
+"785
+[v _SSPBUF `Vuc ~T0 @X0 0 e@19 ]
+"2483
+[v _PEN `Vb ~T0 @X0 0 e@1162 ]
 "2553
 [v _RCEN `Vb ~T0 @X0 0 e@1163 ]
 "2311
@@ -70,6 +83,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _BCLIE `Vb ~T0 @X0 0 e@1131 ]
 "2611
 [v _SSPIF `Vb ~T0 @X0 0 e@99 ]
+"2529
+[v _RBIF `Vb ~T0 @X0 0 e@88 ]
+"207
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
+"2519
+[v _RB4 `Vb ~T0 @X0 0 e@52 ]
+"2589
+[v _RSEN `Vb ~T0 @X0 0 e@1161 ]
 [; ;stdio.h: 8: typedef int ptrdiff_t;
 [; ;stdio.h: 9: typedef unsigned size_t;
 [; ;stdio.h: 10: typedef unsigned short wchar_t;
@@ -1170,111 +1191,30 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;i2c_driver.h: 26: int_u8 data;
 [; ;i2c_driver.h: 27: int_u8 ack;
 [; ;i2c_driver.h: 28: }i2c_pck;
-[; ;i2c_driver.h: 30: int_u8 master_tx(i2c_pck *);
-[; ;i2c_driver.h: 31: int_u8 master_rx(i2c_pck *,int_u8 *);
-[; ;i2c_driver.h: 32: int_u8 slave_rx(i2c_pck);
-[; ;i2c_driver.h: 33: int_u8 slave_tx(i2c_pck);
-[; ;i2c_driver.h: 34: int_u8 slave_ack(i2c_pck);
-[; ;i2c_driver.h: 35: int_u8 master_ack(i2c_pck);
-[; ;i2c_driver.h: 36: void I2C_Master_Write(unsigned d);
-"37 i2c_driver.h
-[v _I2C_Master_Wait `(v ~T0 @X0 1 ef ]
-"38
-{
-[; ;i2c_driver.h: 37: void I2C_Master_Wait()
-[; ;i2c_driver.h: 38: {
-[e :U _I2C_Master_Wait ]
-[f ]
-[; ;i2c_driver.h: 39: while ((SSPSTAT & 0x04) || (SSPCON2 & 0x1F));
-"39
-[e $U 103  ]
-[e :U 104 ]
-[e :U 103 ]
-[e $ || != & -> _SSPSTAT `i -> 4 `i -> 0 `i != & -> _SSPCON2 `i -> 31 `i -> 0 `i 104  ]
-[e :U 105 ]
-[; ;i2c_driver.h: 40: }
-"40
-[e :UE 102 ]
-}
-"41
-[v _I2C_Master_Start `(v ~T0 @X0 1 ef ]
-"42
-{
-[; ;i2c_driver.h: 41: void I2C_Master_Start()
-[; ;i2c_driver.h: 42: {
-[e :U _I2C_Master_Start ]
-[f ]
-[; ;i2c_driver.h: 43: I2C_Master_Wait();
-"43
-[e ( _I2C_Master_Wait ..  ]
-[; ;i2c_driver.h: 44: SEN = 1;
-"44
-[e = _SEN -> -> 1 `i `b ]
-[; ;i2c_driver.h: 45: }
-"45
-[e :UE 106 ]
-}
-"47
-[v _I2C_Master_RepeatedStart `(v ~T0 @X0 1 ef ]
-"48
-{
-[; ;i2c_driver.h: 47: void I2C_Master_RepeatedStart()
-[; ;i2c_driver.h: 48: {
-[e :U _I2C_Master_RepeatedStart ]
-[f ]
-[; ;i2c_driver.h: 49: I2C_Master_Wait();
-"49
-[e ( _I2C_Master_Wait ..  ]
-[; ;i2c_driver.h: 50: RSEN = 1;
-"50
-[e = _RSEN -> -> 1 `i `b ]
-[; ;i2c_driver.h: 51: }
-"51
-[e :UE 107 ]
-}
-"53
-[v _I2C_Master_Stop `(v ~T0 @X0 1 ef ]
-"54
-{
-[; ;i2c_driver.h: 53: void I2C_Master_Stop()
-[; ;i2c_driver.h: 54: {
-[e :U _I2C_Master_Stop ]
-[f ]
-[; ;i2c_driver.h: 55: I2C_Master_Wait();
-"55
-[e ( _I2C_Master_Wait ..  ]
-[; ;i2c_driver.h: 56: PEN = 1;
-"56
-[e = _PEN -> -> 1 `i `b ]
-[; ;i2c_driver.h: 57: }
-"57
-[e :UE 108 ]
-}
-"59
-[v _I2C_Master_Write `(v ~T0 @X0 1 ef1`ui ]
-"60
-{
-[; ;i2c_driver.h: 59: void I2C_Master_Write(unsigned d)
-[; ;i2c_driver.h: 60: {
-[e :U _I2C_Master_Write ]
-"59
-[v _d `ui ~T0 @X0 1 r1 ]
-"60
-[f ]
-[; ;i2c_driver.h: 61: I2C_Master_Wait();
-"61
-[e ( _I2C_Master_Wait ..  ]
-[; ;i2c_driver.h: 62: SSPBUF = d;
-"62
-[e = _SSPBUF -> _d `uc ]
-[; ;i2c_driver.h: 63: }
-"63
-[e :UE 109 ]
-}
-[; ;i2c_driver.h: 64: void i2c_master_init(void);
-[; ;i2c_driver.h: 65: void i2c_slave_init(void);
-[; ;i2c_driver.h: 66: void int2char(int_u8 , int_u8 *);
-[; ;i2c_driver.h: 67: void wait(void);
+[; ;i2c_driver.h: 30: typedef enum key_nav
+[; ;i2c_driver.h: 31: {
+[; ;i2c_driver.h: 32: SELECT=1,
+[; ;i2c_driver.h: 33: DOWN,
+[; ;i2c_driver.h: 34: UP=4,
+[; ;i2c_driver.h: 35: SET_KEY=8,
+[; ;i2c_driver.h: 37: }key_nav_t;
+[; ;i2c_driver.h: 39: int_u8 master_tx(i2c_pck *);
+[; ;i2c_driver.h: 40: int_u8 master_rx(i2c_pck *,int_u8 *);
+[; ;i2c_driver.h: 41: int_u8 slave_rx(i2c_pck);
+[; ;i2c_driver.h: 42: int_u8 slave_tx(i2c_pck);
+[; ;i2c_driver.h: 43: int_u8 slave_ack(i2c_pck);
+[; ;i2c_driver.h: 44: int_u8 master_ack(i2c_pck);
+[; ;i2c_driver.h: 45: void i2c_master_init(void);
+[; ;i2c_driver.h: 46: void i2c_slave_init(void);
+[; ;i2c_driver.h: 48: void hex2char(int_u8 in, int_u8 *out);
+[; ;i2c_driver.h: 49: void hex2integer(int_u8 in, int_u8 *out);
+[; ;i2c_driver.h: 50: void int2char(int_u8 in, int_u8 *out);
+[; ;i2c_driver.h: 51: void inc_year(int_u8 *);
+[; ;i2c_driver.h: 52: void dec_year(int_u8 *);
+[; ;i2c_driver.h: 54: void master_wait(void);
+[; ;i2c_driver.h: 55: void master_start(void);
+[; ;i2c_driver.h: 56: void master_stop(void);
+[; ;i2c_driver.h: 57: void master_repeat_start(void);
 [; ;lcd_driver.h: 10: void lcd_init(void);
 [; ;lcd_driver.h: 11: void lcd_cmnt(unsigned char );
 [; ;lcd_driver.h: 12: void lcd_data(unsigned char );
@@ -1322,7 +1262,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _i2c_pkt `S101 ~T0 @X0 1 e ]
 [; ;i2c_driver.c: 14: i2c_pck i2c_pkt;
 "15
-[v _local_time `S110 ~T0 @X0 1 e ]
+[v _local_time `S102 ~T0 @X0 1 e ]
 [i _local_time
 :U ..
 :U ..
@@ -1359,440 +1299,877 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _month `uc ~T0 @X0 -> 2 `i e ]
 [v _year `uc ~T0 @X0 -> 2 `i e ]
 [; ;i2c_driver.c: 19: int_u8 hour[2],min[2],sec[2],day,date[2],month[2],year[2];
+"20
+[v _hour_dec `uc ~T0 @X0 1 e ]
+[v _min_dec `uc ~T0 @X0 1 e ]
+[v _sec_dec `uc ~T0 @X0 1 e ]
+[v _day_dec `uc ~T0 @X0 1 e ]
+[v _date_dec `uc ~T0 @X0 1 e ]
+[v _month_dec `uc ~T0 @X0 1 e ]
+[v _year_dec `uc ~T0 @X0 1 e ]
+[; ;i2c_driver.c: 20: int_u8 hour_dec,min_dec,sec_dec,day_dec,date_dec,month_dec,year_dec;
 "21
-[v _main `(v ~T0 @X0 1 ef ]
+[v _inc `uc ~T0 @X0 1 e ]
+[i _inc
+-> -> 0 `i `uc
+]
+[v _flag `uc ~T0 @X0 1 e ]
+[i _flag
+-> -> 0 `i `uc
+]
+[; ;i2c_driver.c: 21: int_u8 inc = 0,flag = 0;
 "22
+[v _key_nav `uc ~T0 @X0 1 e ]
+[i _key_nav
+-> -> 0 `i `uc
+]
+[; ;i2c_driver.c: 22: int_u8 key_nav=0;
+"23
+[v _main `(v ~T0 @X0 1 ef ]
+"24
 {
-[; ;i2c_driver.c: 21: void main()
-[; ;i2c_driver.c: 22: {
+[; ;i2c_driver.c: 23: void main()
+[; ;i2c_driver.c: 24: {
 [e :U _main ]
 [f ]
-[; ;i2c_driver.c: 25: TRISD=0X00;
-"25
-[e = _TRISD -> -> 0 `i `uc ]
-[; ;i2c_driver.c: 26: TRISE=0X00;
-"26
-[e = _TRISE -> -> 0 `i `uc ]
-[; ;i2c_driver.c: 27: TRISB=0X01;
+[; ;i2c_driver.c: 27: TRISD=0X00;
 "27
-[e = _TRISB -> -> 1 `i `uc ]
-[; ;i2c_driver.c: 28: PORTD=0X00;
+[e = _TRISD -> -> 0 `i `uc ]
+[; ;i2c_driver.c: 28: TRISE=0X00;
 "28
+[e = _TRISE -> -> 0 `i `uc ]
+[; ;i2c_driver.c: 29: TRISB=0XFF;
+"29
+[e = _TRISB -> -> 255 `i `uc ]
+[; ;i2c_driver.c: 30: TRISA=0X00;
+"30
+[e = _TRISA -> -> 0 `i `uc ]
+[; ;i2c_driver.c: 31: PORTD=0X00;
+"31
 [e = _PORTD -> -> 0 `i `uc ]
-[; ;i2c_driver.c: 32: i2c_pkt.address=0x68;
+[; ;i2c_driver.c: 32: RBIE=1;
 "32
-[e = . _i2c_pkt 0 -> -> 104 `i `uc ]
-[; ;i2c_driver.c: 33: i2c_pkt.data=0x00;
+[e = _RBIE -> -> 1 `i `b ]
+[; ;i2c_driver.c: 33: OPTION_REG=0XB0;
 "33
-[e = . _i2c_pkt 1 -> -> 0 `i `uc ]
-[; ;i2c_driver.c: 34: i2c_pkt.ack =0;
-"34
-[e = . _i2c_pkt 2 -> -> 0 `i `uc ]
-[; ;i2c_driver.c: 36: lcd_init();
-"36
-[e ( _lcd_init ..  ]
-[; ;i2c_driver.c: 37: i2c_master_init();
+[e = _OPTION_REG -> -> 176 `i `uc ]
+[; ;i2c_driver.c: 37: i2c_pkt.address=0x68;
 "37
-[e ( _i2c_master_init ..  ]
-[; ;i2c_driver.c: 39: while(1)
+[e = . _i2c_pkt 0 -> -> 104 `i `uc ]
+[; ;i2c_driver.c: 38: i2c_pkt.data=0x00;
+"38
+[e = . _i2c_pkt 1 -> -> 0 `i `uc ]
+[; ;i2c_driver.c: 39: i2c_pkt.ack =0;
 "39
-[e :U 113 ]
-[; ;i2c_driver.c: 40: {
-"40
-{
+[e = . _i2c_pkt 2 -> -> 0 `i `uc ]
+[; ;i2c_driver.c: 41: lcd_init();
 "41
-[v _i `i ~T0 @X0 1 a ]
-[; ;i2c_driver.c: 41: int i;
-[; ;i2c_driver.c: 44: {
+[e ( _lcd_init ..  ]
+[; ;i2c_driver.c: 42: i2c_master_init();
+"42
+[e ( _i2c_master_init ..  ]
+[; ;i2c_driver.c: 44: while(1)
 "44
-{
-[; ;i2c_driver.c: 45: master_tx(&i2c_pkt);
+[e :U 105 ]
+[; ;i2c_driver.c: 45: {
 "45
+{
+"47
+[v _i `i ~T0 @X0 1 a ]
+[; ;i2c_driver.c: 47: int i;
+[; ;i2c_driver.c: 50: master_tx(&i2c_pkt);
+"50
 [e ( _master_tx (1 &U _i2c_pkt ]
-[; ;i2c_driver.c: 46: for(i=0,timer=(int_u8 *)&local_time;i<7;i++,timer++)
-"46
+[; ;i2c_driver.c: 51: for(i=0,timer=(int_u8 *)&local_time;i<7;i++,timer++)
+"51
 {
 [e ; = _i -> 0 `i = _timer -> &U _local_time `*uc ]
-[e $ < _i -> 7 `i 115  ]
-[e $U 116  ]
-"47
-[e :U 115 ]
-[; ;i2c_driver.c: 47: master_rx(&i2c_pkt,timer);
-[e ( _master_rx (2 , &U _i2c_pkt _timer ]
-"46
-[e ; ++ _i -> 1 `i ++ _timer * -> -> 1 `i `x -> -> # *U _timer `i `x ]
-[e $ < _i -> 7 `i 115  ]
-[e :U 116 ]
-"47
-}
-[; ;i2c_driver.c: 50: int2char(local_time.HH,hour);
-"50
-[e ( _int2char (2 , . _local_time 2 &U _hour ]
-[; ;i2c_driver.c: 51: int2char(local_time.MM,min);
-"51
-[e ( _int2char (2 , . _local_time 1 &U _min ]
-[; ;i2c_driver.c: 52: int2char(local_time.SS,sec);
+[e $ < _i -> 7 `i 107  ]
+[e $U 108  ]
 "52
-[e ( _int2char (2 , . _local_time 0 &U _sec ]
-[; ;i2c_driver.c: 54: sprintf(lcd_msg,"Time: %d%d-%d%d-%d%d",hour[1],hour[0],min[1],min[0],sec[1],sec[0]);
-"54
-[e ( _sprintf (1 , , , , , , (. , &U _lcd_msg :s 1C -> *U + &U _hour * -> -> -> 1 `i `ui `ux -> -> # *U &U _hour `ui `ux `i -> *U + &U _hour * -> -> -> 0 `i `ui `ux -> -> # *U &U _hour `ui `ux `i -> *U + &U _min * -> -> -> 1 `i `ui `ux -> -> # *U &U _min `ui `ux `i -> *U + &U _min * -> -> -> 0 `i `ui `ux -> -> # *U &U _min `ui `ux `i -> *U + &U _sec * -> -> -> 1 `i `ui `ux -> -> # *U &U _sec `ui `ux `i -> *U + &U _sec * -> -> -> 0 `i `ui `ux -> -> # *U &U _sec `ui `ux `i ]
-[; ;i2c_driver.c: 55: lcd_cmnt(0x80);
+[e :U 107 ]
+[; ;i2c_driver.c: 52: master_rx(&i2c_pkt,timer);
+[e ( _master_rx (2 , &U _i2c_pkt _timer ]
+"51
+[e ; ++ _i -> 1 `i ++ _timer * -> -> 1 `i `x -> -> # *U _timer `i `x ]
+[e $ < _i -> 7 `i 107  ]
+[e :U 108 ]
+"52
+}
+[; ;i2c_driver.c: 55: hex2char(local_time.HH,hour);
 "55
-[e ( _lcd_cmnt (1 -> -> 128 `i `uc ]
-[; ;i2c_driver.c: 56: uart_lcd_update(lcd_msg,sizeof(lcd_msg));
+[e ( _hex2char (2 , . _local_time 2 &U _hour ]
+[; ;i2c_driver.c: 56: hex2char(local_time.MM,min);
 "56
-[e ( _uart_lcd_update (2 , &U _lcd_msg -> -> # _lcd_msg `ui `uc ]
-[; ;i2c_driver.c: 57: int2char(local_time.date,date);
+[e ( _hex2char (2 , . _local_time 1 &U _min ]
+[; ;i2c_driver.c: 57: hex2char(local_time.SS,sec);
 "57
-[e ( _int2char (2 , . _local_time 4 &U _date ]
-[; ;i2c_driver.c: 58: int2char(local_time.month,month);
-"58
-[e ( _int2char (2 , . _local_time 5 &U _month ]
-[; ;i2c_driver.c: 59: int2char(local_time.year,year);
+[e ( _hex2char (2 , . _local_time 0 &U _sec ]
+[; ;i2c_driver.c: 59: sprintf(lcd_msg,"Time: %d%d-%d%d-%d%d  ",hour[1],hour[0],min[1],min[0],sec[1],sec[0]);
 "59
-[e ( _int2char (2 , . _local_time 6 &U _year ]
-[; ;i2c_driver.c: 60: sprintf(lcd_msg1,"Date: %d%d-%d%d-%d%d",date[1],date[0],month[1],month[0],year[1],year[0]);
+[e ( _sprintf (1 , , , , , , (. , &U _lcd_msg :s 1C -> *U + &U _hour * -> -> -> 1 `i `ui `ux -> -> # *U &U _hour `ui `ux `i -> *U + &U _hour * -> -> -> 0 `i `ui `ux -> -> # *U &U _hour `ui `ux `i -> *U + &U _min * -> -> -> 1 `i `ui `ux -> -> # *U &U _min `ui `ux `i -> *U + &U _min * -> -> -> 0 `i `ui `ux -> -> # *U &U _min `ui `ux `i -> *U + &U _sec * -> -> -> 1 `i `ui `ux -> -> # *U &U _sec `ui `ux `i -> *U + &U _sec * -> -> -> 0 `i `ui `ux -> -> # *U &U _sec `ui `ux `i ]
+[; ;i2c_driver.c: 60: lcd_cmnt(0x80);
 "60
-[e ( _sprintf (1 , , , , , , (. , &U _lcd_msg1 :s 2C -> *U + &U _date * -> -> -> 1 `i `ui `ux -> -> # *U &U _date `ui `ux `i -> *U + &U _date * -> -> -> 0 `i `ui `ux -> -> # *U &U _date `ui `ux `i -> *U + &U _month * -> -> -> 1 `i `ui `ux -> -> # *U &U _month `ui `ux `i -> *U + &U _month * -> -> -> 0 `i `ui `ux -> -> # *U &U _month `ui `ux `i -> *U + &U _year * -> -> -> 1 `i `ui `ux -> -> # *U &U _year `ui `ux `i -> *U + &U _year * -> -> -> 0 `i `ui `ux -> -> # *U &U _year `ui `ux `i ]
-[; ;i2c_driver.c: 61: lcd_cmnt(0xC0);
+[e ( _lcd_cmnt (1 -> -> 128 `i `uc ]
+[; ;i2c_driver.c: 61: uart_lcd_update(lcd_msg,sizeof(lcd_msg));
 "61
-[e ( _lcd_cmnt (1 -> -> 192 `i `uc ]
-[; ;i2c_driver.c: 62: uart_lcd_update(lcd_msg1,sizeof(lcd_msg1));
+[e ( _uart_lcd_update (2 , &U _lcd_msg -> -> # _lcd_msg `ui `uc ]
+[; ;i2c_driver.c: 62: hex2char(local_time.date,date);
 "62
-[e ( _uart_lcd_update (2 , &U _lcd_msg1 -> -> # _lcd_msg1 `ui `uc ]
+[e ( _hex2char (2 , . _local_time 4 &U _date ]
+[; ;i2c_driver.c: 63: hex2char(local_time.month,month);
+"63
+[e ( _hex2char (2 , . _local_time 5 &U _month ]
+[; ;i2c_driver.c: 64: hex2char(local_time.year,year);
 "64
-}
-"69
-}
-[e :U 112 ]
-"39
-[e $U 113  ]
-[e :U 114 ]
-[; ;i2c_driver.c: 64: }
-[; ;i2c_driver.c: 69: }
-[; ;i2c_driver.c: 73: }
-"73
-[e :UE 111 ]
-}
-"75
-[v _i2c_master_init `(v ~T0 @X0 1 ef ]
-"76
+[e ( _hex2char (2 , . _local_time 6 &U _year ]
+[; ;i2c_driver.c: 65: sprintf(lcd_msg1,"Date: %d%d-%d%d-%d%d  ",date[1],date[0],month[1],month[0],year[1],year[0]);
+"65
+[e ( _sprintf (1 , , , , , , (. , &U _lcd_msg1 :s 2C -> *U + &U _date * -> -> -> 1 `i `ui `ux -> -> # *U &U _date `ui `ux `i -> *U + &U _date * -> -> -> 0 `i `ui `ux -> -> # *U &U _date `ui `ux `i -> *U + &U _month * -> -> -> 1 `i `ui `ux -> -> # *U &U _month `ui `ux `i -> *U + &U _month * -> -> -> 0 `i `ui `ux -> -> # *U &U _month `ui `ux `i -> *U + &U _year * -> -> -> 1 `i `ui `ux -> -> # *U &U _year `ui `ux `i -> *U + &U _year * -> -> -> 0 `i `ui `ux -> -> # *U &U _year `ui `ux `i ]
+[; ;i2c_driver.c: 66: lcd_cmnt(0xC0);
+"66
+[e ( _lcd_cmnt (1 -> -> 192 `i `uc ]
+[; ;i2c_driver.c: 67: uart_lcd_update(lcd_msg1,sizeof(lcd_msg1));
+"67
+[e ( _uart_lcd_update (2 , &U _lcd_msg1 -> -> # _lcd_msg1 `ui `uc ]
+[; ;i2c_driver.c: 68: delay(100);
+"68
+[e ( _delay (1 -> 100 `i ]
+[; ;i2c_driver.c: 71: while(flag)
+"71
+[e $U 110  ]
+[e :U 111 ]
+[; ;i2c_driver.c: 72: {
+"72
 {
-[; ;i2c_driver.c: 75: void i2c_master_init(void)
-[; ;i2c_driver.c: 76: {
+[; ;i2c_driver.c: 81: uart_lcd_update(lcd_msg,sizeof(lcd_msg));
+"81
+[e ( _uart_lcd_update (2 , &U _lcd_msg -> -> # _lcd_msg `ui `uc ]
+[; ;i2c_driver.c: 82: sprintf(lcd_msg1,"Date: %d%d-%d%d-%d%d<-",date[1],date[0],month[1],month[0],year[1],year[0]);
+"82
+[e ( _sprintf (1 , , , , , , (. , &U _lcd_msg1 :s 3C -> *U + &U _date * -> -> -> 1 `i `ui `ux -> -> # *U &U _date `ui `ux `i -> *U + &U _date * -> -> -> 0 `i `ui `ux -> -> # *U &U _date `ui `ux `i -> *U + &U _month * -> -> -> 1 `i `ui `ux -> -> # *U &U _month `ui `ux `i -> *U + &U _month * -> -> -> 0 `i `ui `ux -> -> # *U &U _month `ui `ux `i -> *U + &U _year * -> -> -> 1 `i `ui `ux -> -> # *U &U _year `ui `ux `i -> *U + &U _year * -> -> -> 0 `i `ui `ux -> -> # *U &U _year `ui `ux `i ]
+[; ;i2c_driver.c: 83: lcd_cmnt(0xC0);
+"83
+[e ( _lcd_cmnt (1 -> -> 192 `i `uc ]
+[; ;i2c_driver.c: 84: uart_lcd_update(lcd_msg1,sizeof(lcd_msg1));
+"84
+[e ( _uart_lcd_update (2 , &U _lcd_msg1 -> -> # _lcd_msg1 `ui `uc ]
+[; ;i2c_driver.c: 89: switch(key_nav)
+"89
+[e $U 114  ]
+[; ;i2c_driver.c: 90: {
+"90
+{
+[; ;i2c_driver.c: 93: case DOWN:
+"93
+[e :U 115 ]
+[; ;i2c_driver.c: 94: inc_year(year);
+"94
+[e ( _inc_year (1 &U _year ]
+[; ;i2c_driver.c: 95: key_nav=0;
+"95
+[e = _key_nav -> -> 0 `i `uc ]
+[; ;i2c_driver.c: 96: break;
+"96
+[e $U 113  ]
+[; ;i2c_driver.c: 98: case UP:
+"98
+[e :U 116 ]
+[; ;i2c_driver.c: 99: dec_year(year);
+"99
+[e ( _dec_year (1 &U _year ]
+[; ;i2c_driver.c: 100: key_nav=0;
+"100
+[e = _key_nav -> -> 0 `i `uc ]
+[; ;i2c_driver.c: 101: break;
+"101
+[e $U 113  ]
+[; ;i2c_driver.c: 103: case SET_KEY:
+"103
+[e :U 117 ]
+[; ;i2c_driver.c: 105: key_nav=0;
+"105
+[e = _key_nav -> -> 0 `i `uc ]
+[; ;i2c_driver.c: 106: break;
+"106
+[e $U 113  ]
+"107
+}
+[; ;i2c_driver.c: 107: }
+[e $U 113  ]
+"89
+[e :U 114 ]
+[e [\ _key_nav , $ -> . `E1264 1 `uc 115
+ , $ -> . `E1264 2 `uc 116
+ , $ -> . `E1264 3 `uc 117
+ 113 ]
+"107
+[e :U 113 ]
+"109
+}
+[e :U 110 ]
+"71
+[e $ != -> _flag `i -> -> -> 0 `i `uc `i 111  ]
+[e :U 112 ]
+[; ;i2c_driver.c: 109: }
+[; ;i2c_driver.c: 110: PORTA=1;
+"110
+[e = _PORTA -> -> 1 `i `uc ]
+"115
+}
+[e :U 104 ]
+"44
+[e $U 105  ]
+[e :U 106 ]
+[; ;i2c_driver.c: 115: }
+[; ;i2c_driver.c: 119: }
+"119
+[e :UE 103 ]
+}
+"121
+[v _i2c_master_init `(v ~T0 @X0 1 ef ]
+"122
+{
+[; ;i2c_driver.c: 121: void i2c_master_init(void)
+[; ;i2c_driver.c: 122: {
 [e :U _i2c_master_init ]
 [f ]
-[; ;i2c_driver.c: 78: TRISC3 = 1;
-"78
+[; ;i2c_driver.c: 124: TRISC3 = 1;
+"124
 [e = _TRISC3 -> -> 1 `i `b ]
-[; ;i2c_driver.c: 79: TRISC4 = 1;
-"79
+[; ;i2c_driver.c: 125: TRISC4 = 1;
+"125
 [e = _TRISC4 -> -> 1 `i `b ]
-[; ;i2c_driver.c: 80: SSPADD = 0x28;
-"80
+[; ;i2c_driver.c: 126: SSPADD = 0x28;
+"126
 [e = _SSPADD -> -> 40 `i `uc ]
-[; ;i2c_driver.c: 81: SSPSTAT |= 0x80;
-"81
+[; ;i2c_driver.c: 127: SSPSTAT |= 0x80;
+"127
 [e =| _SSPSTAT -> -> 128 `i `uc ]
-[; ;i2c_driver.c: 82: SSPCON = 0x28;
-"82
+[; ;i2c_driver.c: 128: SSPCON = 0x28;
+"128
 [e = _SSPCON -> -> 40 `i `uc ]
-[; ;i2c_driver.c: 83: GIE = 1;
-"83
+[; ;i2c_driver.c: 129: GIE = 1;
+"129
 [e = _GIE -> -> 1 `i `b ]
-[; ;i2c_driver.c: 84: PEIE = 1;
-"84
+[; ;i2c_driver.c: 130: PEIE = 1;
+"130
 [e = _PEIE -> -> 1 `i `b ]
-[; ;i2c_driver.c: 85: SSPIE = 1;
-"85
+[; ;i2c_driver.c: 131: SSPIE = 1;
+"131
 [e = _SSPIE -> -> 1 `i `b ]
-[; ;i2c_driver.c: 106: }
-"106
+[; ;i2c_driver.c: 153: }
+"153
 [e :UE 118 ]
 }
-"108
+"155
 [v _master_tx `(uc ~T0 @X0 1 ef1`*S101 ]
-"109
+"156
 {
-[; ;i2c_driver.c: 108: int_u8 master_tx(i2c_pck *i2c_pkt)
-[; ;i2c_driver.c: 109: {
+[; ;i2c_driver.c: 155: int_u8 master_tx(i2c_pck *i2c_pkt)
+[; ;i2c_driver.c: 156: {
 [e :U _master_tx ]
 [v _i2c_pkt `*S101 ~T0 @X0 1 r1 ]
 [f ]
-[; ;i2c_driver.c: 110: SEN=1;
-"110
+[; ;i2c_driver.c: 157: RBIE = 0;
+"157
+[e = _RBIE -> -> 0 `i `b ]
+[; ;i2c_driver.c: 158: SEN=1;
+"158
 [e = _SEN -> -> 1 `i `b ]
-[; ;i2c_driver.c: 111: while(!i2c_pkt->ack)
-"111
-[e $U 120  ]
-[e :U 121 ]
-[; ;i2c_driver.c: 112: {
-"112
+[; ;i2c_driver.c: 159: if(i2c_pkt->data!=0)
+"159
+[e $ ! != -> . *U _i2c_pkt 1 `i -> 0 `i 120  ]
+[; ;i2c_driver.c: 160: {
+"160
 {
-"115
+[; ;i2c_driver.c: 161: i2c_pkt->data = 0;
+"161
+[e = . *U _i2c_pkt 1 -> -> 0 `i `uc ]
+"162
 }
 [e :U 120 ]
-"111
-[e $ ! != -> . *U _i2c_pkt 2 `i -> -> -> 0 `i `uc `i 121  ]
+[; ;i2c_driver.c: 162: }
+[; ;i2c_driver.c: 163: while(!i2c_pkt->ack)
+"163
+[e $U 121  ]
 [e :U 122 ]
-[; ;i2c_driver.c: 115: }
-[; ;i2c_driver.c: 116: i2c_pkt->ack=0;
-"116
-[e = . *U _i2c_pkt 2 -> -> 0 `i `uc ]
-[; ;i2c_driver.c: 118: SSPBUF=(i2c_pkt->address<<1|0);
-"118
-[e = _SSPBUF -> | << -> . *U _i2c_pkt 0 `i -> 1 `i -> 0 `i `uc ]
-[; ;i2c_driver.c: 119: while(!i2c_pkt->ack);
-"119
-[e $U 123  ]
-[e :U 124 ]
+[; ;i2c_driver.c: 164: {
+"164
+{
+"167
+}
+[e :U 121 ]
+"163
+[e $ ! != -> . *U _i2c_pkt 2 `i -> -> -> 0 `i `uc `i 122  ]
 [e :U 123 ]
-[e $ ! != -> . *U _i2c_pkt 2 `i -> -> -> 0 `i `uc `i 124  ]
+[; ;i2c_driver.c: 167: }
+[; ;i2c_driver.c: 168: i2c_pkt->ack=0;
+"168
+[e = . *U _i2c_pkt 2 -> -> 0 `i `uc ]
+[; ;i2c_driver.c: 170: SSPBUF=(i2c_pkt->address<<1|0);
+"170
+[e = _SSPBUF -> | << -> . *U _i2c_pkt 0 `i -> 1 `i -> 0 `i `uc ]
+[; ;i2c_driver.c: 171: while(!i2c_pkt->ack);
+"171
+[e $U 124  ]
 [e :U 125 ]
-[; ;i2c_driver.c: 120: i2c_pkt->ack=0;
-"120
-[e = . *U _i2c_pkt 2 -> -> 0 `i `uc ]
-[; ;i2c_driver.c: 121: SSPBUF=i2c_pkt->data;
-"121
-[e = _SSPBUF . *U _i2c_pkt 1 ]
-[; ;i2c_driver.c: 123: while(!i2c_pkt->ack);
-"123
-[e $U 126  ]
-[e :U 127 ]
+[e :U 124 ]
+[e $ ! != -> . *U _i2c_pkt 2 `i -> -> -> 0 `i `uc `i 125  ]
 [e :U 126 ]
-[e $ ! != -> . *U _i2c_pkt 2 `i -> -> -> 0 `i `uc `i 127  ]
+[; ;i2c_driver.c: 172: i2c_pkt->ack=0;
+"172
+[e = . *U _i2c_pkt 2 -> -> 0 `i `uc ]
+[; ;i2c_driver.c: 173: SSPBUF=i2c_pkt->data;
+"173
+[e = _SSPBUF . *U _i2c_pkt 1 ]
+[; ;i2c_driver.c: 175: while(!i2c_pkt->ack);
+"175
+[e $U 127  ]
 [e :U 128 ]
-[; ;i2c_driver.c: 124: i2c_pkt->ack=0;
-"124
-[e = . *U _i2c_pkt 2 -> -> 0 `i `uc ]
-[; ;i2c_driver.c: 127: PEN=1;
-"127
-[e = _PEN -> -> 1 `i `b ]
-[; ;i2c_driver.c: 128: while(!i2c_pkt->ack);
-"128
-[e $U 129  ]
-[e :U 130 ]
+[e :U 127 ]
+[e $ ! != -> . *U _i2c_pkt 2 `i -> -> -> 0 `i `uc `i 128  ]
 [e :U 129 ]
-[e $ ! != -> . *U _i2c_pkt 2 `i -> -> -> 0 `i `uc `i 130  ]
-[e :U 131 ]
-[; ;i2c_driver.c: 129: i2c_pkt->ack=0;
-"129
+[; ;i2c_driver.c: 176: i2c_pkt->ack=0;
+"176
 [e = . *U _i2c_pkt 2 -> -> 0 `i `uc ]
-[; ;i2c_driver.c: 136: return 0;
-"136
+[; ;i2c_driver.c: 179: PEN=1;
+"179
+[e = _PEN -> -> 1 `i `b ]
+[; ;i2c_driver.c: 180: while(!i2c_pkt->ack);
+"180
+[e $U 130  ]
+[e :U 131 ]
+[e :U 130 ]
+[e $ ! != -> . *U _i2c_pkt 2 `i -> -> -> 0 `i `uc `i 131  ]
+[e :U 132 ]
+[; ;i2c_driver.c: 181: i2c_pkt->ack=0;
+"181
+[e = . *U _i2c_pkt 2 -> -> 0 `i `uc ]
+[; ;i2c_driver.c: 188: RBIE = 1;
+"188
+[e = _RBIE -> -> 1 `i `b ]
+[; ;i2c_driver.c: 189: return 0;
+"189
 [e ) -> -> 0 `i `uc ]
 [e $UE 119  ]
-[; ;i2c_driver.c: 137: }
-"137
+[; ;i2c_driver.c: 190: }
+"190
 [e :UE 119 ]
 }
-"138
+"191
 [v _master_rx `(uc ~T0 @X0 1 ef2`*S101`*uc ]
-"139
+"192
 {
-[; ;i2c_driver.c: 138: int_u8 master_rx(i2c_pck *i2c_pkt,int_u8 * rx_time)
-[; ;i2c_driver.c: 139: {
+[; ;i2c_driver.c: 191: int_u8 master_rx(i2c_pck *i2c_pkt,int_u8 * rx_time)
+[; ;i2c_driver.c: 192: {
 [e :U _master_rx ]
 [v _i2c_pkt `*S101 ~T0 @X0 1 r1 ]
-"138
+"191
 [v _rx_time `*uc ~T0 @X0 1 r2 ]
-"139
+"192
 [f ]
-[; ;i2c_driver.c: 140: SEN=1;
-"140
+[; ;i2c_driver.c: 193: RBIE = 0;
+"193
+[e = _RBIE -> -> 0 `i `b ]
+[; ;i2c_driver.c: 194: SEN=1;
+"194
 [e = _SEN -> -> 1 `i `b ]
-[; ;i2c_driver.c: 141: while(!i2c_pkt->ack)
-"141
-[e $U 133  ]
-[e :U 134 ]
-[; ;i2c_driver.c: 142: {
-"142
-{
-"145
-}
-[e :U 133 ]
-"141
-[e $ ! != -> . *U _i2c_pkt 2 `i -> -> -> 0 `i `uc `i 134  ]
+[; ;i2c_driver.c: 195: while(!i2c_pkt->ack)
+"195
+[e $U 134  ]
 [e :U 135 ]
-[; ;i2c_driver.c: 145: }
-[; ;i2c_driver.c: 146: i2c_pkt->ack=0;
-"146
-[e = . *U _i2c_pkt 2 -> -> 0 `i `uc ]
-[; ;i2c_driver.c: 148: SSPBUF=(i2c_pkt->address<<1|1);
-"148
-[e = _SSPBUF -> | << -> . *U _i2c_pkt 0 `i -> 1 `i -> 1 `i `uc ]
-[; ;i2c_driver.c: 149: while(!i2c_pkt->ack);
-"149
-[e $U 136  ]
-[e :U 137 ]
-[e :U 136 ]
-[e $ ! != -> . *U _i2c_pkt 2 `i -> -> -> 0 `i `uc `i 137  ]
-[e :U 138 ]
-[; ;i2c_driver.c: 150: i2c_pkt->ack=0;
-"150
-[e = . *U _i2c_pkt 2 -> -> 0 `i `uc ]
-[; ;i2c_driver.c: 155: RCEN=1;
-"155
-[e = _RCEN -> -> 1 `i `b ]
-[; ;i2c_driver.c: 156: while(!i2c_pkt->ack);
-"156
-[e $U 139  ]
-[e :U 140 ]
-[e :U 139 ]
-[e $ ! != -> . *U _i2c_pkt 2 `i -> -> -> 0 `i `uc `i 140  ]
-[e :U 141 ]
-[; ;i2c_driver.c: 157: i2c_pkt->ack=0;
-"157
-[e = . *U _i2c_pkt 2 -> -> 0 `i `uc ]
-[; ;i2c_driver.c: 158: *rx_time=SSPBUF;
-"158
-[e = *U _rx_time _SSPBUF ]
-[; ;i2c_driver.c: 160: ACKDT=1 ;
-"160
-[e = _ACKDT -> -> 1 `i `b ]
-[; ;i2c_driver.c: 161: ACKEN=1;
-"161
-[e = _ACKEN -> -> 1 `i `b ]
-[; ;i2c_driver.c: 162: while(!i2c_pkt->ack);
-"162
-[e $U 142  ]
-[e :U 143 ]
-[e :U 142 ]
-[e $ ! != -> . *U _i2c_pkt 2 `i -> -> -> 0 `i `uc `i 143  ]
-[e :U 144 ]
-[; ;i2c_driver.c: 163: i2c_pkt->ack=0;
-"163
-[e = . *U _i2c_pkt 2 -> -> 0 `i `uc ]
-[; ;i2c_driver.c: 173: PEN=1;
-"173
-[e = _PEN -> -> 1 `i `b ]
-[; ;i2c_driver.c: 174: while(!i2c_pkt->ack);
-"174
-[e $U 145  ]
-[e :U 146 ]
-[e :U 145 ]
-[e $ ! != -> . *U _i2c_pkt 2 `i -> -> -> 0 `i `uc `i 146  ]
-[e :U 147 ]
-[; ;i2c_driver.c: 175: i2c_pkt->ack=0;
-"175
-[e = . *U _i2c_pkt 2 -> -> 0 `i `uc ]
-[; ;i2c_driver.c: 182: return 0;
-"182
-[e ) -> -> 0 `i `uc ]
-[e $UE 132  ]
-[; ;i2c_driver.c: 184: }
-"184
-[e :UE 132 ]
-}
-"185
-[v _i2c_slave_init `(v ~T0 @X0 1 ef ]
-"186
+[; ;i2c_driver.c: 196: {
+"196
 {
-[; ;i2c_driver.c: 185: void i2c_slave_init()
-[; ;i2c_driver.c: 186: {
+"199
+}
+[e :U 134 ]
+"195
+[e $ ! != -> . *U _i2c_pkt 2 `i -> -> -> 0 `i `uc `i 135  ]
+[e :U 136 ]
+[; ;i2c_driver.c: 199: }
+[; ;i2c_driver.c: 200: i2c_pkt->ack=0;
+"200
+[e = . *U _i2c_pkt 2 -> -> 0 `i `uc ]
+[; ;i2c_driver.c: 202: SSPBUF=(i2c_pkt->address<<1|1);
+"202
+[e = _SSPBUF -> | << -> . *U _i2c_pkt 0 `i -> 1 `i -> 1 `i `uc ]
+[; ;i2c_driver.c: 203: while(!i2c_pkt->ack);
+"203
+[e $U 137  ]
+[e :U 138 ]
+[e :U 137 ]
+[e $ ! != -> . *U _i2c_pkt 2 `i -> -> -> 0 `i `uc `i 138  ]
+[e :U 139 ]
+[; ;i2c_driver.c: 204: i2c_pkt->ack=0;
+"204
+[e = . *U _i2c_pkt 2 -> -> 0 `i `uc ]
+[; ;i2c_driver.c: 209: RCEN=1;
+"209
+[e = _RCEN -> -> 1 `i `b ]
+[; ;i2c_driver.c: 210: while(!i2c_pkt->ack);
+"210
+[e $U 140  ]
+[e :U 141 ]
+[e :U 140 ]
+[e $ ! != -> . *U _i2c_pkt 2 `i -> -> -> 0 `i `uc `i 141  ]
+[e :U 142 ]
+[; ;i2c_driver.c: 211: i2c_pkt->ack=0;
+"211
+[e = . *U _i2c_pkt 2 -> -> 0 `i `uc ]
+[; ;i2c_driver.c: 212: *rx_time=SSPBUF;
+"212
+[e = *U _rx_time _SSPBUF ]
+[; ;i2c_driver.c: 214: ACKDT=1 ;
+"214
+[e = _ACKDT -> -> 1 `i `b ]
+[; ;i2c_driver.c: 215: ACKEN=1;
+"215
+[e = _ACKEN -> -> 1 `i `b ]
+[; ;i2c_driver.c: 216: while(!i2c_pkt->ack);
+"216
+[e $U 143  ]
+[e :U 144 ]
+[e :U 143 ]
+[e $ ! != -> . *U _i2c_pkt 2 `i -> -> -> 0 `i `uc `i 144  ]
+[e :U 145 ]
+[; ;i2c_driver.c: 217: i2c_pkt->ack=0;
+"217
+[e = . *U _i2c_pkt 2 -> -> 0 `i `uc ]
+[; ;i2c_driver.c: 227: PEN=1;
+"227
+[e = _PEN -> -> 1 `i `b ]
+[; ;i2c_driver.c: 228: while(!i2c_pkt->ack);
+"228
+[e $U 146  ]
+[e :U 147 ]
+[e :U 146 ]
+[e $ ! != -> . *U _i2c_pkt 2 `i -> -> -> 0 `i `uc `i 147  ]
+[e :U 148 ]
+[; ;i2c_driver.c: 229: i2c_pkt->ack=0;
+"229
+[e = . *U _i2c_pkt 2 -> -> 0 `i `uc ]
+[; ;i2c_driver.c: 236: RBIE = 1;
+"236
+[e = _RBIE -> -> 1 `i `b ]
+[; ;i2c_driver.c: 237: return 0;
+"237
+[e ) -> -> 0 `i `uc ]
+[e $UE 133  ]
+[; ;i2c_driver.c: 239: }
+"239
+[e :UE 133 ]
+}
+"240
+[v _i2c_slave_init `(v ~T0 @X0 1 ef ]
+"241
+{
+[; ;i2c_driver.c: 240: void i2c_slave_init()
+[; ;i2c_driver.c: 241: {
 [e :U _i2c_slave_init ]
 [f ]
-[; ;i2c_driver.c: 187: TRISC3 = 1;
-"187
+[; ;i2c_driver.c: 242: TRISC3 = 1;
+"242
 [e = _TRISC3 -> -> 1 `i `b ]
-[; ;i2c_driver.c: 188: TRISC4 = 1;
-"188
+[; ;i2c_driver.c: 243: TRISC4 = 1;
+"243
 [e = _TRISC4 -> -> 1 `i `b ]
-[; ;i2c_driver.c: 189: SSPEN = 1;
-"189
+[; ;i2c_driver.c: 244: SSPEN = 1;
+"244
 [e = _SSPEN -> -> 1 `i `b ]
-[; ;i2c_driver.c: 190: SSPCON |= 0x08;
-"190
+[; ;i2c_driver.c: 245: SSPCON |= 0x08;
+"245
 [e =| _SSPCON -> -> 8 `i `uc ]
-[; ;i2c_driver.c: 191: SSPADD = 0x09;
-"191
+[; ;i2c_driver.c: 246: SSPADD = 0x09;
+"246
 [e = _SSPADD -> -> 9 `i `uc ]
-[; ;i2c_driver.c: 192: INTCON = 0xC0;
-"192
+[; ;i2c_driver.c: 247: INTCON = 0xC0;
+"247
 [e = _INTCON -> -> 192 `i `uc ]
-[; ;i2c_driver.c: 193: SSPIE = 1;
-"193
+[; ;i2c_driver.c: 248: SSPIE = 1;
+"248
 [e = _SSPIE -> -> 1 `i `b ]
-[; ;i2c_driver.c: 194: BCLIE = 1;
-"194
+[; ;i2c_driver.c: 249: BCLIE = 1;
+"249
 [e = _BCLIE -> -> 1 `i `b ]
-[; ;i2c_driver.c: 196: GIE = 1;
-"196
+[; ;i2c_driver.c: 251: GIE = 1;
+"251
 [e = _GIE -> -> 1 `i `b ]
-[; ;i2c_driver.c: 197: PEIE = 1;
-"197
+[; ;i2c_driver.c: 252: PEIE = 1;
+"252
 [e = _PEIE -> -> 1 `i `b ]
-[; ;i2c_driver.c: 198: SSPIE = 1;
-"198
+[; ;i2c_driver.c: 253: SSPIE = 1;
+"253
 [e = _SSPIE -> -> 1 `i `b ]
-[; ;i2c_driver.c: 202: }
-"202
-[e :UE 148 ]
-}
-"203
-[v _wait `(v ~T0 @X0 1 ef ]
-"204
-{
-[; ;i2c_driver.c: 203: void wait()
-[; ;i2c_driver.c: 204: {
-[e :U _wait ]
-[f ]
-[; ;i2c_driver.c: 206: }
-"206
+[; ;i2c_driver.c: 257: }
+"257
 [e :UE 149 ]
 }
-[v F1354 `(v ~T0 @X0 1 tf ]
-"208
-[v _interrupt_isr `IF1354 ~T0 @X0 1 e ]
-"209
+"258
+[v _wait `(v ~T0 @X0 1 ef ]
+"259
 {
-[; ;i2c_driver.c: 208: void interrupt interrupt_isr(void)
-[; ;i2c_driver.c: 209: {
-[e :U _interrupt_isr ]
+[; ;i2c_driver.c: 258: void wait()
+[; ;i2c_driver.c: 259: {
+[e :U _wait ]
 [f ]
-[; ;i2c_driver.c: 211: if(SSPIF)
-"211
-[e $ ! _SSPIF 151  ]
-[; ;i2c_driver.c: 212: {
-"212
-{
-[; ;i2c_driver.c: 213: i2c_pkt.ack=1;
-"213
-[e = . _i2c_pkt 2 -> -> 1 `i `uc ]
-[; ;i2c_driver.c: 216: SSPIF = 0;
-"216
-[e = _SSPIF -> -> 0 `i `b ]
-"219
-}
-[e :U 151 ]
-[; ;i2c_driver.c: 219: }
-[; ;i2c_driver.c: 221: }
-"221
+[; ;i2c_driver.c: 261: }
+"261
 [e :UE 150 ]
 }
-"222
-[v _int2char `(v ~T0 @X0 1 ef2`uc`*uc ]
-"223
+[v F1380 `(v ~T0 @X0 1 tf ]
+"263
+[v _interrupt_isr `IF1380 ~T0 @X0 1 e ]
+"264
 {
-[; ;i2c_driver.c: 222: void int2char(int_u8 in, int_u8 *out)
-[; ;i2c_driver.c: 223: {
-[e :U _int2char ]
-"222
+[; ;i2c_driver.c: 263: void interrupt interrupt_isr(void)
+[; ;i2c_driver.c: 264: {
+[e :U _interrupt_isr ]
+[f ]
+[; ;i2c_driver.c: 266: if(SSPIF)
+"266
+[e $ ! _SSPIF 152  ]
+[; ;i2c_driver.c: 267: {
+"267
+{
+[; ;i2c_driver.c: 268: i2c_pkt.ack=1;
+"268
+[e = . _i2c_pkt 2 -> -> 1 `i `uc ]
+[; ;i2c_driver.c: 271: SSPIF = 0;
+"271
+[e = _SSPIF -> -> 0 `i `b ]
+"274
+}
+[e :U 152 ]
+[; ;i2c_driver.c: 274: }
+[; ;i2c_driver.c: 275: if(RBIF)
+"275
+[e $ ! _RBIF 153  ]
+[; ;i2c_driver.c: 276: {
+"276
+{
+[; ;i2c_driver.c: 279: PORTA=2;
+"279
+[e = _PORTA -> -> 2 `i `uc ]
+[; ;i2c_driver.c: 281: key_nav = ((0XF0&~PORTB)>>4);
+"281
+[e = _key_nav -> >> & -> 240 `i ~ -> _PORTB `i -> 4 `i `uc ]
+[; ;i2c_driver.c: 284: if(RB4==0)
+"284
+[e $ ! == -> _RB4 `i -> 0 `i 154  ]
+[; ;i2c_driver.c: 285: {
+"285
+{
+[; ;i2c_driver.c: 286: flag=!flag;
+"286
+[e = _flag -> -> ! != -> _flag `i -> -> -> 0 `i `uc `i `i `uc ]
+"287
+}
+[e :U 154 ]
+[; ;i2c_driver.c: 287: }
+[; ;i2c_driver.c: 289: RBIF = 0;
+"289
+[e = _RBIF -> -> 0 `i `b ]
+"292
+}
+[e :U 153 ]
+[; ;i2c_driver.c: 292: }
+[; ;i2c_driver.c: 294: }
+"294
+[e :UE 151 ]
+}
+"295
+[v _hex2char `(v ~T0 @X0 1 ef2`uc`*uc ]
+"296
+{
+[; ;i2c_driver.c: 295: void hex2char(int_u8 in, int_u8 *out)
+[; ;i2c_driver.c: 296: {
+[e :U _hex2char ]
+"295
 [v _in `uc ~T0 @X0 1 r1 ]
 [v _out `*uc ~T0 @X0 1 r2 ]
-"223
+"296
 [f ]
-[; ;i2c_driver.c: 224: *out= in & 0x0f;
-"224
+[; ;i2c_driver.c: 297: *out= in & 0x0f;
+"297
 [e = *U _out -> & -> _in `i -> 15 `i `uc ]
-[; ;i2c_driver.c: 225: *(out+1)= in>>4;
-"225
+[; ;i2c_driver.c: 298: *(out+1)= in>>4;
+"298
 [e = *U + _out * -> -> 1 `i `x -> -> # *U _out `i `x -> >> -> _in `i -> 4 `i `uc ]
-[; ;i2c_driver.c: 227: }
-"227
-[e :UE 152 ]
+[; ;i2c_driver.c: 300: }
+"300
+[e :UE 155 ]
+}
+"301
+[v _hex2integer `(v ~T0 @X0 1 ef2`uc`*uc ]
+"302
+{
+[; ;i2c_driver.c: 301: void hex2integer(int_u8 in, int_u8 *out)
+[; ;i2c_driver.c: 302: {
+[e :U _hex2integer ]
+"301
+[v _in `uc ~T0 @X0 1 r1 ]
+[v _out `*uc ~T0 @X0 1 r2 ]
+"302
+[f ]
+[; ;i2c_driver.c: 303: *out= in & 0x0f + (( in & 0xf0 )>>4 * 10) ;
+"303
+[e = *U _out -> & -> _in `i + -> 15 `i >> & -> _in `i -> 240 `i * -> 4 `i -> 10 `i `uc ]
+[; ;i2c_driver.c: 306: }
+"306
+[e :UE 156 ]
+}
+"307
+[v _int2char `(v ~T0 @X0 1 ef2`uc`*uc ]
+"308
+{
+[; ;i2c_driver.c: 307: void int2char(int_u8 in, int_u8 *out)
+[; ;i2c_driver.c: 308: {
+[e :U _int2char ]
+"307
+[v _in `uc ~T0 @X0 1 r1 ]
+[v _out `*uc ~T0 @X0 1 r2 ]
+"308
+[f ]
+[; ;i2c_driver.c: 309: *out= in % 10 + (in/10)<<4 ;
+"309
+[e = *U _out -> << + % -> _in `i -> 10 `i / -> _in `i -> 10 `i -> 4 `i `uc ]
+[; ;i2c_driver.c: 312: }
+"312
+[e :UE 157 ]
+}
+"314
+[v _inc_year `(v ~T0 @X0 1 ef1`*uc ]
+"315
+{
+[; ;i2c_driver.c: 314: void inc_year(int_u8 *data_ptr)
+[; ;i2c_driver.c: 315: {
+[e :U _inc_year ]
+"314
+[v _data_ptr `*uc ~T0 @X0 1 r1 ]
+"315
+[f ]
+[; ;i2c_driver.c: 316: if(data_ptr[0]==9)
+"316
+[e $ ! == -> *U + _data_ptr * -> -> 0 `i `x -> -> # *U _data_ptr `i `x `i -> 9 `i 159  ]
+[; ;i2c_driver.c: 317: {
+"317
+{
+[; ;i2c_driver.c: 318: data_ptr[0]=0;
+"318
+[e = *U + _data_ptr * -> -> 0 `i `x -> -> # *U _data_ptr `i `x -> -> 0 `i `uc ]
+[; ;i2c_driver.c: 319: if(data_ptr[1]==9)
+"319
+[e $ ! == -> *U + _data_ptr * -> -> 1 `i `x -> -> # *U _data_ptr `i `x `i -> 9 `i 160  ]
+[; ;i2c_driver.c: 320: {
+"320
+{
+[; ;i2c_driver.c: 321: data_ptr[1]=0;
+"321
+[e = *U + _data_ptr * -> -> 1 `i `x -> -> # *U _data_ptr `i `x -> -> 0 `i `uc ]
+"323
+}
+[; ;i2c_driver.c: 323: }
+[e $U 161  ]
+"324
+[e :U 160 ]
+[; ;i2c_driver.c: 324: else
+[; ;i2c_driver.c: 325: {
+"325
+{
+[; ;i2c_driver.c: 326: data_ptr[1]= data_ptr[1]+1;
+"326
+[e = *U + _data_ptr * -> -> 1 `i `x -> -> # *U _data_ptr `i `x -> + -> *U + _data_ptr * -> -> 1 `i `x -> -> # *U _data_ptr `i `x `i -> 1 `i `uc ]
+"327
+}
+[e :U 161 ]
+"328
+}
+[; ;i2c_driver.c: 327: }
+[; ;i2c_driver.c: 328: }
+[e $U 162  ]
+"329
+[e :U 159 ]
+[; ;i2c_driver.c: 329: else
+[; ;i2c_driver.c: 330: {
+"330
+{
+[; ;i2c_driver.c: 331: data_ptr[0]=data_ptr[0]+1;
+"331
+[e = *U + _data_ptr * -> -> 0 `i `x -> -> # *U _data_ptr `i `x -> + -> *U + _data_ptr * -> -> 0 `i `x -> -> # *U _data_ptr `i `x `i -> 1 `i `uc ]
+"332
+}
+[e :U 162 ]
+[; ;i2c_driver.c: 332: }
+[; ;i2c_driver.c: 334: }
+"334
+[e :UE 158 ]
+}
+"335
+[v _dec_year `(v ~T0 @X0 1 ef1`*uc ]
+"336
+{
+[; ;i2c_driver.c: 335: void dec_year(int_u8 *data_ptr)
+[; ;i2c_driver.c: 336: {
+[e :U _dec_year ]
+"335
+[v _data_ptr `*uc ~T0 @X0 1 r1 ]
+"336
+[f ]
+[; ;i2c_driver.c: 337: if(data_ptr[0]==0)
+"337
+[e $ ! == -> *U + _data_ptr * -> -> 0 `i `x -> -> # *U _data_ptr `i `x `i -> 0 `i 164  ]
+[; ;i2c_driver.c: 338: {
+"338
+{
+[; ;i2c_driver.c: 339: data_ptr[0]=9;
+"339
+[e = *U + _data_ptr * -> -> 0 `i `x -> -> # *U _data_ptr `i `x -> -> 9 `i `uc ]
+[; ;i2c_driver.c: 340: if(data_ptr[1]==0)
+"340
+[e $ ! == -> *U + _data_ptr * -> -> 1 `i `x -> -> # *U _data_ptr `i `x `i -> 0 `i 165  ]
+[; ;i2c_driver.c: 341: {
+"341
+{
+[; ;i2c_driver.c: 342: data_ptr[1]=9;
+"342
+[e = *U + _data_ptr * -> -> 1 `i `x -> -> # *U _data_ptr `i `x -> -> 9 `i `uc ]
+"343
+}
+[; ;i2c_driver.c: 343: }
+[e $U 166  ]
+"344
+[e :U 165 ]
+[; ;i2c_driver.c: 344: else
+[; ;i2c_driver.c: 345: {
+"345
+{
+[; ;i2c_driver.c: 346: data_ptr[1]= data_ptr[0]-1;
+"346
+[e = *U + _data_ptr * -> -> 1 `i `x -> -> # *U _data_ptr `i `x -> - -> *U + _data_ptr * -> -> 0 `i `x -> -> # *U _data_ptr `i `x `i -> 1 `i `uc ]
+"347
+}
+[e :U 166 ]
+"348
+}
+[; ;i2c_driver.c: 347: }
+[; ;i2c_driver.c: 348: }
+[e $U 167  ]
+"349
+[e :U 164 ]
+[; ;i2c_driver.c: 349: else
+[; ;i2c_driver.c: 350: {
+"350
+{
+[; ;i2c_driver.c: 351: data_ptr[0]=data_ptr[0]-1;
+"351
+[e = *U + _data_ptr * -> -> 0 `i `x -> -> # *U _data_ptr `i `x -> - -> *U + _data_ptr * -> -> 0 `i `x -> -> # *U _data_ptr `i `x `i -> 1 `i `uc ]
+"353
+}
+[e :U 167 ]
+[; ;i2c_driver.c: 353: }
+[; ;i2c_driver.c: 355: }
+"355
+[e :UE 163 ]
+}
+"357
+[v _master_start `(v ~T0 @X0 1 ef ]
+"358
+{
+[; ;i2c_driver.c: 357: void master_start(void)
+[; ;i2c_driver.c: 358: {
+[e :U _master_start ]
+[f ]
+[; ;i2c_driver.c: 359: SEN=1;
+"359
+[e = _SEN -> -> 1 `i `b ]
+[; ;i2c_driver.c: 360: while(!i2c_pkt.ack)
+"360
+[e $U 169  ]
+[e :U 170 ]
+[; ;i2c_driver.c: 361: {
+"361
+{
+"364
+}
+[e :U 169 ]
+"360
+[e $ ! != -> . _i2c_pkt 2 `i -> -> -> 0 `i `uc `i 170  ]
+[e :U 171 ]
+[; ;i2c_driver.c: 364: }
+[; ;i2c_driver.c: 365: i2c_pkt.ack=0;
+"365
+[e = . _i2c_pkt 2 -> -> 0 `i `uc ]
+[; ;i2c_driver.c: 368: }
+"368
+[e :UE 168 ]
+}
+"369
+[v _master_stop `(v ~T0 @X0 1 ef ]
+"370
+{
+[; ;i2c_driver.c: 369: void master_stop(void)
+[; ;i2c_driver.c: 370: {
+[e :U _master_stop ]
+[f ]
+[; ;i2c_driver.c: 371: PEN=1;
+"371
+[e = _PEN -> -> 1 `i `b ]
+[; ;i2c_driver.c: 372: while(!i2c_pkt.ack)
+"372
+[e $U 173  ]
+[e :U 174 ]
+[; ;i2c_driver.c: 373: {
+"373
+{
+"375
+}
+[e :U 173 ]
+"372
+[e $ ! != -> . _i2c_pkt 2 `i -> -> -> 0 `i `uc `i 174  ]
+[e :U 175 ]
+[; ;i2c_driver.c: 375: }
+[; ;i2c_driver.c: 376: i2c_pkt.ack=0;
+"376
+[e = . _i2c_pkt 2 -> -> 0 `i `uc ]
+[; ;i2c_driver.c: 377: }
+"377
+[e :UE 172 ]
+}
+"378
+[v _master_repeat_start `(v ~T0 @X0 1 ef ]
+"379
+{
+[; ;i2c_driver.c: 378: void master_repeat_start(void)
+[; ;i2c_driver.c: 379: {
+[e :U _master_repeat_start ]
+[f ]
+[; ;i2c_driver.c: 380: RSEN=1;
+"380
+[e = _RSEN -> -> 1 `i `b ]
+[; ;i2c_driver.c: 381: while(!i2c_pkt.ack)
+"381
+[e $U 177  ]
+[e :U 178 ]
+[; ;i2c_driver.c: 382: {
+"382
+{
+"384
+}
+[e :U 177 ]
+"381
+[e $ ! != -> . _i2c_pkt 2 `i -> -> -> 0 `i `uc `i 178  ]
+[e :U 179 ]
+[; ;i2c_driver.c: 384: }
+[; ;i2c_driver.c: 385: i2c_pkt.ack=0;
+"385
+[e = . _i2c_pkt 2 -> -> 0 `i `uc ]
+[; ;i2c_driver.c: 386: }
+"386
+[e :UE 176 ]
 }
 [p f _sprintf 8388736 ]
-[a 2C 68 97 116 101 58 32 37 100 37 100 45 37 100 37 100 45 37 100 37 100 0 ]
-[a 1C 84 105 109 101 58 32 37 100 37 100 45 37 100 37 100 45 37 100 37 100 0 ]
+[a 3C 68 97 116 101 58 32 37 100 37 100 45 37 100 37 100 45 37 100 37 100 60 45 0 ]
+[a 2C 68 97 116 101 58 32 37 100 37 100 45 37 100 37 100 45 37 100 37 100 32 32 0 ]
+[a 1C 84 105 109 101 58 32 37 100 37 100 45 37 100 37 100 45 37 100 37 100 32 32 0 ]

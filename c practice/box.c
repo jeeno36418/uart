@@ -30,8 +30,8 @@ void main()
 {
 	    
 	long unsigned int status,i,j=0;
-	memset(data,0,sizeof(data));
-   if(status = draw_Box(8,8,15 ,20,2,data))
+	memset(data,' ',sizeof(data));
+   if(status = draw_Box(28,28,15 ,15,3,data))
    {
      printf("out of boundary");
    	return ;
@@ -49,14 +49,14 @@ void main()
 			}
 			else
 			{
-				printf("%3d\n",(j++));
+				printf("%3d\n\n",(j++));
 			}
 		}
-		printf("%2d ",data[i]);
+		printf("%2c ",data[i]);
 	
 	
 	}
-	printf("%3d\n\n",j-1);
+	printf("%3d\n\n",j);
 	
 		for(i=0;i<coloumn;i++)
 	{
@@ -90,8 +90,8 @@ for(j=0;j<thick;j++)
 	for(i=x+j;i<=x1-j;i++)
 	{
 		
-		  *(base_ptr+(i*coloumn)+y+j)=1+j;	
-		  *(base_ptr+(i*coloumn)+y1-j)=1+j;
+		  *(base_ptr+(i*coloumn)+y+j)=0x31+j;	
+		  *(base_ptr+(i*coloumn)+y1-j)=0x31+j;
 	}
 }
 #endif	
@@ -101,8 +101,8 @@ for(j=0;j<thick;j++)
 	for(i=y+1+j;i<y1-j;i++)
 	{
 		
-		  *(base_ptr+((x+j)*coloumn)+i)=1+j;	
-		  *(base_ptr+((x1-j)*coloumn)+i)=1+j;	
+		  *(base_ptr+((x+j)*coloumn)+i)=0x31+j;	
+		  *(base_ptr+((x1-j)*coloumn)+i)=0x31+j;	
 	}
 }
 #endif	

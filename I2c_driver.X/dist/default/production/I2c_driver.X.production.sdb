@@ -3,6 +3,13 @@
 [d edition pro ]
 [d chip 16F877A ]
 [d frameptr 6 ]
+"89 G:\project\uart\I2c_driver.X\i2c_driver.c
+[e E1264 key_nav `uc
+SELECT 1
+DOWN 2
+UP 4
+SET_KEY 8
+]
 "4 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\abdiv.c
 [v ___abdiv __abdiv `(c  1 e 1 0 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\abmod.c
@@ -105,32 +112,36 @@
 [v ___fltoee __fltoee `(d  1 e 3 0 ]
 "49 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\pic\ftdiv.c
 [v ___ftdiv __ftdiv `(f  1 e 3 0 ]
-"21 G:\project\uart\I2c_driver.X\i2c_driver.c
+"23 G:\project\uart\I2c_driver.X\i2c_driver.c
 [v _main main `(v  1 e 0 0 ]
-"75
+"121
 [v _i2c_master_init i2c_master_init `(v  1 e 0 0 ]
-"108
+"155
 [v _master_tx master_tx `(uc  1 e 1 0 ]
-"138
+"191
 [v _master_rx master_rx `(uc  1 e 1 0 ]
-"185
+"240
 [v _i2c_slave_init i2c_slave_init `(v  1 e 0 0 ]
-"203
+"258
 [v _wait wait `(v  1 e 0 0 ]
-"208
+"263
 [v _interrupt_isr interrupt_isr `II(v  1 e 0 0 ]
-"222
+"295
+[v _hex2char hex2char `(v  1 e 0 0 ]
+"301
+[v _hex2integer hex2integer `(v  1 e 0 0 ]
+"307
 [v _int2char int2char `(v  1 e 0 0 ]
-"37 G:\project\uart\I2c_driver.X\i2c_driver.h
-[v _I2C_Master_Wait I2C_Master_Wait `(v  1 e 0 0 ]
-"41
-[v _I2C_Master_Start I2C_Master_Start `(v  1 e 0 0 ]
-"47
-[v _I2C_Master_RepeatedStart I2C_Master_RepeatedStart `(v  1 e 0 0 ]
-"53
-[v _I2C_Master_Stop I2C_Master_Stop `(v  1 e 0 0 ]
-"59
-[v _I2C_Master_Write I2C_Master_Write `(v  1 e 0 0 ]
+"314
+[v _inc_year inc_year `(v  1 e 0 0 ]
+"335
+[v _dec_year dec_year `(v  1 e 0 0 ]
+"357
+[v _master_start master_start `(v  1 e 0 0 ]
+"369
+[v _master_stop master_stop `(v  1 e 0 0 ]
+"378
+[v _master_repeat_start master_repeat_start `(v  1 e 0 0 ]
 "10 G:\project\uart\I2c_driver.X\lcd_driver.c
 [v _delay_ms delay_ms `(v  1 e 0 0 ]
 "17
@@ -143,7 +154,11 @@
 [v _uart_lcd_update uart_lcd_update `(v  1 e 0 0 ]
 "53
 [v _delay delay `(v  1 e 0 0 ]
-"329 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic16f877a.h
+"158 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic16f877a.h
+[v _PORTA PORTA `VEuc  1 e 1 @5 ]
+"207
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"329
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
 "440
 [v _INTCON INTCON `VEuc  1 e 1 @11 ]
@@ -151,14 +166,16 @@
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
 "791
 [v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
+"1217
+[v _OPTION_REG OPTION_REG `VEuc  1 e 1 @129 ]
+"1286
+[v _TRISA TRISA `VEuc  1 e 1 @133 ]
 "1335
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
 "1457
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "1518
 [v _TRISE TRISE `VEuc  1 e 1 @137 ]
-"1707
-[v _SSPCON2 SSPCON2 `VEuc  1 e 1 @145 ]
 "1774
 [v _SSPADD SSPADD `VEuc  1 e 1 @147 ]
 "1780
@@ -187,6 +204,12 @@
 [v _PEIE PEIE `VEb  1 e 0 @94 ]
 "2483
 [v _PEN PEN `VEb  1 e 0 @1162 ]
+"2519
+[v _RB4 RB4 `VEb  1 e 0 @52 ]
+"2527
+[v _RBIE RBIE `VEb  1 e 0 @91 ]
+"2529
+[v _RBIF RBIF `VEb  1 e 0 @88 ]
 "2553
 [v _RCEN RCEN `VEb  1 e 0 @1163 ]
 "2559
@@ -215,12 +238,12 @@
 [v _WREN WREN `VEb  1 e 0 @3170 ]
 "354 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c
 [v _dpowers dpowers `DCC[5]ui  1 s 10 dpowers ]
-[s S25 packet 3 `uc 1 address 1 0 `uc 1 data 1 1 `uc 1 ack 1 2 ]
+[s S19 packet 3 `uc 1 address 1 0 `uc 1 data 1 1 `uc 1 ack 1 2 ]
 "14 G:\project\uart\I2c_driver.X\i2c_driver.c
-[v _i2c_pkt i2c_pkt `S25  1 e 3 0 ]
-[s S29 timer_t 7 `uc 1 SS 1 0 `uc 1 MM 1 1 `uc 1 HH 1 2 `uc 1 day 1 3 `uc 1 date 1 4 `uc 1 month 1 5 `uc 1 year 1 6 ]
+[v _i2c_pkt i2c_pkt `S19  1 e 3 0 ]
+[s S23 timer_t 7 `uc 1 SS 1 0 `uc 1 MM 1 1 `uc 1 HH 1 2 `uc 1 day 1 3 `uc 1 date 1 4 `uc 1 month 1 5 `uc 1 year 1 6 ]
 "15
-[v _local_time local_time `S29  1 e 7 0 ]
+[v _local_time local_time `S23  1 e 7 0 ]
 "16
 [v _timer timer `*.4uc  1 e 1 0 ]
 "17
@@ -235,24 +258,37 @@
 [v _date date `[2]uc  1 e 2 0 ]
 [v _month month `[2]uc  1 e 2 0 ]
 [v _year year `[2]uc  1 e 2 0 ]
+"20
+[v _hour_dec hour_dec `uc  1 e 1 0 ]
+[v _min_dec min_dec `uc  1 e 1 0 ]
+[v _sec_dec sec_dec `uc  1 e 1 0 ]
+[v _day_dec day_dec `uc  1 e 1 0 ]
+[v _date_dec date_dec `uc  1 e 1 0 ]
+[v _month_dec month_dec `uc  1 e 1 0 ]
+[v _year_dec year_dec `uc  1 e 1 0 ]
 "21
+[v _inc inc `uc  1 e 1 0 ]
+[v _flag flag `uc  1 e 1 0 ]
+"22
+[v _key_nav key_nav `uc  1 e 1 0 ]
+"23
 [v _main main `(v  1 e 0 0 ]
 {
-"41
-[v main@i i `i  1 a 2 47 ]
-"73
+"47
+[v main@i i `i  1 a 2 0 ]
+"119
 } 0
 "43 G:\project\uart\I2c_driver.X\lcd_driver.c
 [v _uart_lcd_update uart_lcd_update `(v  1 e 0 0 ]
 {
 [v uart_lcd_update@data data `*.4uc  1 a 1 wreg ]
 "44
-[v uart_lcd_update@i i `i  1 a 2 6 ]
+[v uart_lcd_update@i i `i  1 a 2 11 ]
 "43
 [v uart_lcd_update@data data `*.4uc  1 a 1 wreg ]
 [v uart_lcd_update@len len `uc  1 p 1 8 ]
 "46
-[v uart_lcd_update@data data `*.4uc  1 a 1 5 ]
+[v uart_lcd_update@data data `*.4uc  1 a 1 10 ]
 "51
 } 0
 "35
@@ -268,70 +304,70 @@
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
 [v sprintf@sp sp `*.4uc  1 a 1 wreg ]
-[s S202 . 4 `*.1DCCuc 1 _cp 2 0 `ui 1 _len 2 2 ]
+[s S241 . 4 `*.1DCCuc 1 _cp 2 0 `ui 1 _len 2 2 ]
 "533
-[u S205 . 4 `ui 1 _val 2 0 `S202 1 _str 4 0 ]
-[v sprintf@_val _val `S205  1 a 4 28 ]
+[u S244 . 4 `ui 1 _val 2 0 `S241 1 _str 4 0 ]
+[v sprintf@_val _val `S244  1 a 4 33 ]
 "499
-[v sprintf@c c `c  1 a 1 33 ]
+[v sprintf@c c `c  1 a 1 38 ]
 "506
-[v sprintf@prec prec `c  1 a 1 27 ]
+[v sprintf@prec prec `c  1 a 1 32 ]
 "508
-[v sprintf@flag flag `uc  1 a 1 26 ]
+[v sprintf@flag flag `uc  1 a 1 31 ]
 "494
-[v sprintf@ap ap `[1]*.4v  1 a 1 25 ]
+[v sprintf@ap ap `[1]*.4v  1 a 1 30 ]
 "492
 [v sprintf@sp sp `*.4uc  1 a 1 wreg ]
-[v sprintf@f f `*.24DCCuc  1 p 1 9 ]
+[v sprintf@f f `*.24DCCuc  1 p 1 14 ]
 "542
-[v sprintf@sp sp `*.4uc  1 a 1 32 ]
+[v sprintf@sp sp `*.4uc  1 a 1 37 ]
 "1550
 } 0
 "6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwmod.c
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
 {
 "11
-[v ___lwmod@counter counter `uc  1 a 1 8 ]
+[v ___lwmod@counter counter `uc  1 a 1 13 ]
 "6
-[v ___lwmod@divisor divisor `ui  1 p 2 3 ]
-[v ___lwmod@dividend dividend `ui  1 p 2 5 ]
+[v ___lwmod@divisor divisor `ui  1 p 2 8 ]
+[v ___lwmod@dividend dividend `ui  1 p 2 10 ]
 "26
 } 0
 "6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 {
 "11
-[v ___lwdiv@quotient quotient `ui  1 a 2 0 ]
+[v ___lwdiv@quotient quotient `ui  1 a 2 6 ]
 "12
-[v ___lwdiv@counter counter `uc  1 a 1 2 ]
+[v ___lwdiv@counter counter `uc  1 a 1 5 ]
 "6
-[v ___lwdiv@divisor divisor `ui  1 p 2 4 ]
-[v ___lwdiv@dividend dividend `ui  1 p 2 6 ]
+[v ___lwdiv@divisor divisor `ui  1 p 2 0 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
 "31
 } 0
-"108 G:\project\uart\I2c_driver.X\i2c_driver.c
+"155 G:\project\uart\I2c_driver.X\i2c_driver.c
 [v _master_tx master_tx `(uc  1 e 1 0 ]
 {
-[s S25 packet 3 `uc 1 address 1 0 `uc 1 data 1 1 `uc 1 ack 1 2 ]
-"109
-[v master_tx@i2c_pkt i2c_pkt `*.4S25  1 a 1 wreg ]
-[v master_tx@i2c_pkt i2c_pkt `*.4S25  1 a 1 wreg ]
-[v master_tx@i2c_pkt i2c_pkt `*.4S25  1 a 1 5 ]
-"137
+[s S19 packet 3 `uc 1 address 1 0 `uc 1 data 1 1 `uc 1 ack 1 2 ]
+"156
+[v master_tx@i2c_pkt i2c_pkt `*.4S19  1 a 1 wreg ]
+[v master_tx@i2c_pkt i2c_pkt `*.4S19  1 a 1 wreg ]
+[v master_tx@i2c_pkt i2c_pkt `*.4S19  1 a 1 1 ]
+"190
 } 0
-"138
+"191
 [v _master_rx master_rx `(uc  1 e 1 0 ]
 {
-[s S25 packet 3 `uc 1 address 1 0 `uc 1 data 1 1 `uc 1 ack 1 2 ]
-"139
-[v master_rx@i2c_pkt i2c_pkt `*.4S25  1 a 1 wreg ]
-[v master_rx@i2c_pkt i2c_pkt `*.4S25  1 a 1 wreg ]
-"138
-[v master_rx@rx_time rx_time `*.4uc  1 p 1 4 ]
-"140
-"139
-[v master_rx@i2c_pkt i2c_pkt `*.4S25  1 a 1 6 ]
-"184
+[s S19 packet 3 `uc 1 address 1 0 `uc 1 data 1 1 `uc 1 ack 1 2 ]
+"192
+[v master_rx@i2c_pkt i2c_pkt `*.4S19  1 a 1 wreg ]
+[v master_rx@i2c_pkt i2c_pkt `*.4S19  1 a 1 wreg ]
+"191
+[v master_rx@rx_time rx_time `*.4uc  1 p 1 0 ]
+"193
+"192
+[v master_rx@i2c_pkt i2c_pkt `*.4S19  1 a 1 2 ]
+"239
 } 0
 "17 G:\project\uart\I2c_driver.X\lcd_driver.c
 [v _lcd_init lcd_init `(v  1 e 0 0 ]
@@ -351,29 +387,47 @@
 [v _delay delay `(v  1 e 0 0 ]
 {
 "55
-[v delay@j j `i  1 a 2 2 ]
-[v delay@i i `i  1 a 2 0 ]
+[v delay@j j `i  1 a 2 5 ]
+[v delay@i i `i  1 a 2 3 ]
 "53
-[v delay@x x `i  1 p 2 4 ]
+[v delay@x x `i  1 p 2 0 ]
 "61
 } 0
-"222 G:\project\uart\I2c_driver.X\i2c_driver.c
-[v _int2char int2char `(v  1 e 0 0 ]
+"314 G:\project\uart\I2c_driver.X\i2c_driver.c
+[v _inc_year inc_year `(v  1 e 0 0 ]
 {
-[v int2char@in in `uc  1 a 1 wreg ]
-[v int2char@in in `uc  1 a 1 wreg ]
-[v int2char@out out `*.4uc  1 p 1 4 ]
-"224
-[v int2char@in in `uc  1 a 1 7 ]
-"227
+[v inc_year@data_ptr data_ptr `*.4uc  1 a 1 wreg ]
+[v inc_year@data_ptr data_ptr `*.4uc  1 a 1 wreg ]
+"316
+[v inc_year@data_ptr data_ptr `*.4uc  1 a 1 1 ]
+"334
 } 0
-"75
+"121
 [v _i2c_master_init i2c_master_init `(v  1 e 0 0 ]
 {
-"106
+"153
 } 0
-"208
+"295
+[v _hex2char hex2char `(v  1 e 0 0 ]
+{
+[v hex2char@in in `uc  1 a 1 wreg ]
+[v hex2char@in in `uc  1 a 1 wreg ]
+[v hex2char@out out `*.4uc  1 p 1 0 ]
+"297
+[v hex2char@in in `uc  1 a 1 3 ]
+"300
+} 0
+"335
+[v _dec_year dec_year `(v  1 e 0 0 ]
+{
+[v dec_year@data_ptr data_ptr `*.4uc  1 a 1 wreg ]
+[v dec_year@data_ptr data_ptr `*.4uc  1 a 1 wreg ]
+"337
+[v dec_year@data_ptr data_ptr `*.4uc  1 a 1 1 ]
+"355
+} 0
+"263
 [v _interrupt_isr interrupt_isr `II(v  1 e 0 0 ]
 {
-"221
+"294
 } 0

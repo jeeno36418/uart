@@ -27,43 +27,33 @@ typedef struct packet
     int_u8 ack;
 }i2c_pck;
 
+typedef enum key_nav
+{
+    SELECT=1,
+    DOWN,
+    UP=4,
+    SET_KEY=8,
+
+}key_nav_t;
+
 int_u8 master_tx(i2c_pck *);
 int_u8 master_rx(i2c_pck *,int_u8 *);
 int_u8 slave_rx(i2c_pck);
 int_u8 slave_tx(i2c_pck);
 int_u8 slave_ack(i2c_pck);
 int_u8 master_ack(i2c_pck);
-void I2C_Master_Write(unsigned d);
-void I2C_Master_Wait()
-{
-  while ((SSPSTAT & 0x04) || (SSPCON2 & 0x1F));
-}
-void I2C_Master_Start()
-{
-  I2C_Master_Wait();
-  SEN = 1;
-}
-
-void I2C_Master_RepeatedStart()
-{
-  I2C_Master_Wait();
-  RSEN = 1;
-}
-
-void I2C_Master_Stop()
-{
-  I2C_Master_Wait();
-  PEN = 1;
-}
-
-void I2C_Master_Write(unsigned d)
-{
-  I2C_Master_Wait();
-  SSPBUF = d;
-}
 void i2c_master_init(void);
 void i2c_slave_init(void);
-void int2char(int_u8 , int_u8 *);
-void wait(void);
+
+void hex2char(int_u8 in, int_u8 *out);
+void hex2integer(int_u8 in, int_u8 *out);
+void int2char(int_u8 in, int_u8 *out);
+void inc_year(int_u8 *);
+void dec_year(int_u8 *);
+
+void master_wait(void);
+void master_start(void);
+void master_stop(void);
+void master_repeat_start(void);
 #endif	/* I2C_DRIVER_H */
 
