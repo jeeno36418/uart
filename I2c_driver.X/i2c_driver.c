@@ -17,6 +17,7 @@ int_u8 * timer;
 int_u8 lcd_msg[16]={0};
 int_u8 lcd_msg1[16]={0};
 int_u8 hour[2],min[2],sec[2],day,date[2],month[2],year[2];
+int_u8 *timer_ptr[7]={&hour,&min,&sec,&day,&date,&month,&year};
 int_u8 hour_dec,min_dec,sec_dec,day_dec,date_dec,month_dec,year_dec;
 int_u8 inc = 0,flag = 0;
 int_u8 key_nav=0;
@@ -44,7 +45,7 @@ void main()
    while(1)
    {
 #if 1
-       int i;
+       int_u8 i,status;
   //  PORTD=0xFF; testing code
             
            master_tx(&i2c_pkt);
@@ -91,17 +92,19 @@ void main()
            
 
            case DOWN:
-               inc_year(year);
-               key_nav=0;
-               break;
-
-           case UP:
                dec_year(year);
                key_nav=0;
                break;
 
-           case SET_KEY:
+           case UP:
+               inc_year(year);
+               key_nav=0;
+               break;
 
+           case SET_KEY:
+               
+               status = master_tx_write(&i2c_pkt);
+               flag = 0;
                key_nav=0;
                break;
        }
@@ -156,10 +159,7 @@ int_u8 master_tx(i2c_pck *i2c_pkt)
 {
     RBIE = CLEAR;
     SEN=SET;
-    if(i2c_pkt->data!=0)
-    {
-        i2c_pkt->data = 0;
-    }
+   
     while(!i2c_pkt->ack)
     {    
         //WAIT FOR SSPIF TO CLEAR ;
@@ -259,7 +259,44 @@ void wait()
 {
     
 }
+int_u8 master_tx_write(i2c_pck *i2c_pkt)
+{
+    RBIE = CLEAR;
+    SEN=SET;
 
+    while(!i2c_pkt->ack)
+    {
+        //WAIT FOR SSPIF TO CLEAR ;
+
+    }
+    i2c_pkt->ack=0;
+   // PORTD=0X01;
+    SSPBUF=(i2c_pkt->address<<1|WRITE);
+    while(!i2c_pkt->ack);
+        i2c_pkt->ack=0;
+    SSPBUF=YEAR;
+ //   PORTD=0X02;
+
+    while(!i2c_pkt->ack);
+        i2c_pkt->ack=0;
+     SSPBUF=char2int(year);
+
+    while(!i2c_pkt->ack);
+        i2c_pkt->ack=0;
+
+    PEN=SET;
+    while(!i2c_pkt->ack);
+        i2c_pkt->ack=0;
+#if 0
+    RSEN=SET;
+    while(!i2c_pkt->ack);
+        i2c_pkt->ack=0;
+    SSPBUF=i2c_pkt->data;
+#endif
+     RBIE = SET;
+   return 0;
+
+}
 void interrupt interrupt_isr(void)
 {
     
@@ -304,9 +341,9 @@ void hex2integer(int_u8 in, int_u8 *out)
     
 
 }
-void int2char(int_u8 in, int_u8 *out)
+int_u8 char2int(int_u8 *in)
 {
-    *out= in % 10 + (in/10)<<4 ;
+    return (*(in) | *(in+1)<<4) ;
 
 
 }
@@ -343,7 +380,7 @@ void dec_year(int_u8 *data_ptr)
         }
         else
         {
-              data_ptr[1]= data_ptr[0]-1;
+              data_ptr[1]= data_ptr[1]-1;
         }
     }
     else

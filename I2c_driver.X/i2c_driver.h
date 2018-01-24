@@ -30,14 +30,29 @@ typedef struct packet
 typedef enum key_nav
 {
     SELECT=1,
-    DOWN,
-    UP=4,
+    UP,
+    DOWN=4,
     SET_KEY=8,
 
 }key_nav_t;
 
+typedef enum nvm
+{
+    SECONDS=0,
+    MINUTES,
+    HOURS,
+    DAY,
+    DATE,
+    MONTH,
+    YEAR,
+    CONTROL,
+
+}nvm_address_index;
+
+
 int_u8 master_tx(i2c_pck *);
 int_u8 master_rx(i2c_pck *,int_u8 *);
+int_u8 master_tx_write(i2c_pck *);
 int_u8 slave_rx(i2c_pck);
 int_u8 slave_tx(i2c_pck);
 int_u8 slave_ack(i2c_pck);
@@ -47,7 +62,7 @@ void i2c_slave_init(void);
 
 void hex2char(int_u8 in, int_u8 *out);
 void hex2integer(int_u8 in, int_u8 *out);
-void int2char(int_u8 in, int_u8 *out);
+int_u8 char2int(int_u8 *in);
 void inc_year(int_u8 *);
 void dec_year(int_u8 *);
 
