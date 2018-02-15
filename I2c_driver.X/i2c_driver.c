@@ -10,14 +10,15 @@
 #include "i2c_driver.h"
 #include "global.h"
 #pragma config CONFIG=0x00
-
+#define DEBUG 1
 i2c_pck i2c_pkt;
 time_T local_time={0};
-int_u8 * timer;
+time_mm timer_min_max[7]={0,59,0,59,0,23,1,7,1,31,1,12,0,99};
+int_u8 *timer,*lcd_ptr;
 int_u8 lcd_msg[16]={0};
 int_u8 lcd_msg1[16]={0};
 int_u8 hour[2],min[2],sec[2],day,date[2],month[2],year[2];
-int_u8 *timer_ptr[7]={&hour,&min,&sec,&day,&date,&month,&year};
+int_u8 *timer_ptr[7]={sec,min,hour,&day,date,month,year };
 int_u8 hour_dec,min_dec,sec_dec,day_dec,date_dec,month_dec,year_dec;
 int_u8 inc = 0,flag = 0;
 int_u8 key_nav=0;
@@ -44,8 +45,9 @@ void main()
   // master_tx(&i2c_pkt);
    while(1)
    {
-#if 1
        int_u8 i,status;
+#if DEBUG
+       
   //  PORTD=0xFF; testing code
             
            master_tx(&i2c_pkt);
@@ -56,7 +58,7 @@ void main()
            hex2char(local_time.HH,hour);
            hex2char(local_time.MM,min);
            hex2char(local_time.SS,sec);
-
+           day=local_time.day;
            sprintf(lcd_msg,"Time: %d%d-%d%d-%d%d  ",hour[1],hour[0],min[1],min[0],sec[1],sec[0]);
            lcd_cmnt(0x80);
            uart_lcd_update(lcd_msg,sizeof(lcd_msg));
@@ -76,28 +78,32 @@ void main()
             //delay(100);
        #if 0
            sprintf(lcd_msg,"Time: %d%d-%d%d-%d%d<-",hour[1],hour[0],min[1],min[0],sec[1],sec[0]);
-           lcd_cmnt(0x80);
+           
        #endif
-
+           lcd_cmnt(0x80);
            uart_lcd_update(lcd_msg,sizeof(lcd_msg));
-           sprintf(lcd_msg1,"Date: %d%d-%d%d-%d%d<-",date[1],date[0],month[1],month[0],year[1],year[0]);
+           sprintf(lcd_msg1,"Date: %d%d-%d%d-%d%d  ",date[1],date[0],month[1],month[0],year[1],year[0]);
            lcd_cmnt(0xC0);
            uart_lcd_update(lcd_msg1,sizeof(lcd_msg1));
            //lcd_cmnt(0xC0);
 
+            delay(50);
 
-
+            space_stuff(lcd_msg1+12-((inc-1)*3),inc);
+             lcd_cmnt(0xC0);
+            uart_lcd_update(lcd_msg1,sizeof(lcd_msg1));
+            delay(50);
        switch(key_nav)
        {
            
 
            case DOWN:
-               dec_year(year);
+               dec_year(timer_ptr[7-inc],7-inc);
                key_nav=0;
                break;
 
            case UP:
-               inc_year(year);
+               inc_year(timer_ptr[7-inc],7-inc);
                key_nav=0;
                break;
 
@@ -106,6 +112,7 @@ void main()
                status = master_tx_write(&i2c_pkt);
                flag = 0;
                key_nav=0;
+               inc=0;
                break;
        }
        
@@ -259,8 +266,13 @@ void wait()
 {
     
 }
-int_u8 master_tx_write(i2c_pck *i2c_pkt)
+void space_stuff(int_u8 *in, int_u8 index)
 {
+    *(in++)=0x20;
+    *in=0x20;
+}
+int_u8 master_tx_write(i2c_pck *i2c_pkt)
+{   int i;
     RBIE = CLEAR;
     SEN=SET;
 
@@ -274,16 +286,20 @@ int_u8 master_tx_write(i2c_pck *i2c_pkt)
     SSPBUF=(i2c_pkt->address<<1|WRITE);
     while(!i2c_pkt->ack);
         i2c_pkt->ack=0;
-    SSPBUF=YEAR;
+    SSPBUF=0;
  //   PORTD=0X02;
 
     while(!i2c_pkt->ack);
         i2c_pkt->ack=0;
-     SSPBUF=char2int(year);
-
+    for(i=0;i<7;i++)
+    {
+        if(i==3)
+            SSPBUF=*(timer_ptr[i]);
+        else
+            SSPBUF=char2int(timer_ptr[i]);
     while(!i2c_pkt->ack);
         i2c_pkt->ack=0;
-
+    }
     PEN=SET;
     while(!i2c_pkt->ack);
         i2c_pkt->ack=0;
@@ -315,12 +331,21 @@ void interrupt interrupt_isr(void)
     //   delay(10);
        PORTA=2;
         // Read PORTB to avoid LATCHING OF PORTB STATUS in isr
+       if((0XF0&~PORTB)>>4)
        key_nav = ((0XF0&~PORTB)>>4);
 
        
         if(RB4==CLEAR)
         {
-            flag=!flag;
+            flag=1;
+            
+            inc++;
+            if(inc==4)
+            {
+                inc=0;
+                flag=0;
+
+            }
         }
        
         RBIF = 0;
@@ -335,11 +360,16 @@ void hex2char(int_u8 in, int_u8 *out)
     *(out+1)= in>>4;
 
 }
-void hex2integer(int_u8 in, int_u8 *out)
+int_u8 hex2integer(int_u8 *in)
 {
-    *out= in & 0x0f + (( in & 0xf0 )>>4 * 10) ;
+    return ( *in++ %10 +  *in * 10) ;
     
 
+}
+void int2hex(int_u8 in, int_u8 *out)
+{
+    *out++ = in %10 ;
+    *out = (in/10) ;
 }
 int_u8 char2int(int_u8 *in)
 {
@@ -348,46 +378,38 @@ int_u8 char2int(int_u8 *in)
 
 }
 
-void inc_year(int_u8 *data_ptr)
+void inc_year(int_u8 *data_ptr,int_u8 index)
 {
-    if(data_ptr[0]==9)
+    int_u8 temp = hex2integer(data_ptr);
+    if(temp == timer_min_max[index].max)
     {
-        data_ptr[0]=0;
-        if(data_ptr[1]==9)
-        {
-             data_ptr[1]=0;
-            
-        }
-        else
-        {
-        data_ptr[1]= data_ptr[1]+1;
-        }
+
+        temp = timer_min_max[index].min;
+
     }
     else
     {
-        data_ptr[0]=data_ptr[0]+1;
+        temp++;
+
     }
+    int2hex(temp,data_ptr);
 
 }
-void dec_year(int_u8 *data_ptr)
+void dec_year(int_u8 *data_ptr,int_u8 index)
 {
-    if(data_ptr[0]==0)
+    int_u8 temp =hex2integer(data_ptr);
+    if(temp == timer_min_max[index].min)
     {
-        data_ptr[0]=9;
-        if(data_ptr[1]==0)
-        {
-             data_ptr[1]=9;
-        }
-        else
-        {
-              data_ptr[1]= data_ptr[1]-1;
-        }
+        
+        temp = timer_min_max[index].max;
+        
     }
     else
     {
-        data_ptr[0]=data_ptr[0]-1;
+        temp--;
        
     }
+    int2hex(temp,data_ptr);
 
 }
 

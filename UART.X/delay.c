@@ -1,6 +1,8 @@
 
-void delay(int x);
-void delay(int x)
+
+#include"GLOBAL.h"
+
+void DelayMs(int x)
 {
     int i,j;
     for(i=0;i<=x;i++)

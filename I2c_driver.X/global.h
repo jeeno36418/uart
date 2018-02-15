@@ -30,6 +30,14 @@ void uart_lcd_update(int_u8 *,int_u8);
 void timer_init(void);
 void timer_isr(void);
 int_u8 rx_timer_opr();
+typedef struct timer_min_max
+{
+    
+    int_u8 min;
+    int_u8 max;
+    
+    
+}time_mm;
 typedef struct timer_t
 {
     int_u8 SS;

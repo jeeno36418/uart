@@ -36,16 +36,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;global.h: 30: void timer_init(void);
 [; ;global.h: 31: void timer_isr(void);
 [; ;global.h: 32: int_u8 rx_timer_opr();
-[; ;global.h: 33: typedef struct timer_t
+[; ;global.h: 33: typedef struct timer_min_max
 [; ;global.h: 34: {
-[; ;global.h: 35: int_u8 SS;
-[; ;global.h: 36: int_u8 MM;
-[; ;global.h: 37: int_u8 HH;
-[; ;global.h: 38: int_u8 day;
-[; ;global.h: 39: int_u8 date;
-[; ;global.h: 40: int_u8 month;
-[; ;global.h: 41: int_u8 year;
-[; ;global.h: 42: }time_T;
+[; ;global.h: 36: int_u8 min;
+[; ;global.h: 37: int_u8 max;
+[; ;global.h: 40: }time_mm;
+[; ;global.h: 41: typedef struct timer_t
+[; ;global.h: 42: {
+[; ;global.h: 43: int_u8 SS;
+[; ;global.h: 44: int_u8 MM;
+[; ;global.h: 45: int_u8 HH;
+[; ;global.h: 46: int_u8 day;
+[; ;global.h: 47: int_u8 date;
+[; ;global.h: 48: int_u8 month;
+[; ;global.h: 49: int_u8 year;
+[; ;global.h: 50: }time_T;
 [; ;pic16f877a.h: 47: extern volatile unsigned char INDF @ 0x000;
 "49 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic16f877a.h
 [; ;pic16f877a.h: 49: asm("INDF equ 00h");
@@ -1069,29 +1074,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 "13
 {
 [e = _i -> 0 `i ]
-[e $U 101  ]
+[e $U 102  ]
 "14
-[e :U 98 ]
+[e :U 99 ]
 [; ;lcd_driver.c: 14: for(j=0;j<ds;j++);
 {
 [e = _j -> 0 `i ]
-[e $U 105  ]
-[e :U 102 ]
-[e ++ _j -> 1 `i ]
-[e :U 105 ]
-[e $ < -> _j `ui _ds 102  ]
+[e $U 106  ]
 [e :U 103 ]
+[e ++ _j -> 1 `i ]
+[e :U 106 ]
+[e $ < -> _j `ui _ds 103  ]
+[e :U 104 ]
 }
 "13
 [e ++ _i -> 1 `i ]
-[e :U 101 ]
-[e $ < -> _i `ui _ds 98  ]
-[e :U 99 ]
+[e :U 102 ]
+[e $ < -> _i `ui _ds 99  ]
+[e :U 100 ]
 "14
 }
 [; ;lcd_driver.c: 15: }
 "15
-[e :UE 97 ]
+[e :UE 98 ]
 }
 "17
 [v _lcd_init `(v ~T0 @X0 1 ef ]
@@ -1124,7 +1129,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _lcd_cmnt (1 -> -> 128 `i `uc ]
 [; ;lcd_driver.c: 27: }
 "27
-[e :UE 106 ]
+[e :UE 107 ]
 }
 "28
 [v _lcd_cmnt `(v ~T0 @X0 1 ef1`uc ]
@@ -1150,7 +1155,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RE1 -> -> 0 `i `b ]
 [; ;lcd_driver.c: 34: }
 "34
-[e :UE 107 ]
+[e :UE 108 ]
 }
 "35
 [v _lcd_data `(v ~T0 @X0 1 ef1`uc ]
@@ -1176,7 +1181,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RE1 -> -> 0 `i `b ]
 [; ;lcd_driver.c: 41: }
 "41
-[e :UE 108 ]
+[e :UE 109 ]
 }
 "43
 [v _uart_lcd_update `(v ~T0 @X0 1 ef2`*uc`uc ]
@@ -1195,9 +1200,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "46
 {
 [e = _i -> 0 `i ]
-[e $U 113  ]
+[e $U 114  ]
 "47
-[e :U 110 ]
+[e :U 111 ]
 [; ;lcd_driver.c: 47: {
 {
 [; ;lcd_driver.c: 48: lcd_data(*(data+i));
@@ -1207,15 +1212,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "46
 [e ++ _i -> 1 `i ]
-[e :U 113 ]
-[e $ < _i -> _len `i 110  ]
-[e :U 111 ]
+[e :U 114 ]
+[e $ < _i -> _len `i 111  ]
+[e :U 112 ]
 "49
 }
 [; ;lcd_driver.c: 49: }
 [; ;lcd_driver.c: 51: }
 "51
-[e :UE 109 ]
+[e :UE 110 ]
 }
 "53
 [v _delay `(v ~T0 @X0 1 ef1`i ]
@@ -1236,39 +1241,39 @@ Version 3.2 HI-TECH Software Intermediate Code
 "56
 {
 [e = _i -> 0 `i ]
-[e $U 118  ]
+[e $U 119  ]
 "57
-[e :U 115 ]
+[e :U 116 ]
 [; ;lcd_driver.c: 57: {
 {
 [; ;lcd_driver.c: 58: for(j=0;j<=x;j++)
 "58
 {
 [e = _j -> 0 `i ]
-[e $U 122  ]
+[e $U 123  ]
 "59
-[e :U 119 ]
+[e :U 120 ]
 [; ;lcd_driver.c: 59: {}
 {
 }
 "58
 [e ++ _j -> 1 `i ]
-[e :U 122 ]
-[e $ <= _j _x 119  ]
-[e :U 120 ]
+[e :U 123 ]
+[e $ <= _j _x 120  ]
+[e :U 121 ]
 "59
 }
 "60
 }
 "56
 [e ++ _i -> 1 `i ]
-[e :U 118 ]
-[e $ <= _i _x 115  ]
-[e :U 116 ]
+[e :U 119 ]
+[e $ <= _i _x 116  ]
+[e :U 117 ]
 "60
 }
 [; ;lcd_driver.c: 60: }
 [; ;lcd_driver.c: 61: }
 "61
-[e :UE 114 ]
+[e :UE 115 ]
 }

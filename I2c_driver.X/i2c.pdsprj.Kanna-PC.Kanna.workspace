@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
 <WORKSPACE>
  <FRAME activewindow="0">
-  <PLACEMENT>2c00000002000000030000000083ffff0083ffffffffffffffffffff100000001200000000040000d8020000</PLACEMENT>
+  <PLACEMENT>2c00000002000000030000000083ffff0083fffffffffffffffffffffd0100003c000000ed05000002030000</PLACEMENT>
   <WINDOW type="default" module="ISIS"/>
  </FRAME>
  <MODULE name="VSMDEBUG">
   <PWI>
-   <POPUP w="800" x="41" flags="00008003" y="792" h="200" pid="0" iid="-1">
+   <POPUP w="800" x="1117" flags="00000002" y="0" h="200" pid="0" iid="-1">
     <PROPERTIES>
      <ITEM name="Message Column Width">665</ITEM>
      <ITEM name="ShowGrid">No</ITEM>
@@ -15,11 +15,12 @@
      <ITEM name="Version">100</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="350" x="57" flags="00000032" y="147" h="200" pid="1" iid="-1">
+   <POPUP w="391" x="1424" flags="00000032" y="149" h="200" pid="1" iid="-1">
     <PROPERTIES>
      <ITEM name="Address Column Width">83</ITEM>
      <ITEM name="AutoResize">No</ITEM>
      <ITEM name="Gridlines">Yes</ITEM>
+     <ITEM name="Item 0">"PIE1","0x008C",00000001,00000004,140,1,6,00000000,0,00000000,00000000</ITEM>
      <ITEM name="Name Column Width">83</ITEM>
      <ITEM name="ShowAddresses">Yes</ITEM>
      <ITEM name="ShowPreviousValues">No</ITEM>
@@ -29,10 +30,10 @@
      <ITEM name="Value Column Width">83</ITEM>
      <ITEM name="Version">100</ITEM>
      <ITEM name="Watch Expression Column Width">83</ITEM>
-     <ITEM name="nItems">0</ITEM>
+     <ITEM name="nItems">1</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="1039" x="1158" flags="00000023" y="154" h="765" pid="0" iid="2">
+   <POPUP w="618" x="1268" flags="00000023" y="182" h="804" pid="0" iid="2">
     <PROPERTIES>
      <ITEM name="ComboBox1000">S</ITEM>
      <ITEM name="ComboBox1001">Sr</ITEM>
@@ -94,10 +95,10 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="20" x="359" flags="00000000" y="25" h="3" pid="1" iid="5">
+   <POPUP w="20" x="170" flags="00008001" y="247" h="3" pid="1" iid="5">
     <PROPERTIES/>
    </POPUP>
-   <POPUP w="8" x="237" flags="00000008" y="327" h="8" pid="2" iid="5">
+   <POPUP w="8" x="1489" flags="00000009" y="96" h="8" pid="2" iid="5">
     <PROPERTIES>
      <ITEM name="DataType">2</ITEM>
      <ITEM name="DispChars">Yes</ITEM>

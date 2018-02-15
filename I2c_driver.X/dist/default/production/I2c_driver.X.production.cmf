@@ -11,65 +11,69 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\Kanna\AppData\Local\Temp\sv0.obj
+$C:\Users\Kanna\AppData\Local\Temp\s3mg.obj
 end_init CODE 0 12 12 3 2
 reset_vec CODE 0 0 0 3 2
 config CONFIG 0 2007 2007 1 2
 $dist/default/production\I2c_driver.X.production.obj
 cinit CODE 0 15 15 26 2
 intentry CODE 0 4 4 E 2
-text17 CODE 0 541 541 2B 2
-text16 CODE 0 4E7 4E7 2F 2
-text15 CODE 0 5B4 5B4 1A 2
-text14 CODE 0 619 619 11 2
-text13 CODE 0 516 516 2B 2
-text12 CODE 0 4B5 4B5 32 2
-text11 CODE 0 5F6 5F6 12 2
-text10 CODE 0 593 593 21 2
-text9 CODE 0 355 355 55 2
-text8 CODE 0 3FE 3FE 41 2
-text7 CODE 0 5CE 5CE 16 2
-text6 CODE 0 3AA 3AA 54 2
-text5 CODE 0 43F 43F 40 2
-text4 CODE 0 47F 47F 36 2
-text3 CODE 0 200 200 DB 2
-text2 CODE 0 5E4 5E4 12 2
-text1 CODE 0 56C 56C 27 2
-maintext CODE 0 3B 3B 1C5 2
-cstackBANK0 BANK0 1 20 20 34 1
+text23 CODE 0 583 583 3C 2
+text22 CODE 0 475 475 4F 2
+text21 CODE 0 788 788 13 2
+text20 CODE 0 68D 68D 2D 2
+text19 CODE 0 3C3 3C3 5D 2
+text18 CODE 0 5BF 5BF 38 2
+text17 CODE 0 6BA 6BA 2C 2
+text16 CODE 0 72E 72E 1A 2
+text15 CODE 0 7D0 7D0 11 2
+text14 CODE 0 65F 65F 2E 2
+text13 CODE 0 62D 62D 32 2
+text12 CODE 0 7AD 7AD 12 2
+text11 CODE 0 70D 70D 21 2
+text10 CODE 0 420 420 55 2
+text9 CODE 0 4C4 4C4 41 2
+text8 CODE 0 748 748 16 2
+text7 CODE 0 33E 33E 85 2
+text6 CODE 0 773 773 15 2
+text5 CODE 0 505 505 40 2
+text4 CODE 0 5F7 5F7 36 2
+text3 CODE 0 263 263 DB 2
+text2 CODE 0 79B 79B 12 2
+text1 CODE 0 6E6 6E6 27 2
+maintext CODE 0 3B 3B 228 2
+cstackBANK0 BANK0 1 20 20 36 1
 cstackCOMMON COMMON 1 76 76 6 1
-cstackBANK1 BANK1 1 C7 C7 2 1
-inittext CODE 0 608 608 11 2
-clrtext CODE 0 62A 62A 8 2
-dataBANK1 BANK1 1 C0 C0 7 1
-bssBANK1 BANK1 1 A0 A0 20 1
-bssBANK0 BANK0 1 54 54 19 1
+inittext CODE 0 7BF 7BF 11 2
+clrtext CODE 0 7E1 7E1 8 2
+dataBANK1 BANK1 1 C7 C7 15 1
+bssBANK1 BANK1 1 A0 A0 27 1
+bssBANK0 BANK0 1 56 56 13 1
 bssCOMMON COMMON 1 70 70 6 1
-nvBANK0 BANK0 1 6D 6D 3 1
-strings STRING 0 300 300 55 2
-idataBANK1 CODE 0 632 632 7 2
+nvBANK0 BANK0 1 69 69 3 1
+strings STRING 0 545 545 3E 2
+idataBANK1 CODE 0 75E 75E 15 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-BANK1 00C9-00EF 1
+BANK0 006C-006F 1
+BANK1 00DC-00EF 1
 BANK2 0110-016F 1
 BANK3 0190-01EF 1
 CODE 0003-0003 2
-CODE 02DB-02FF 2
-CODE 0639-1FFF 2
+CODE 07E9-1FFF 2
 COMMON 007C-007D 1
 CONST 0003-0003 2
-CONST 02DB-02FF 2
-CONST 0639-1FFF 2
+CONST 07E9-1FFF 2
 EEDATA 2100-21FF 2
 ENTRY 0003-0003 2
-ENTRY 02DB-02FF 2
-ENTRY 0639-1FFF 2
+ENTRY 07E9-1FFF 2
 IDLOC 2000-2003 2
-RAM 00C9-00EF 1
+RAM 006C-006F 1
+RAM 00DC-00EF 1
 RAM 0110-016F 1
 RAM 0190-01EF 1
 SFR0 0000-001F 1
@@ -78,11 +82,9 @@ SFR2 0100-010F 1
 SFR3 0180-018F 1
 STACK 0110-016F 1
 STRCODE 0003-0003 2
-STRCODE 02DB-02FF 2
-STRCODE 0639-1FFF 2
+STRCODE 07E9-1FFF 2
 STRING 0003-0003 2
-STRING 02DB-02FF 2
-STRING 0639-1FFF 2
+STRING 07E9-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -97,289 +99,367 @@ STRING 0639-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\I2c_driver.X.production.obj
-"G:\project\uart\I2c_driver.X\i2c_driver.c":300 4 intentry CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":561 15 cinit CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":564 15 cinit CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":664 15 cinit CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":665 16 cinit CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":666 17 cinit CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":667 18 cinit CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":668 19 cinit CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":669 1A cinit CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":672 1B cinit CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":673 1C cinit CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":674 1D cinit CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":675 1E cinit CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":676 1F cinit CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":679 24 cinit CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":680 25 cinit CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":681 26 cinit CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":682 27 cinit CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":714 2C cinit CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":715 2D cinit CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":716 2E cinit CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":717 2F cinit CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":718 30 cinit CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":719 31 cinit CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":720 32 cinit CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":721 33 cinit CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":722 34 cinit CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":728 37 cinit CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":729 37 cinit CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":730 38 cinit CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":24 3B maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":28 3B maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":29 3E maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":30 3F maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":31 41 maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":32 42 maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":33 45 maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":34 46 maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":38 4A maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":39 50 maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":40 51 maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":42 52 maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":43 57 maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":51 5C maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":52 62 maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":53 71 maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":52 7D maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":56 91 maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":57 9D maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":58 A9 maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":60 B5 maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":61 EB maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":62 F1 maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":63 FD maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":64 109 maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":65 115 maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":66 121 maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":67 157 maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":68 15D maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":69 169 maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":72 174 maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":95 175 maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":100 17C maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":101 182 maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":106 185 maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":107 192 maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":108 195 maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":72 196 maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":82 19B maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":83 1A7 maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":84 1DD maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":85 1E3 maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":90 1EF maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":72 1FC maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":113 1FD maintext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":45 1FF maintext CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":492 200 text3 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":542 203 text3 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":545 207 text3 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":547 217 text3 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":550 21B text3 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":551 226 text3 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":557 227 text3 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":644 228 text3 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1268 23D text3 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1270 249 text3 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1271 24B text3 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1272 24F text3 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1314 254 text3 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1315 25A text3 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1314 273 text3 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1447 27B text3 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1448 27F text3 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1481 28A text3 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1483 28E text3 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1498 296 text3 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1533 2CA text3 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1483 2D5 text3 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1547 2D6 text3 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":191 355 text9 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":192 355 text9 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":193 358 text9 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":194 359 text9 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":195 35C text9 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":200 364 text9 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":202 368 text9 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":203 36D text9 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":204 373 text9 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":209 377 text9 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":210 37A text9 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":211 381 text9 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":212 385 text9 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":214 38B text9 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":215 38E text9 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":216 38F text9 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":217 396 text9 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":227 39A text9 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":228 39D text9 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":229 3A4 text9 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":236 3A8 text9 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":262 3AA text6 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":263 3AA text6 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":264 3AD text6 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":265 3AE text6 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":267 3B1 text6 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":272 3B9 text6 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":274 3BD text6 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":275 3C3 text6 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":276 3C9 text6 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":277 3CD text6 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":280 3CF text6 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":281 3D5 text6 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":282 3D9 text6 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":284 3E2 text6 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":285 3E9 text6 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":287 3ED text6 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":288 3F0 text6 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":289 3F7 text6 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":296 3FB text6 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":297 3FC text6 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":158 3FE text8 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":159 3FE text8 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":160 401 text8 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":161 402 text8 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":163 405 text8 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":168 40D text8 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":170 411 text8 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":171 417 text8 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":172 41D text8 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":173 421 text8 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":175 425 text8 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":176 42B text8 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":179 42F text8 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":180 432 text8 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":181 439 text8 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":188 43D text8 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":6 43F text5 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":14 43F text5 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":15 443 text5 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":16 447 text5 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":17 449 text5 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":18 44B text5 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":19 452 text5 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":17 456 text5 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":22 457 text5 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":23 45E text5 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":24 466 text5 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":25 46C text5 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":27 46D text5 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":28 474 text5 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":30 478 text5 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwmod.c":6 47F text4 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwmod.c":13 47F text4 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwmod.c":14 485 text4 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwmod.c":15 487 text4 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwmod.c":16 489 text4 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwmod.c":17 490 text4 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwmod.c":15 494 text4 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwmod.c":20 495 text4 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwmod.c":21 49D text4 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwmod.c":22 4A3 text4 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwmod.c":23 4AA text4 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwmod.c":25 4AE text4 CODE
-"G:\project\uart\I2c_driver.X\lcd_driver.c":53 4B5 text12 CODE
-"G:\project\uart\I2c_driver.X\lcd_driver.c":56 4B5 text12 CODE
-"G:\project\uart\I2c_driver.X\lcd_driver.c":58 4C5 text12 CODE
-"G:\project\uart\I2c_driver.X\lcd_driver.c":56 4DE text12 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":372 4E7 text16 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":374 4EA text16 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":376 4F0 text16 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":377 4F6 text16 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":379 4FB text16 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":380 501 text16 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":383 502 text16 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":385 50B text16 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":388 50C text16 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":351 516 text13 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":353 519 text13 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":355 520 text13 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":356 523 text13 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":358 529 text13 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":360 52C text13 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":363 52D text13 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":365 536 text13 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":368 537 text13 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":300 541 text17 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":303 541 text17 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":305 543 text17 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":308 545 text17 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":311 546 text17 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":312 546 text17 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":316 548 text17 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":318 54A text17 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":321 557 text17 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":323 559 text17 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":326 560 text17 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":331 561 text17 CODE
-"G:\project\uart\I2c_driver.X\lcd_driver.c":43 56C text1 CODE
-"G:\project\uart\I2c_driver.X\lcd_driver.c":46 56F text1 CODE
-"G:\project\uart\I2c_driver.X\lcd_driver.c":48 57C text1 CODE
-"G:\project\uart\I2c_driver.X\lcd_driver.c":46 58A text1 CODE
-"G:\project\uart\I2c_driver.X\lcd_driver.c":17 593 text10 CODE
-"G:\project\uart\I2c_driver.X\lcd_driver.c":19 593 text10 CODE
-"G:\project\uart\I2c_driver.X\lcd_driver.c":20 596 text10 CODE
-"G:\project\uart\I2c_driver.X\lcd_driver.c":21 599 text10 CODE
-"G:\project\uart\I2c_driver.X\lcd_driver.c":23 59D text10 CODE
-"G:\project\uart\I2c_driver.X\lcd_driver.c":24 5A3 text10 CODE
-"G:\project\uart\I2c_driver.X\lcd_driver.c":25 5A9 text10 CODE
-"G:\project\uart\I2c_driver.X\lcd_driver.c":26 5AF text10 CODE
-"G:\project\uart\I2c_driver.X\lcd_driver.c":27 5B3 text10 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":332 5B4 text15 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":334 5B7 text15 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":335 5BF text15 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":337 5CD text15 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":344 5CE text7 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":346 5D1 text7 CODE
-"G:\project\uart\I2c_driver.X\lcd_driver.c":35 5E4 text2 CODE
-"G:\project\uart\I2c_driver.X\lcd_driver.c":37 5E7 text2 CODE
-"G:\project\uart\I2c_driver.X\lcd_driver.c":38 5E9 text2 CODE
-"G:\project\uart\I2c_driver.X\lcd_driver.c":39 5EA text2 CODE
-"G:\project\uart\I2c_driver.X\lcd_driver.c":41 5F5 text2 CODE
-"G:\project\uart\I2c_driver.X\lcd_driver.c":28 5F6 text11 CODE
-"G:\project\uart\I2c_driver.X\lcd_driver.c":30 5F9 text11 CODE
-"G:\project\uart\I2c_driver.X\lcd_driver.c":31 5FB text11 CODE
-"G:\project\uart\I2c_driver.X\lcd_driver.c":32 5FC text11 CODE
-"G:\project\uart\I2c_driver.X\lcd_driver.c":34 607 text11 CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":688 608 inittext CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":689 608 inittext CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":690 609 inittext CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":691 60A inittext CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":692 60B inittext CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":699 60C inittext CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":700 60C inittext CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":701 60F inittext CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":702 610 inittext CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":703 611 inittext CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":704 612 inittext CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":705 613 inittext CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":706 614 inittext CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":707 615 inittext CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":708 616 inittext CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":709 617 inittext CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":710 618 inittext CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":124 619 text14 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":127 619 text14 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":128 61C text14 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":129 61D text14 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":130 61F text14 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":131 620 text14 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":132 624 text14 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":133 625 text14 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":134 626 text14 CODE
-"G:\project\uart\I2c_driver.X\i2c_driver.c":156 629 text14 CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":651 62A clrtext CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":652 62A clrtext CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":653 62B clrtext CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":654 62B clrtext CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":655 62C clrtext CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":656 62D clrtext CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":657 62E clrtext CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":658 62F clrtext CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":659 630 clrtext CODE
-"C:\Users\Kanna\AppData\Local\Temp\sv0.":660 631 clrtext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":316 4 intentry CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":565 15 cinit CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":568 15 cinit CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":677 15 cinit CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":678 16 cinit CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":679 17 cinit CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":680 18 cinit CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":681 19 cinit CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":682 1A cinit CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":685 1B cinit CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":686 1C cinit CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":687 1D cinit CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":688 1E cinit CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":689 1F cinit CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":692 24 cinit CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":693 25 cinit CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":694 26 cinit CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":695 27 cinit CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":727 2C cinit CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":728 2D cinit CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":729 2E cinit CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":730 2F cinit CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":731 30 cinit CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":732 31 cinit CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":733 32 cinit CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":734 33 cinit CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":735 34 cinit CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":741 37 cinit CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":742 37 cinit CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":743 38 cinit CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":25 3B maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":29 3B maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":30 3E maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":31 3F maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":32 41 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":33 42 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":34 45 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":35 46 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":39 4A maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":40 50 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":41 51 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":43 52 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":44 57 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":53 5C maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":54 62 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":55 6D maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":54 77 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":58 85 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":59 91 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":60 9F maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":61 AD maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":62 B5 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":63 E9 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":64 EF maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":65 FB maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":66 109 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":67 117 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":68 125 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":69 15B maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":70 161 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":71 16D maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":74 178 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":101 179 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":106 18E maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":107 1A0 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":108 1A3 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":112 1A4 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":113 1AF maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":114 1B0 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":115 1B1 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":74 1B2 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":83 1B7 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":84 1BD maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":85 1C9 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":86 1FF maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":87 205 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":90 211 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":92 21C maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":93 235 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":94 23B maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":95 247 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":96 252 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":74 25F maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":120 260 maintext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":46 262 maintext CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":492 263 text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":542 266 text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":545 26A text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":547 27A text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":550 27E text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":551 289 text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":557 28A text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":644 28B text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1268 2A0 text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1270 2AC text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1271 2AE text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1272 2B2 text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1314 2B7 text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1315 2BD text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1314 2D6 text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1447 2DE text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1448 2E2 text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1481 2ED text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1483 2F1 text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1498 2F9 text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1533 32D text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1483 338 text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\doprnt.c":1547 339 text3 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":274 33E text7 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":275 33E text7 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":276 341 text7 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":277 342 text7 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":279 345 text7 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":284 34D text7 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":286 351 text7 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":287 357 text7 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":288 35D text7 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":289 361 text7 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":292 362 text7 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":293 368 text7 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":294 36C text7 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":296 379 text7 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":297 380 text7 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":299 388 text7 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":300 395 text7 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":301 39C text7 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":294 3A0 text7 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":303 3B1 text7 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":304 3B4 text7 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":305 3BC text7 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":312 3C0 text7 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":313 3C1 text7 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awdiv.c":6 3C3 text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awdiv.c":14 3C3 text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awdiv.c":15 3C6 text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awdiv.c":16 3C8 text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awdiv.c":17 3CD text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awdiv.c":19 3CF text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awdiv.c":20 3D1 text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awdiv.c":21 3D6 text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awdiv.c":23 3DA text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awdiv.c":24 3DC text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awdiv.c":25 3E0 text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awdiv.c":26 3E2 text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awdiv.c":27 3E4 text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awdiv.c":28 3EB text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awdiv.c":26 3EF text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awdiv.c":31 3F0 text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awdiv.c":32 3F7 text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awdiv.c":33 3FF text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awdiv.c":34 405 text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awdiv.c":36 406 text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awdiv.c":37 40D text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awdiv.c":39 411 text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awdiv.c":40 414 text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awdiv.c":41 419 text19 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":198 420 text10 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":199 420 text10 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":200 423 text10 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":201 424 text10 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":202 427 text10 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":207 42F text10 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":209 433 text10 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":210 438 text10 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":211 43E text10 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":216 442 text10 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":217 445 text10 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":218 44C text10 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":219 450 text10 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":221 456 text10 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":222 459 text10 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":223 45A text10 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":224 461 text10 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":234 465 text10 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":235 468 text10 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":236 46F text10 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":243 473 text10 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awmod.c":6 475 text22 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awmod.c":13 475 text22 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awmod.c":14 478 text22 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awmod.c":15 47A text22 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awmod.c":16 47F text22 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awmod.c":18 481 text22 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awmod.c":19 483 text22 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awmod.c":20 488 text22 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awmod.c":21 48C text22 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awmod.c":22 48E text22 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awmod.c":23 490 text22 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awmod.c":24 497 text22 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awmod.c":22 49B text22 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awmod.c":27 49C text22 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awmod.c":28 4A4 text22 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awmod.c":29 4AA text22 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awmod.c":30 4B1 text22 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awmod.c":32 4B5 text22 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awmod.c":33 4B8 text22 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awmod.c":34 4BD text22 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":165 4C4 text9 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":166 4C4 text9 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":167 4C7 text9 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":168 4C8 text9 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":170 4CB text9 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":175 4D3 text9 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":177 4D7 text9 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":178 4DD text9 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":179 4E3 text9 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":180 4E7 text9 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":182 4EB text9 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":183 4F1 text9 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":186 4F5 text9 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":187 4F8 text9 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":188 4FF text9 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":195 503 text9 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":6 505 text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":14 505 text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":15 509 text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":16 50D text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":17 50F text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":18 511 text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":19 518 text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":17 51C text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":22 51D text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":23 524 text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":24 52C text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":25 532 text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":27 533 text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":28 53A text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c":30 53E text5 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":316 583 text23 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":319 583 text23 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":321 585 text23 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":324 587 text23 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":327 588 text23 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":328 588 text23 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":332 58A text23 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":334 58C text23 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":335 598 text23 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":338 5A5 text23 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":340 5A7 text23 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":342 5A9 text23 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":343 5AD text23 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":345 5B1 text23 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":346 5B2 text23 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":351 5B3 text23 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":356 5B4 text23 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":369 5BF text18 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":371 5C2 text18 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":372 5DF text18 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":373 5F6 text18 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwmod.c":6 5F7 text4 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwmod.c":13 5F7 text4 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwmod.c":14 5FD text4 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwmod.c":15 5FF text4 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwmod.c":16 601 text4 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwmod.c":17 608 text4 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwmod.c":15 60C text4 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwmod.c":20 60D text4 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwmod.c":21 615 text4 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwmod.c":22 61B text4 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwmod.c":23 622 text4 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwmod.c":25 626 text4 CODE
+"G:\project\uart\I2c_driver.X\lcd_driver.c":53 62D text13 CODE
+"G:\project\uart\I2c_driver.X\lcd_driver.c":56 62D text13 CODE
+"G:\project\uart\I2c_driver.X\lcd_driver.c":58 63D text13 CODE
+"G:\project\uart\I2c_driver.X\lcd_driver.c":56 656 text13 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":381 65F text14 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":383 662 text14 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":384 66D text14 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":387 676 text14 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":389 67F text14 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":392 680 text14 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":395 684 text14 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":397 68C text14 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":363 68D text20 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":365 690 text20 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":398 6BA text17 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":400 6BD text17 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":401 6C8 text17 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":404 6D2 text17 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":406 6DA text17 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":409 6DB text17 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":412 6DD text17 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":414 6E5 text17 CODE
+"G:\project\uart\I2c_driver.X\lcd_driver.c":43 6E6 text1 CODE
+"G:\project\uart\I2c_driver.X\lcd_driver.c":46 6E9 text1 CODE
+"G:\project\uart\I2c_driver.X\lcd_driver.c":48 6F6 text1 CODE
+"G:\project\uart\I2c_driver.X\lcd_driver.c":46 704 text1 CODE
+"G:\project\uart\I2c_driver.X\lcd_driver.c":17 70D text11 CODE
+"G:\project\uart\I2c_driver.X\lcd_driver.c":19 70D text11 CODE
+"G:\project\uart\I2c_driver.X\lcd_driver.c":20 710 text11 CODE
+"G:\project\uart\I2c_driver.X\lcd_driver.c":21 713 text11 CODE
+"G:\project\uart\I2c_driver.X\lcd_driver.c":23 717 text11 CODE
+"G:\project\uart\I2c_driver.X\lcd_driver.c":24 71D text11 CODE
+"G:\project\uart\I2c_driver.X\lcd_driver.c":25 723 text11 CODE
+"G:\project\uart\I2c_driver.X\lcd_driver.c":26 729 text11 CODE
+"G:\project\uart\I2c_driver.X\lcd_driver.c":27 72D text11 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":357 72E text16 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":359 731 text16 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":360 739 text16 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":362 747 text16 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":374 748 text8 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":376 74B text8 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":269 773 text6 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":271 776 text6 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":272 781 text6 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":273 787 text6 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\Umul8.c":4 788 text21 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\Umul8.c":6 78B text21 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\Umul8.c":43 78C text21 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\Umul8.c":44 78E text21 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\Umul8.c":45 792 text21 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\Umul8.c":46 794 text21 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\Umul8.c":47 796 text21 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\Umul8.c":50 799 text21 CODE
+"G:\project\uart\I2c_driver.X\lcd_driver.c":35 79B text2 CODE
+"G:\project\uart\I2c_driver.X\lcd_driver.c":37 79E text2 CODE
+"G:\project\uart\I2c_driver.X\lcd_driver.c":38 7A0 text2 CODE
+"G:\project\uart\I2c_driver.X\lcd_driver.c":39 7A1 text2 CODE
+"G:\project\uart\I2c_driver.X\lcd_driver.c":41 7AC text2 CODE
+"G:\project\uart\I2c_driver.X\lcd_driver.c":28 7AD text12 CODE
+"G:\project\uart\I2c_driver.X\lcd_driver.c":30 7B0 text12 CODE
+"G:\project\uart\I2c_driver.X\lcd_driver.c":31 7B2 text12 CODE
+"G:\project\uart\I2c_driver.X\lcd_driver.c":32 7B3 text12 CODE
+"G:\project\uart\I2c_driver.X\lcd_driver.c":34 7BE text12 CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":701 7BF inittext CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":702 7BF inittext CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":703 7C0 inittext CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":704 7C1 inittext CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":705 7C2 inittext CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":712 7C3 inittext CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":713 7C3 inittext CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":714 7C6 inittext CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":715 7C7 inittext CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":716 7C8 inittext CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":717 7C9 inittext CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":718 7CA inittext CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":719 7CB inittext CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":720 7CC inittext CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":721 7CD inittext CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":722 7CE inittext CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":723 7CF inittext CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":131 7D0 text15 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":134 7D0 text15 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":135 7D3 text15 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":136 7D4 text15 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":137 7D6 text15 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":138 7D7 text15 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":139 7DB text15 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":140 7DC text15 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":141 7DD text15 CODE
+"G:\project\uart\I2c_driver.X\i2c_driver.c":163 7E0 text15 CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":664 7E1 clrtext CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":665 7E1 clrtext CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":666 7E2 clrtext CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":667 7E2 clrtext CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":668 7E3 clrtext CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":669 7E4 clrtext CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":670 7E5 clrtext CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":671 7E6 clrtext CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":672 7E7 clrtext CODE
+"C:\Users\Kanna\AppData\Local\Temp\s3mg.":673 7E8 clrtext CODE
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -393,60 +473,67 @@ $dist/default/production\I2c_driver.X.production.obj
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___lwdiv@dividend 22 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
+___awdiv@counter 25 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 sprintf@f 2E 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 ___lwdiv@counter 25 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 _RE0 48 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 _RE1 49 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 _RB4 34 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 __S0 2008 0 ABS 0 - -
-__S1 C9 0 ABS 0 - -
+__S1 DC 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
+_timer_min_max C7 0 BANK1 1 dataBANK1 dist/default/production\I2c_driver.X.production.obj
 _GIE 5F 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 _PEN 48A 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 _SEN 488 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 __Hintentry 24 0 CODE 0 intentry -
 __Lintentry 8 0 CODE 0 intentry -
-__end_of_lcd_cmnt C10 0 CODE 0 text11 dist/default/production\I2c_driver.X.production.obj
-__end_of_dec_year A2C 0 CODE 0 text16 dist/default/production\I2c_driver.X.production.obj
+__end_of_lcd_cmnt F7E 0 CODE 0 text12 dist/default/production\I2c_driver.X.production.obj
+__end_of_dec_year DCC 0 CODE 0 text17 dist/default/production\I2c_driver.X.production.obj
 __pintentry 8 0 CODE 0 intentry dist/default/production\I2c_driver.X.production.obj
-_sec 69 0 BANK0 1 bssBANK0 dist/default/production\I2c_driver.X.production.obj
-_inc 55 0 BANK0 1 bssBANK0 dist/default/production\I2c_driver.X.production.obj
-_min 65 0 BANK0 1 bssBANK0 dist/default/production\I2c_driver.X.production.obj
+_space_stuff EE6 0 CODE 0 text6 dist/default/production\I2c_driver.X.production.obj
+_sec 65 0 BANK0 1 bssBANK0 dist/default/production\I2c_driver.X.production.obj
+_inc 58 0 BANK0 1 bssBANK0 dist/default/production\I2c_driver.X.production.obj
+__end_of___awdiv 840 0 CODE 0 text19 dist/default/production\I2c_driver.X.production.obj
+_min 61 0 BANK0 1 bssBANK0 dist/default/production\I2c_driver.X.production.obj
+__end_of_int2hex BEE 0 CODE 0 text18 dist/default/production\I2c_driver.X.production.obj
 _day 75 0 COMMON 1 bssCOMMON dist/default/production\I2c_driver.X.production.obj
 __CFG_PWRTE$ON 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
+dec_year@index 2E 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
+inc_year@index 2E 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 _RBIE 5B 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 _PEIE 5E 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 _RBIF 58 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 _RCEN 48B 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 _RSEN 489 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 lcd_cmnt@cmnt 27 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
-_flag 54 0 BANK0 1 bssBANK0 dist/default/production\I2c_driver.X.production.obj
-_date 61 0 BANK0 1 bssBANK0 dist/default/production\I2c_driver.X.production.obj
+_flag 57 0 BANK0 1 bssBANK0 dist/default/production\I2c_driver.X.production.obj
+_date 5D 0 BANK0 1 bssBANK0 dist/default/production\I2c_driver.X.production.obj
 _main 76 0 CODE 0 maintext dist/default/production\I2c_driver.X.production.obj
-_date_dec 70 0 COMMON 1 bssCOMMON dist/default/production\I2c_driver.X.production.obj
-_year 6B 0 BANK0 1 bssBANK0 dist/default/production\I2c_driver.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\Kanna\AppData\Local\Temp\sv0.obj
+_date_dec 56 0 BANK0 1 bssBANK0 dist/default/production\I2c_driver.X.production.obj
+_year 67 0 BANK0 1 bssBANK0 dist/default/production\I2c_driver.X.production.obj
+___sp 0 0 STACK 2 stack C:\Users\Kanna\AppData\Local\Temp\s3mg.obj
 btemp 7E 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 ltemp 7E 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 ttemp 7E 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 wtemp 7E 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
-_year_dec 59 0 BANK0 1 bssBANK0 dist/default/production\I2c_driver.X.production.obj
-start 24 0 CODE 0 init C:\Users\Kanna\AppData\Local\Temp\sv0.obj
-_hour 63 0 BANK0 1 bssBANK0 dist/default/production\I2c_driver.X.production.obj
-_hour_dec 72 0 COMMON 1 bssCOMMON dist/default/production\I2c_driver.X.production.obj
-dec_year@data_ptr 21 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
-inc_year@data_ptr 21 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
-uart_lcd_update@i 2B 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
+_year_dec 5C 0 BANK0 1 bssBANK0 dist/default/production\I2c_driver.X.production.obj
+start 24 0 CODE 0 init C:\Users\Kanna\AppData\Local\Temp\s3mg.obj
+_hour 5F 0 BANK0 1 bssBANK0 dist/default/production\I2c_driver.X.production.obj
+_hour_dec 71 0 COMMON 1 bssCOMMON dist/default/production\I2c_driver.X.production.obj
+dec_year@data_ptr 30 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
+inc_year@data_ptr 31 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
+uart_lcd_update@i 2A 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 _BCLIE 46B 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
-_lcd_data BC8 0 CODE 0 text2 dist/default/production\I2c_driver.X.production.obj
+_lcd_data F36 0 CODE 0 text2 dist/default/production\I2c_driver.X.production.obj
 __size_of_inc_year 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 _TRISA 85 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 _SSPIE 463 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 _TRISB 86 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 _SSPIF 63 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 _PORTA 5 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
-reset_vec 0 0 CODE 0 reset_vec C:\Users\Kanna\AppData\Local\Temp\sv0.obj
+reset_vec 0 0 CODE 0 reset_vec C:\Users\Kanna\AppData\Local\Temp\s3mg.obj
 _TRISD 88 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 _PORTB 6 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 _ACKEN 48C 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
@@ -455,6 +542,7 @@ _PORTD 8 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 uart_lcd_update@len 28 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 _SSPEN A5 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 _ACKDT 48D 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
+space_stuff@index 24 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 ltemp0 7E 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 ttemp0 7E 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 wtemp0 7E 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
@@ -470,32 +558,33 @@ wtemp3 84 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 ttemp4 7F 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 wtemp4 86 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 wtemp5 88 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
-__end_of_delay 9CE 0 CODE 0 text12 dist/default/production\I2c_driver.X.production.obj
+__end_of_delay CBE 0 CODE 0 text13 dist/default/production\I2c_driver.X.production.obj
 wtemp6 7F 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 interrupt_function 8 0 CODE 0 intentry dist/default/production\I2c_driver.X.production.obj
-_uart_lcd_update AD8 0 CODE 0 text1 dist/default/production\I2c_driver.X.production.obj
+_uart_lcd_update DCC 0 CODE 0 text1 dist/default/production\I2c_driver.X.production.obj
 __Hconfig 4010 0 CONFIG 0 config -
 __Lconfig 400E 0 CONFIG 0 config -
-uart_lcd_update@data 2A 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
-__end_of__stringtab 60C 0 STRING 0 strings dist/default/production\I2c_driver.X.production.obj
-main@i C8 0 BANK1 1 cstackBANK1 dist/default/production\I2c_driver.X.production.obj
+uart_lcd_update@data 2C 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
+?___awmod 20 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
+__end_of__stringtab A96 0 STRING 0 strings dist/default/production\I2c_driver.X.production.obj
+main@i 55 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 ?___lwmod 28 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
-_hex2char B68 0 CODE 0 text15 dist/default/production\I2c_driver.X.production.obj
+_hex2char E5C 0 CODE 0 text16 dist/default/production\I2c_driver.X.production.obj
 __size_of_char2int 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 __CFG_CP$ON 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
-__end_of__stringdata 6AA 0 STRING 0 strings dist/default/production\I2c_driver.X.production.obj
-_month 67 0 BANK0 1 bssBANK0 dist/default/production\I2c_driver.X.production.obj
-_timer 58 0 BANK0 1 bssBANK0 dist/default/production\I2c_driver.X.production.obj
-_delay 96A 0 CODE 0 text12 dist/default/production\I2c_driver.X.production.obj
-_month_dec 57 0 BANK0 1 bssBANK0 dist/default/production\I2c_driver.X.production.obj
+__end_of__stringdata B06 0 STRING 0 strings dist/default/production\I2c_driver.X.production.obj
+_month 63 0 BANK0 1 bssBANK0 dist/default/production\I2c_driver.X.production.obj
+_timer 5B 0 BANK0 1 bssBANK0 dist/default/production\I2c_driver.X.production.obj
+_delay C5A 0 CODE 0 text13 dist/default/production\I2c_driver.X.production.obj
+_month_dec 5A 0 BANK0 1 bssBANK0 dist/default/production\I2c_driver.X.production.obj
 ?_sprintf 2E 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
-_dec_year 9CE 0 CODE 0 text16 dist/default/production\I2c_driver.X.production.obj
-_inc_year A2C 0 CODE 0 text13 dist/default/production\I2c_driver.X.production.obj
+_dec_year D74 0 CODE 0 text17 dist/default/production\I2c_driver.X.production.obj
+_inc_year CBE 0 CODE 0 text14 dist/default/production\I2c_driver.X.production.obj
 __Hfunctab 0 0 CODE 0 functab -
 __Lfunctab 0 0 CODE 0 functab -
-_char2int B9C 0 CODE 0 text7 dist/default/production\I2c_driver.X.production.obj
+_char2int E90 0 CODE 0 text8 dist/default/production\I2c_driver.X.production.obj
 _TRISC3 43B 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 _ADCON1 9F 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 _TRISC4 43C 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
@@ -506,13 +595,14 @@ __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 sprintf@ap 3E 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 _SSPADD 93 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
-___int_sp 0 0 STACK 2 stack C:\Users\Kanna\AppData\Local\Temp\sv0.obj
-_lcd_init B26 0 CODE 0 text10 dist/default/production\I2c_driver.X.production.obj
-__end_of_master_rx 754 0 CODE 0 text9 dist/default/production\I2c_driver.X.production.obj
-__end_of_master_tx 87E 0 CODE 0 text8 dist/default/production\I2c_driver.X.production.obj
-_lcd_cmnt BEC 0 CODE 0 text11 dist/default/production\I2c_driver.X.production.obj
+___int_sp 0 0 STACK 2 stack C:\Users\Kanna\AppData\Local\Temp\s3mg.obj
+_lcd_init E1A 0 CODE 0 text11 dist/default/production\I2c_driver.X.production.obj
+?___awdiv 20 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
+__end_of_master_rx 8EA 0 CODE 0 text10 dist/default/production\I2c_driver.X.production.obj
+__end_of_master_tx A0A 0 CODE 0 text9 dist/default/production\I2c_driver.X.production.obj
+_lcd_cmnt F5A 0 CODE 0 text12 dist/default/production\I2c_driver.X.production.obj
 ?___lwdiv 20 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
-__end_of_lcd_data BEC 0 CODE 0 text2 dist/default/production\I2c_driver.X.production.obj
+__end_of_lcd_data F5A 0 CODE 0 text2 dist/default/production\I2c_driver.X.production.obj
 _SSPBUF 13 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 __Habs1 0 0 ABS 0 abs1 -
 __Labs1 0 0 ABS 0 abs1 -
@@ -521,49 +611,59 @@ _INTCON B 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 _SSPCON 14 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 __Hsfr0 0 0 ABS 0 sfr0 -
 __Lsfr0 0 0 ABS 0 sfr0 -
+int2hex@in 2D 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 __Hsfr1 0 0 ABS 0 sfr1 -
 __Lsfr1 0 0 ABS 0 sfr1 -
 __Hsfr2 0 0 ABS 0 sfr2 -
 __Lsfr2 0 0 ABS 0 sfr2 -
 __Hsfr3 0 0 ABS 0 sfr3 -
 __Lsfr3 0 0 ABS 0 sfr3 -
+space_stuff@in 26 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 __CFG_CPD$ON 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 __size_of_delay 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 __size_of_hex2char 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 delay@i 23 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 delay@j 25 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
-__end_of_dpowers 620 0 STRING 0 strings dist/default/production\I2c_driver.X.production.obj
-init_fetch0 C10 0 CODE 0 inittext dist/default/production\I2c_driver.X.production.obj
+__end_of_dpowers AAA 0 STRING 0 strings dist/default/production\I2c_driver.X.production.obj
+__end_of___awmod 988 0 CODE 0 text22 dist/default/production\I2c_driver.X.production.obj
+init_fetch0 F7E 0 CODE 0 inittext dist/default/production\I2c_driver.X.production.obj
 __Hcode 0 0 ABS 0 code -
 __Lcode 0 0 ABS 0 code -
-__end_of_inc_year A82 0 CODE 0 text13 dist/default/production\I2c_driver.X.production.obj
+__end_of_inc_year D1A 0 CODE 0 text14 dist/default/production\I2c_driver.X.production.obj
 delay@x 20 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
-stackhi 0 0 ABS 0 - C:\Users\Kanna\AppData\Local\Temp\sv0.obj
+stackhi 0 0 ABS 0 - C:\Users\Kanna\AppData\Local\Temp\s3mg.obj
 sprintf@sp 45 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
-stacklo 0 0 ABS 0 - C:\Users\Kanna\AppData\Local\Temp\sv0.obj
+___awmod@sign 26 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
+stacklo 0 0 ABS 0 - C:\Users\Kanna\AppData\Local\Temp\s3mg.obj
 saved_w 7E 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
+___bmul F10 0 CODE 0 text21 dist/default/production\I2c_driver.X.production.obj
 __Hinit 24 0 CODE 0 init -
 __Linit 24 0 CODE 0 init -
-__end_of_main 400 0 CODE 0 maintext dist/default/production\I2c_driver.X.production.obj
+__end_of_main 4C6 0 CODE 0 maintext dist/default/production\I2c_driver.X.production.obj
 __Htext 0 0 ABS 0 text -
 __Ltext 0 0 ABS 0 text -
+_hex2integer D1A 0 CODE 0 text20 dist/default/production\I2c_driver.X.production.obj
+___bmul@multiplier 23 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 end_of_initialization 6E 0 CODE 0 cinit dist/default/production\I2c_driver.X.production.obj
 master_rx@i2c_pkt 22 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
+___awdiv@sign 26 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 master_tx@i2c_pkt 21 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 __HnvBANK0 0 0 ABS 0 nvBANK0 -
 __LnvBANK0 0 0 ABS 0 nvBANK0 -
-__pnvBANK0 6D 0 BANK0 1 nvBANK0 dist/default/production\I2c_driver.X.production.obj
-__stringtab 600 0 STRING 0 strings dist/default/production\I2c_driver.X.production.obj
-__end_of_hex2char B9C 0 CODE 0 text15 dist/default/production\I2c_driver.X.production.obj
+___bmul@multiplicand 20 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
+__pnvBANK0 69 0 BANK0 1 nvBANK0 dist/default/production\I2c_driver.X.production.obj
+__stringtab A8A 0 STRING 0 strings dist/default/production\I2c_driver.X.production.obj
+hex2integer@in 2C 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
+__end_of_hex2char E90 0 CODE 0 text16 dist/default/production\I2c_driver.X.production.obj
 __HdataBANK1 0 0 ABS 0 dataBANK1 -
 __LdataBANK1 0 0 ABS 0 dataBANK1 -
-__pdataBANK1 C0 0 BANK1 1 dataBANK1 dist/default/production\I2c_driver.X.production.obj
+__pdataBANK1 C7 0 BANK1 1 dataBANK1 dist/default/production\I2c_driver.X.production.obj
 __Hstrings 0 0 ABS 0 strings -
 __Lstrings 0 0 ABS 0 strings -
-__pstrings 600 0 STRING 0 strings dist/default/production\I2c_driver.X.production.obj
+__pstrings A8A 0 STRING 0 strings dist/default/production\I2c_driver.X.production.obj
 lcd_data@data 27 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 hex2char@in 23 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 __Hbank0 0 0 ABS 0 bank0 -
@@ -577,67 +677,74 @@ __size_of_interrupt_isr 0 0 ABS 0 - dist/default/production\I2c_driver.X.product
 __Lbank3 0 0 ABS 0 bank3 -
 ___latbits 2 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 char2int@in 22 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
-_timer_ptr C0 0 BANK1 1 dataBANK1 dist/default/production\I2c_driver.X.production.obj
+_timer_ptr D5 0 BANK1 1 dataBANK1 dist/default/production\I2c_driver.X.production.obj
 __Hpowerup 0 0 CODE 0 powerup -
 _SSPSTAT 94 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 __Lpowerup 0 0 CODE 0 powerup -
-__ptext1 AD8 0 CODE 0 text1 dist/default/production\I2c_driver.X.production.obj
-__ptext2 BC8 0 CODE 0 text2 dist/default/production\I2c_driver.X.production.obj
-__ptext3 400 0 CODE 0 text3 dist/default/production\I2c_driver.X.production.obj
-__ptext4 8FE 0 CODE 0 text4 dist/default/production\I2c_driver.X.production.obj
-__end_of_uart_lcd_update B26 0 CODE 0 text1 dist/default/production\I2c_driver.X.production.obj
-__ptext5 87E 0 CODE 0 text5 dist/default/production\I2c_driver.X.production.obj
-__ptext6 754 0 CODE 0 text6 dist/default/production\I2c_driver.X.production.obj
-_master_rx 6AA 0 CODE 0 text9 dist/default/production\I2c_driver.X.production.obj
-__ptext7 B9C 0 CODE 0 text7 dist/default/production\I2c_driver.X.production.obj
-__HcstackBANK1 0 0 ABS 0 cstackBANK1 -
-__LcstackBANK1 0 0 ABS 0 cstackBANK1 -
-__ptext8 7FC 0 CODE 0 text8 dist/default/production\I2c_driver.X.production.obj
-__ptext9 6AA 0 CODE 0 text9 dist/default/production\I2c_driver.X.production.obj
-__pcstackBANK1 C7 0 BANK1 1 cstackBANK1 dist/default/production\I2c_driver.X.production.obj
+__ptext1 DCC 0 CODE 0 text1 dist/default/production\I2c_driver.X.production.obj
+__ptext2 F36 0 CODE 0 text2 dist/default/production\I2c_driver.X.production.obj
+__ptext3 4C6 0 CODE 0 text3 dist/default/production\I2c_driver.X.production.obj
+__ptext4 BEE 0 CODE 0 text4 dist/default/production\I2c_driver.X.production.obj
+__end_of_uart_lcd_update E1A 0 CODE 0 text1 dist/default/production\I2c_driver.X.production.obj
+__ptext5 A0A 0 CODE 0 text5 dist/default/production\I2c_driver.X.production.obj
+__ptext6 EE6 0 CODE 0 text6 dist/default/production\I2c_driver.X.production.obj
+_master_rx 840 0 CODE 0 text10 dist/default/production\I2c_driver.X.production.obj
+__ptext7 67C 0 CODE 0 text7 dist/default/production\I2c_driver.X.production.obj
+__ptext8 E90 0 CODE 0 text8 dist/default/production\I2c_driver.X.production.obj
+__ptext9 988 0 CODE 0 text9 dist/default/production\I2c_driver.X.production.obj
 __size_of_lcd_init 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 __Hclrtext 0 0 ABS 0 clrtext -
 __Lclrtext 0 0 ABS 0 clrtext -
-_master_tx 7FC 0 CODE 0 text8 dist/default/production\I2c_driver.X.production.obj
-_local_time 5A 0 BANK0 1 bssBANK0 dist/default/production\I2c_driver.X.production.obj
+_master_tx 988 0 CODE 0 text9 dist/default/production\I2c_driver.X.production.obj
+master_tx_write@i 24 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
+_local_time C0 0 BANK1 1 bssBANK1 dist/default/production\I2c_driver.X.production.obj
 __end_of__initialization 6E 0 CODE 0 cinit dist/default/production\I2c_driver.X.production.obj
+__size_of_hex2integer 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 __CFG_FOSC$LP 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
-__end_of___lwdiv 8FE 0 CODE 0 text5 dist/default/production\I2c_driver.X.production.obj
-_interrupt_isr A82 0 CODE 0 text17 dist/default/production\I2c_driver.X.production.obj
-__end_of_i2c_master_init C54 0 CODE 0 text14 dist/default/production\I2c_driver.X.production.obj
+__end_of___lwdiv A8A 0 CODE 0 text5 dist/default/production\I2c_driver.X.production.obj
+_interrupt_isr B06 0 CODE 0 text23 dist/default/production\I2c_driver.X.production.obj
+__end_of_i2c_master_init FC2 0 CODE 0 text15 dist/default/production\I2c_driver.X.production.obj
 _sec_dec 74 0 COMMON 1 bssCOMMON dist/default/production\I2c_driver.X.production.obj
 _min_dec 73 0 COMMON 1 bssCOMMON dist/default/production\I2c_driver.X.production.obj
-_day_dec 71 0 COMMON 1 bssCOMMON dist/default/production\I2c_driver.X.production.obj
+_day_dec 70 0 COMMON 1 bssCOMMON dist/default/production\I2c_driver.X.production.obj
 __Hidloc 0 0 IDLOC 0 idloc -
 __Lidloc 0 0 IDLOC 0 idloc -
+__end_of_hex2integer D74 0 CODE 0 text20 dist/default/production\I2c_driver.X.production.obj
 __Hstack 0 0 STACK 2 stack -
 __Lstack 0 0 STACK 2 stack -
-___lwmod 8FE 0 CODE 0 text4 dist/default/production\I2c_driver.X.production.obj
+___awmod 8EA 0 CODE 0 text22 dist/default/production\I2c_driver.X.production.obj
+___lwmod BEE 0 CODE 0 text4 dist/default/production\I2c_driver.X.production.obj
 __Hspace_0 2008 0 ABS 0 - -
 __Lspace_0 0 0 ABS 0 - -
 _lcd_msg A0 0 BANK1 1 bssBANK1 dist/default/production\I2c_driver.X.production.obj
-_sprintf 400 0 CODE 0 text3 dist/default/production\I2c_driver.X.production.obj
-__Hspace_1 C9 0 ABS 0 - -
+_sprintf 4C6 0 CODE 0 text3 dist/default/production\I2c_driver.X.production.obj
+__Hspace_1 DC 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
+_int2hex B7E 0 CODE 0 text18 dist/default/production\I2c_driver.X.production.obj
 __Hspace_2 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
-_key_nav 56 0 BANK0 1 bssBANK0 dist/default/production\I2c_driver.X.production.obj
-_i2c_pkt 6D 0 BANK0 1 nvBANK0 dist/default/production\I2c_driver.X.production.obj
+_key_nav 59 0 BANK0 1 bssBANK0 dist/default/production\I2c_driver.X.production.obj
+_i2c_pkt 69 0 BANK0 1 nvBANK0 dist/default/production\I2c_driver.X.production.obj
 __Hcinit 76 0 CODE 0 cinit -
 __Lcinit 2A 0 CODE 0 cinit -
+__end_of_space_stuff F10 0 CODE 0 text6 dist/default/production\I2c_driver.X.production.obj
+___awdiv 786 0 CODE 0 text19 dist/default/production\I2c_driver.X.production.obj
 __Hspace_3 0 0 ABS 0 - -
-___lwdiv 87E 0 CODE 0 text5 dist/default/production\I2c_driver.X.production.obj
+___lwdiv A0A 0 CODE 0 text5 dist/default/production\I2c_driver.X.production.obj
 __Lspace_3 0 0 ABS 0 - -
 __size_of_dec_year 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
+_lcd_ptr 72 0 COMMON 1 bssCOMMON dist/default/production\I2c_driver.X.production.obj
 __size_of_main 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
-_dpowers 60C 0 STRING 0 strings dist/default/production\I2c_driver.X.production.obj
+_dpowers A96 0 STRING 0 strings dist/default/production\I2c_driver.X.production.obj
 hex2char@out 20 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
-__end_of_sprintf 5B6 0 CODE 0 text3 dist/default/production\I2c_driver.X.production.obj
-clear_ram0 C54 0 CODE 0 clrtext dist/default/production\I2c_driver.X.production.obj
+__end_of_sprintf 67C 0 CODE 0 text3 dist/default/production\I2c_driver.X.production.obj
+clear_ram0 FC2 0 CODE 0 clrtext dist/default/production\I2c_driver.X.production.obj
+dec_year@temp 31 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
+inc_year@temp 32 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 __size_of___lwdiv 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
-__pbssBANK0 54 0 BANK0 1 bssBANK0 dist/default/production\I2c_driver.X.production.obj
+__pbssBANK0 56 0 BANK0 1 bssBANK0 dist/default/production\I2c_driver.X.production.obj
 sprintf@flag 3F 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 __size_of_master_rx 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 __size_of_master_tx 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
@@ -645,56 +752,67 @@ __size_of_uart_lcd_update 0 0 ABS 0 - dist/default/production\I2c_driver.X.produ
 __HbssBANK1 0 0 ABS 0 bssBANK1 -
 __LbssBANK1 0 0 ABS 0 bssBANK1 -
 __pbssBANK1 A0 0 BANK1 1 bssBANK1 dist/default/production\I2c_driver.X.production.obj
-_i2c_master_init C32 0 CODE 0 text14 dist/default/production\I2c_driver.X.production.obj
-__ptext10 B26 0 CODE 0 text10 dist/default/production\I2c_driver.X.production.obj
-__end_of_interrupt_isr AD8 0 CODE 0 text17 dist/default/production\I2c_driver.X.production.obj
-__ptext11 BEC 0 CODE 0 text11 dist/default/production\I2c_driver.X.production.obj
-__ptext12 96A 0 CODE 0 text12 dist/default/production\I2c_driver.X.production.obj
+_i2c_master_init FA0 0 CODE 0 text15 dist/default/production\I2c_driver.X.production.obj
+__ptext10 840 0 CODE 0 text10 dist/default/production\I2c_driver.X.production.obj
+__end_of_interrupt_isr B7E 0 CODE 0 text23 dist/default/production\I2c_driver.X.production.obj
+__ptext20 D1A 0 CODE 0 text20 dist/default/production\I2c_driver.X.production.obj
+__ptext11 E1A 0 CODE 0 text11 dist/default/production\I2c_driver.X.production.obj
+__ptext21 F10 0 CODE 0 text21 dist/default/production\I2c_driver.X.production.obj
+__ptext12 F5A 0 CODE 0 text12 dist/default/production\I2c_driver.X.production.obj
+__ptext22 8EA 0 CODE 0 text22 dist/default/production\I2c_driver.X.production.obj
 __size_of_lcd_cmnt 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
-__ptext13 A2C 0 CODE 0 text13 dist/default/production\I2c_driver.X.production.obj
+__ptext13 C5A 0 CODE 0 text13 dist/default/production\I2c_driver.X.production.obj
+__ptext23 B06 0 CODE 0 text23 dist/default/production\I2c_driver.X.production.obj
 sprintf@prec 40 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 __HidataBANK1 0 0 ABS 0 idataBANK1 -
+__size_of___awdiv 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 __LidataBANK1 0 0 ABS 0 idataBANK1 -
-__ptext14 C32 0 CODE 0 text14 dist/default/production\I2c_driver.X.production.obj
-__pidataBANK1 C64 0 CODE 0 idataBANK1 dist/default/production\I2c_driver.X.production.obj
-__ptext15 B68 0 CODE 0 text15 dist/default/production\I2c_driver.X.production.obj
-__ptext16 9CE 0 CODE 0 text16 dist/default/production\I2c_driver.X.production.obj
+__ptext14 CBE 0 CODE 0 text14 dist/default/production\I2c_driver.X.production.obj
+__pidataBANK1 EBC 0 CODE 0 idataBANK1 dist/default/production\I2c_driver.X.production.obj
+__ptext15 FA0 0 CODE 0 text15 dist/default/production\I2c_driver.X.production.obj
+__ptext16 E5C 0 CODE 0 text16 dist/default/production\I2c_driver.X.production.obj
 __CFG_BOREN$OFF 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
-__ptext17 A82 0 CODE 0 text17 dist/default/production\I2c_driver.X.production.obj
-__end_of___lwmod 96A 0 CODE 0 text4 dist/default/production\I2c_driver.X.production.obj
+__ptext17 D74 0 CODE 0 text17 dist/default/production\I2c_driver.X.production.obj
+___awmod@divisor 20 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
+__end_of___lwmod C5A 0 CODE 0 text4 dist/default/production\I2c_driver.X.production.obj
 ___lwmod@divisor 28 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
-__end_of_char2int BC8 0 CODE 0 text7 dist/default/production\I2c_driver.X.production.obj
+__ptext18 B7E 0 CODE 0 text18 dist/default/production\I2c_driver.X.production.obj
+__end_of_char2int EBC 0 CODE 0 text8 dist/default/production\I2c_driver.X.production.obj
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
+__ptext19 786 0 CODE 0 text19 dist/default/production\I2c_driver.X.production.obj
 __pbssCOMMON 70 0 COMMON 1 bssCOMMON dist/default/production\I2c_driver.X.production.obj
 master_rx@rx_time 20 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 __Hend_init 2A 0 CODE 0 end_init -
 __Lend_init 24 0 CODE 0 end_init -
-__end_of_master_tx_write 7FC 0 CODE 0 text6 dist/default/production\I2c_driver.X.production.obj
-master_tx_write@i2c_pkt 24 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
+__end_of_master_tx_write 786 0 CODE 0 text7 dist/default/production\I2c_driver.X.production.obj
+master_tx_write@i2c_pkt 26 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
+___awdiv@divisor 20 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 ___lwdiv@divisor 20 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 __size_of_lcd_data 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 __Hreset_vec 6 0 CODE 0 reset_vec -
 __Lreset_vec 0 0 CODE 0 reset_vec -
+int2hex@out 29 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 __size_of_master_tx_write 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
-__stringdata 620 0 STRING 0 strings dist/default/production\I2c_driver.X.production.obj
+__stringdata AAA 0 STRING 0 strings dist/default/production\I2c_driver.X.production.obj
 __size_of_i2c_master_init 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
-init_ram0 C18 0 CODE 0 inittext dist/default/production\I2c_driver.X.production.obj
+init_ram0 F86 0 CODE 0 inittext dist/default/production\I2c_driver.X.production.obj
 _lcd_msg1 B0 0 BANK1 1 bssBANK1 dist/default/production\I2c_driver.X.production.obj
-intlevel0 0 0 CODE 0 functab C:\Users\Kanna\AppData\Local\Temp\sv0.obj
+intlevel0 0 0 CODE 0 functab C:\Users\Kanna\AppData\Local\Temp\s3mg.obj
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
-intlevel1 0 0 CODE 0 functab C:\Users\Kanna\AppData\Local\Temp\sv0.obj
-intlevel2 0 0 CODE 0 functab C:\Users\Kanna\AppData\Local\Temp\sv0.obj
-intlevel3 0 0 CODE 0 functab C:\Users\Kanna\AppData\Local\Temp\sv0.obj
-intlevel4 0 0 CODE 0 functab C:\Users\Kanna\AppData\Local\Temp\sv0.obj
-intlevel5 0 0 CODE 0 functab C:\Users\Kanna\AppData\Local\Temp\sv0.obj
-_master_tx_write 754 0 CODE 0 text6 dist/default/production\I2c_driver.X.production.obj
+intlevel1 0 0 CODE 0 functab C:\Users\Kanna\AppData\Local\Temp\s3mg.obj
+intlevel2 0 0 CODE 0 functab C:\Users\Kanna\AppData\Local\Temp\s3mg.obj
+intlevel3 0 0 CODE 0 functab C:\Users\Kanna\AppData\Local\Temp\s3mg.obj
+intlevel4 0 0 CODE 0 functab C:\Users\Kanna\AppData\Local\Temp\s3mg.obj
+intlevel5 0 0 CODE 0 functab C:\Users\Kanna\AppData\Local\Temp\s3mg.obj
+_master_tx_write 67C 0 CODE 0 text7 dist/default/production\I2c_driver.X.production.obj
 __size_of___lwmod 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 __pcstackCOMMON 76 0 COMMON 1 cstackCOMMON dist/default/production\I2c_driver.X.production.obj
 start_initialization 2A 0 CODE 0 cinit dist/default/production\I2c_driver.X.production.obj
-main@status C7 0 BANK1 1 cstackBANK1 dist/default/production\I2c_driver.X.production.obj
+___awdiv@quotient 27 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
+main@status 54 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 ___lwdiv@quotient 26 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 __Hmaintext 0 0 ABS 0 maintext -
 __Lmaintext 0 0 ABS 0 maintext -
@@ -702,15 +820,24 @@ __pmaintext 76 0 CODE 0 maintext dist/default/production\I2c_driver.X.production
 __Hinittext 0 0 ABS 0 inittext -
 __Linittext 0 0 ABS 0 inittext -
 __size_of_sprintf 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
+__size_of___awmod 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 __CFG_DEBUG$ON 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 __initialization 2A 0 CODE 0 cinit dist/default/production\I2c_driver.X.production.obj
-__stringbase 60A 0 STRING 0 strings dist/default/production\I2c_driver.X.production.obj
-__end_of_lcd_init B68 0 CODE 0 text10 dist/default/production\I2c_driver.X.production.obj
+__stringbase A94 0 STRING 0 strings dist/default/production\I2c_driver.X.production.obj
+__end_of_lcd_init E5C 0 CODE 0 text11 dist/default/production\I2c_driver.X.production.obj
+__size_of_int2hex 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
+___awmod@dividend 22 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
+__size_of_space_stuff 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
 ___lwmod@dividend 2A 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 sprintf@_val 41 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
+___bmul@product 22 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
+___awmod@counter 25 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 ___lwmod@counter 2D 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 __CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
+__size_of___bmul 0 0 ABS 0 - dist/default/production\I2c_driver.X.production.obj
+__end_of___bmul F36 0 CODE 0 text21 dist/default/production\I2c_driver.X.production.obj
 sprintf@c 46 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
+___awdiv@dividend 22 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.production.obj
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -737,10 +864,10 @@ sprintf@c 46 0 BANK0 1 cstackBANK0 dist/default/production\I2c_driver.X.producti
 # All other numeric quantities are in decimal.
 %SEGMENTS
 reset_vec 0 0 0 3 2
-intentry 0 4 8 2D7 2
+intentry 0 4 8 541 2
 config 0 2007 400E 1 2
 bssCOMMON 1 70 70 C 1
-cstackBANK0 1 20 20 50 1
-bssBANK1 1 A0 A0 29 1
-strings 0 300 600 55 2
-text9 0 355 6AA 2E4 2
+cstackBANK0 1 20 20 4C 1
+bssBANK1 1 A0 A0 3C 1
+strings 0 545 A8A 3E 2
+text23 0 583 B06 266 2

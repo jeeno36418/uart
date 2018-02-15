@@ -61,11 +61,12 @@ void i2c_master_init(void);
 void i2c_slave_init(void);
 
 void hex2char(int_u8 in, int_u8 *out);
-void hex2integer(int_u8 in, int_u8 *out);
+int_u8 hex2integer(int_u8 *in);
+void int2hex(int_u8 in, int_u8 *out);
 int_u8 char2int(int_u8 *in);
-void inc_year(int_u8 *);
-void dec_year(int_u8 *);
-
+void inc_year(int_u8 *,int_u8 );
+void dec_year(int_u8 *,int_u8 );
+void space_stuff(int_u8 *, int_u8 );
 void master_wait(void);
 void master_start(void);
 void master_stop(void);
