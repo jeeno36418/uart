@@ -374,8 +374,8 @@ bssBANK1 A0 DB BANK1 A0 1
 strings A8A B05 STRING A8A 0
 text23 B06 FD1 CODE B06 0
 %locals
-dist/default/production\I2c_driver.X.production.obj
-C:\Users\Kanna\AppData\Local\Temp\s43k.
+dist/default/debug\I2c_driver.X.debug.obj
+C:\Users\Kanna\AppData\Local\Temp\s4ok.
 565 15 0 CODE 0
 568 15 0 CODE 0
 677 15 0 CODE 0
