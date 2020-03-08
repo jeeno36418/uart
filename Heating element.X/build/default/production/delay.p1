@@ -1,0 +1,54 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"3 delay.c
+[; ;delay.c: 3: void delay(int x)
+[v _delay `(v ~T0 @X0 1 ef1`i ]
+"4
+[; ;delay.c: 4: {
+{
+[e :U _delay ]
+"3
+[; ;delay.c: 3: void delay(int x)
+[v _x `i ~T0 @X0 1 r1 ]
+"4
+[; ;delay.c: 4: {
+[f ]
+"5
+[; ;delay.c: 5:     int i,j;
+[v _i `i ~T0 @X0 1 a ]
+[v _j `i ~T0 @X0 1 a ]
+"6
+[; ;delay.c: 6:     for(i=0;i<=x;i++)
+{
+[e = _i -> 0 `i ]
+[e $U 5  ]
+[e :U 2 ]
+"7
+[; ;delay.c: 7:     {
+{
+"8
+[; ;delay.c: 8:         for(j=0;j<=x;j++)
+{
+[e = _j -> 0 `i ]
+[e $U 9  ]
+[e :U 6 ]
+"9
+[; ;delay.c: 9:         {}
+{
+}
+[e ++ _j -> 1 `i ]
+[e :U 9 ]
+[e $ <= _j _x 6  ]
+[e :U 7 ]
+}
+"10
+[; ;delay.c: 10:     }
+}
+[e ++ _i -> 1 `i ]
+[e :U 5 ]
+[e $ <= _i _x 2  ]
+[e :U 3 ]
+}
+"11
+[; ;delay.c: 11: }
+[e :UE 1 ]
+}
